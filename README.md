@@ -100,7 +100,7 @@ This concludes the nickel tour. More details on each class can be found below.
 
 The classes `split` and `cel` are the only required classes in the cel library. Cel is added to columns and split is added to the columns' parent, which floats cel elements left and self clears them.
 
-Split by itself creates a generic float box that can be used with helper classes to further refine a layout. Although not recommended, you can also work outside the cel architecture and define your own column widths, gap sizes etc. In doing this, helper classes may not work as expected.
+Split by itself creates a generic float box that can be used with helper classes to further refine a layout. Although not recommended, you can also work outside the cel architecture and define your own column widths, gap sizes, etc. In doing this, helper classes may not work as expected.
 
 To create a split element add the class `cel` to columns and the class `split` to the columns' parent.
 
@@ -256,12 +256,14 @@ Lines are created by inserting content for each column using a :before pseudo-el
 
 Lines are offset from the columns left edge using a negative margin value. Because of this, border-left and/or padding-left styles cannot be used on columns with a line. Doing so will incorrectly offset a line from the columns left edge.
 
-It is by design that lines can only be used with a gap. The space between a line and column should provide adequate separation where padding left on a column isn't necessary. If more space is needed increase the gap size.
+It's by design that lines can only be used with a gap. The space between a line and column should provide adequate separation where padding left on a column isn't necessary. If more space is needed increase the gap size.
 
 
 #### Customizing line styles
 
 The default line styles are `border-left:1px solid #ccc`. Because split is designed to use a 1px line width, only border style and color values should be changed.
+
+You do not have to use border-left-style and border-left-color to change the styles for a line. Styles have been setup so you can more generically target the line using border-style and border-color or even the shorthand syntax border:style color.
 
 The following style rules will change the lines style and color values site wide.
 
@@ -288,8 +290,6 @@ or
 	border:dashed blue;
 }
 ```
-
-You do not have to use border-left-style and border-left-color to change the styles for a line. Styles have been setup so you can more generically target the line using border-style and border-color or even the shorthand syntax border:style color.
 
 
 
