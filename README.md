@@ -6,6 +6,9 @@ Cel is a CSS library that does not rely on pixel perfection to create multi-colu
 
 Supports CH, SA, FF, OP, IE8+
 
+[download](release/0.1.0/cel_0.1.0.css.zip)
+
+
 There are five classes, two core class and three helper classes.
 
 - [split](#split)
@@ -55,7 +58,7 @@ The following split element defines a layout by a ratio of 2 to 1. Column A is 2
 
 #### with-gap
 
-The class `with-gap` adds horizontal space between columns. The default gap size is 2.5%, but additional gap sizes can be expressed by passing an optional integer value as an argument.
+The class `with-gap` adds horizontal space between columns. The default gap size is 2.5%, but additional gap sizes can be expressed by passing an optional integer value as an argument to the class.
 
 To use the default gap size of 2.5%, add the class `with-gap` to a split element.
 
@@ -100,7 +103,7 @@ This concludes the nickel tour. More details on each class can be found below.
 
 The classes `split` and `cel` are the only required classes in the cel library. Cel is added to columns and split is added to the columns' parent, which floats cel elements left and self clears them.
 
-Split by itself creates a generic float box that can be used with helper classes to further refine a layout. Although not recommended, you can also work outside the cel architecture and define your own column widths, gap sizes, etc. In doing this, helper classes may not work as expected.
+Split by itself creates a generic float box that can be used with helper classes to further refine a layout. Although not recommended, you can also work outside cel's architecture and define your own column widths, gap sizes, etc. In doing this, helper classes may not work as expected.
 
 To create a split element add the class `cel` to columns and the class `split` to the columns' parent.
 
@@ -207,7 +210,7 @@ The following split element defines a layout by a ratio of 2 to 3. Column B is 1
 
 ## with-gap
 
-The class `with-gap` adds horizontal space between columns. The default gap size is 2.5%, but additional gap sizes can be expressed by passing an optional integer value as an argument.
+The class `with-gap` adds horizontal space between columns. The default gap size is 2.5%, but additional gap sizes can be expressed by passing an optional integer value as an argument to the class.
 
 Split supports gap sizes up to 5%.
 
@@ -250,7 +253,7 @@ To add a line, add the class `and-line` to a split element that also has the cla
 </div>
 ```
 
-#### Disclaimer on usage
+#### Usage notes
 
 Lines are created by inserting content for each column using a :before pseudo-element, and are positioned relative to the split element not the column. This allows the top and bottom edges of a line to always be flush with the top and bottom edges of the split element.
 
