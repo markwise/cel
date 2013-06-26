@@ -6,9 +6,7 @@ Cel is a CSS library that does not rely on pixel perfection to create multi-colu
 
 Supports CH, SA, FF, OP, IE8+
 
-- - -
-
-[Download the initial release 0.1.0](/raw/master/release/0.1.0/cel_0.1.0.zip)
+[Download the initial release 0.1.0](https://github.com/markwise/cel/raw/master/release/0.1.0/cel_0.1.0.zip)
 
 [View the initial release 0.1.0](release/0.1.0/)
 
