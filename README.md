@@ -6,10 +6,14 @@ Cel is a CSS library that does not rely on pixel perfection to create multi-colu
 
 Supports CH, SA, FF, OP, IE8+
 
-[download](release/0.1.0/cel_0.1.0.css.zip)
+[Download the initial release 0.1.0](release/0.1.0/cel_0.1.0.zip)
+
+[View the initial release 0.1.0](release/0.1.0/)
 
 
-There are five classes, two core class and three helper classes.
+# Classes
+
+There are five classes, two core classes and three helper classes. Skip ahead to learn more or take the nickel tour below.
 
 - [split](#split)
 - [cel](#split)
@@ -17,7 +21,8 @@ There are five classes, two core class and three helper classes.
 - [with-gap](#with-gap)
 - [and-line](#and-line)
 
-### The nickel tour
+
+# The nickel tour
 
 To create a split element add the class `cel` to columns and the class `split` to the columns' parent.
 
@@ -99,7 +104,7 @@ To add a line, add the class `and-line` to a split element that also has the cla
 This concludes the nickel tour. More details on each class can be found below.
 
 
-## split
+# split
 
 The classes `split` and `cel` are the only required classes in the cel library. Cel is added to columns and split is added to the columns' parent, which floats cel elements left and self clears them.
 
@@ -157,7 +162,7 @@ or
 ```
 
 
-## by
+# by
 
 The class `by` is used to define a layout for a split element. This class has no default value and requires an argument expressed as an integer or a fraction. If the argument is an integer, column widths will be split evenly by that value. If the argument is a fraction, column widths will be split by a ratio based on that value.
 
@@ -208,7 +213,7 @@ The following split element defines a layout by a ratio of 2 to 3. Column B is 1
 ```
 
 
-## with-gap
+# with-gap
 
 The class `with-gap` adds horizontal space between columns. The default gap size is 2.5%, but additional gap sizes can be expressed by passing an optional integer value as an argument to the class.
 
@@ -240,7 +245,7 @@ To use a 1% gap size, pass the value 1 as an argument to the class.
 ```
 
 
-## and-line
+# and-line
 
 The class `and-line` adds a vertical line rule between columns. This class cannot be used by itself, it can only be used with the class `with-gap`.
 
@@ -295,5 +300,8 @@ or
 ```
 
 
+# License
+
+Cel is owned and maintained by Mark Wise. It is released under the [MIT License](LICENSE.txt).
 
 
