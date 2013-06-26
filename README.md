@@ -6,7 +6,9 @@ Cel is a CSS library that does not rely on pixel perfection to create multi-colu
 
 Supports CH, SA, FF, OP, IE8+
 
-[Download the initial release 0.1.0](release/0.1.0/cel_0.1.0.zip)
+- - -
+
+[Download the initial release 0.1.0](/raw/master/release/0.1.0/cel_0.1.0.zip)
 
 [View the initial release 0.1.0](release/0.1.0/)
 
@@ -38,7 +40,7 @@ The classes `split` and `cel` are the only required classes in the cel library. 
 
 In addition to `split` and `cel`, there are three helper classes `by`, `with-gap` and `and-line` briefly described below.
 
-#### by
+### by
 
 The class `by` is used to define a layout for a split element. This class has no default value and requires an argument expressed as an integer or a fraction. If the argument is an integer, column widths will be split evenly by that value. If the argument is a fraction, column widths will be split by a ratio based on that value.
 
@@ -61,7 +63,7 @@ The following split element defines a layout by a ratio of 2 to 1. Column A is 2
 </div>
 ```
 
-#### with-gap
+### with-gap
 
 The class `with-gap` adds horizontal space between columns. The default gap size is 2.5%, but additional gap sizes can be expressed by passing an optional integer value as an argument to the class.
 
@@ -85,7 +87,7 @@ To use a 1% gap size, pass the value 1 as an argument to the class.
 </div>
 ```
 
-#### and-line
+### and-line
 
 The class `and-line` adds a vertical line rule between columns. This class cannot be used by itself, it can only be used with the class `with-gap`.
 
@@ -99,7 +101,7 @@ To add a line, add the class `and-line` to a split element that also has the cla
 </div>
 ```
 
-#### And here we are
+### And here we are
 
 This concludes the nickel tour. More details on each class can be found below.
 
@@ -119,7 +121,7 @@ To create a split element add the class `cel` to columns and the class `split` t
 </div>
 ```
 
-#### Nesting
+### Nesting
 
 A split element's structure can be nested to create complex layouts as shown below.
 
@@ -258,7 +260,7 @@ To add a line, add the class `and-line` to a split element that also has the cla
 </div>
 ```
 
-#### Usage notes
+### Usage notes
 
 Lines are created by inserting content for each column using a :before pseudo-element, and are positioned relative to the split element not the column. This allows the top and bottom edges of a line to always be flush with the top and bottom edges of the split element.
 
@@ -267,7 +269,7 @@ Lines are offset from the columns left edge using a negative margin value. Becau
 It's by design that lines can only be used with a gap. The space between a line and column should provide adequate separation where padding left on a column isn't necessary. If more space is needed increase the gap size.
 
 
-#### Customizing line styles
+### Customizing line styles
 
 The default line styles are `border-left:1px solid #ccc`. Because split is designed to use a 1px line width, only border style and color values should be changed.
 
