@@ -15,8 +15,8 @@ Supports CH, SA, FF, OP, IE8+
 
 There are five classes, two core classes and three helper classes. Skip ahead to learn more or take the nickel tour below.
 
-- [split](#split)
-- [cel](#split)
+- [split](#split-cel)
+- [cel](#split-cel)
 - [by](#by-1)
 - [with-gap](#with-gap-1)
 - [and-line](#and-line-1)
