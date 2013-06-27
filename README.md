@@ -17,9 +17,9 @@ There are five classes, two core classes and three helper classes. Skip ahead to
 
 - [split](#split)
 - [cel](#split)
-- [by](#by)
-- [with-gap](#with-gap)
-- [and-line](#and-line)
+- [by](#by-1)
+- [with-gap](#with-gap-1)
+- [and-line](#and-line-1)
 
 
 # The nickel tour
@@ -104,7 +104,7 @@ To add a line, add the class `and-line` to a split element that also has the cla
 This concludes the nickel tour. More details on each class can be found below.
 
 
-# split
+# split, cel
 
 The classes `split` and `cel` are the only required classes in the cel library. Cel is added to columns and split is added to the columns' parent, which floats cel elements left and self clears them.
 
