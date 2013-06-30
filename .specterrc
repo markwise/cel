@@ -1,0 +1,5 @@
+[paths]
+testroot = tests
+baseline = tests/baseline
+diff = tests/diff
+fail = tests/fail
