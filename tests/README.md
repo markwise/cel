@@ -1,1 +1,1 @@
-Automated visual tests are run using [specter](https://github.com/letsgetrandy/specter).
+Automated visual tests are run using [Specter](https://github.com/letsgetrandy/specter).
