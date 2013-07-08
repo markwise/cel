@@ -1,0 +1,214 @@
+@charset 'utf-8';
+
+/*! cel v0.2.0 -- (c) 2013 Mark Wise */
+
+.split{
+    display:block;
+    position:relative;
+    /*Self clear IE7*/
+    zoom:1;
+}
+
+/*Self clear modern browsers*/
+.split:after{
+    content:'';
+    display:table;
+    clear:both;
+}
+
+.split>.cel{
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    float:left;
+    margin:0;
+    /*Fix IE9,10 resize bug*/
+    min-height:100%;
+}
+
+.split.flip>.cel{
+    float:right;
+}
+
+
+/*Column widths*/
+
+/*no gap (default)*/
+.split[class~='by:2']>.cel{width:50%}
+.split[class~='by:3']>.cel{width:33.333%}
+.split[class~='by:4']>.cel{width:25%}
+.split[class~='by:5']>.cel{width:20%}
+.split[class~='by:1/2']>.cel{width:33.335%}
+.split[class~='by:1/2']>.cel+.cel{width:66.665%}
+.split[class~='by:2/1']>.cel{width:66.665%}
+.split[class~='by:2/1']>.cel+.cel{width:33.335%}
+.split[class~='by:1/3']>.cel{width:25%}
+.split[class~='by:1/3']>.cel+.cel{width:75%}
+.split[class~='by:3/1']>.cel{width:75%}
+.split[class~='by:3/1']>.cel+.cel{width:25%}
+.split[class~='by:2/3']>.cel{width:40%}
+.split[class~='by:2/3']>.cel+.cel{width:60%}
+.split[class~='by:3/2']>.cel{width:60%}
+.split[class~='by:3/2']>.cel+.cel{width:40%}
+
+/*2.5% gap (default)*/
+.split[class~='by:2'].with-gap>.cel{width:48.75%}
+.split[class~='by:3'].with-gap>.cel{width:31.665%}
+.split[class~='by:4'].with-gap>.cel{width:23.125%}
+.split[class~='by:5'].with-gap>.cel{width:18%}
+.split[class~='by:1/2'].with-gap>.cel{width:32.5%}
+.split[class~='by:1/2'].with-gap>.cel+.cel{width:65%}
+.split[class~='by:2/1'].with-gap>.cel{width:65%}
+.split[class~='by:2/1'].with-gap>.cel+.cel{width:32.5%}
+.split[class~='by:1/3'].with-gap>.cel{width:24.375%}
+.split[class~='by:1/3'].with-gap>.cel+.cel{width:73.125%}
+.split[class~='by:3/1'].with-gap>.cel{width:73.125%}
+.split[class~='by:3/1'].with-gap>.cel+.cel{width:24.375%}
+.split[class~='by:2/3'].with-gap>.cel{width:39%}
+.split[class~='by:2/3'].with-gap>.cel+.cel{width:58.5%}
+.split[class~='by:3/2'].with-gap>.cel{width:58.5%}
+.split[class~='by:3/2'].with-gap>.cel+.cel{width:39%}
+
+/*1% gap*/
+.split[class~='by:2'][class~='with-gap:1']>.cel{width:49.5%}
+.split[class~='by:3'][class~='with-gap:1']>.cel{width:32.665%}
+.split[class~='by:4'][class~='with-gap:1']>.cel{width:24.25%}
+.split[class~='by:5'][class~='with-gap:1']>.cel{width:19.2%}
+.split[class~='by:1/2'][class~='with-gap:1']>.cel{width:33%}
+.split[class~='by:1/2'][class~='with-gap:1']>.cel+.cel{width:66%}
+.split[class~='by:2/1'][class~='with-gap:1']>.cel{width:66%}
+.split[class~='by:2/1'][class~='with-gap:1']>.cel+.cel{width:33%}
+.split[class~='by:1/3'][class~='with-gap:1']>.cel{width:24.75%}
+.split[class~='by:1/3'][class~='with-gap:1']>.cel+.cel{width:74.25%}
+.split[class~='by:3/1'][class~='with-gap:1']>.cel{width:74.25%}
+.split[class~='by:3/1'][class~='with-gap:1']>.cel+.cel{width:24.75%}
+.split[class~='by:2/3'][class~='with-gap:1']>.cel{width:39.6%}
+.split[class~='by:2/3'][class~='with-gap:1']>.cel+.cel{width:59.4%}
+.split[class~='by:3/2'][class~='with-gap:1']>.cel{width:59.4%}
+.split[class~='by:3/2'][class~='with-gap:1']>.cel+.cel{width:39.6%}
+
+/*2% gap*/
+.split[class~='by:2'][class~='with-gap:2']>.cel{width:49%}
+.split[class~='by:3'][class~='with-gap:2']>.cel{width:32%}
+.split[class~='by:4'][class~='with-gap:2']>.cel{width:23.5%}
+.split[class~='by:5'][class~='with-gap:2']>.cel{width:18.4%}
+.split[class~='by:1/2'][class~='with-gap:2']>.cel{width:32.665%}
+.split[class~='by:1/2'][class~='with-gap:2']>.cel+.cel{width:65.335%}
+.split[class~='by:2/1'][class~='with-gap:2']>.cel{width:65.335%}
+.split[class~='by:2/1'][class~='with-gap:2']>.cel+.cel{width:32.665%}
+.split[class~='by:1/3'][class~='with-gap:2']>.cel{width:24.5%}
+.split[class~='by:1/3'][class~='with-gap:2']>.cel+.cel{width:73.5%}
+.split[class~='by:3/1'][class~='with-gap:2']>.cel{width:73.5%}
+.split[class~='by:3/1'][class~='with-gap:2']>.cel+.cel{width:24.5%}
+.split[class~='by:2/3'][class~='with-gap:2']>.cel{width:39.2%}
+.split[class~='by:2/3'][class~='with-gap:2']>.cel+.cel{width:58.8%}
+.split[class~='by:3/2'][class~='with-gap:2']>.cel{width:58.8%}
+.split[class~='by:3/2'][class~='with-gap:2']>.cel+.cel{width:39.2%}
+
+/*3% gap*/
+.split[class~='by:2'][class~='with-gap:3']>.cel{width:48.5%}
+.split[class~='by:3'][class~='with-gap:3']>.cel{width:31.33%}
+.split[class~='by:4'][class~='with-gap:3']>.cel{width:22.75%}
+.split[class~='by:5'][class~='with-gap:3']>.cel{width:17.6%}
+.split[class~='by:1/2'][class~='with-gap:3']>.cel{width:32.335%}
+.split[class~='by:1/2'][class~='with-gap:3']>.cel+.cel{width:64.665%}
+.split[class~='by:2/1'][class~='with-gap:3']>.cel{width:64.665%}
+.split[class~='by:2/1'][class~='with-gap:3']>.cel+.cel{width:32.335%}
+.split[class~='by:1/3'][class~='with-gap:3']>.cel{width:24.25%}
+.split[class~='by:1/3'][class~='with-gap:3']>.cel+.cel{width:72.75%}
+.split[class~='by:3/1'][class~='with-gap:3']>.cel{width:72.75%}
+.split[class~='by:3/1'][class~='with-gap:3']>.cel+.cel{width:24.25%}
+.split[class~='by:2/3'][class~='with-gap:3']>.cel{width:38.8%}
+.split[class~='by:2/3'][class~='with-gap:3']>.cel+.cel{width:58.2%}
+.split[class~='by:3/2'][class~='with-gap:3']>.cel{width:58.2%}
+.split[class~='by:3/2'][class~='with-gap:3']>.cel+.cel{width:38.8%}
+
+/*4% gap*/
+.split[class~='by:2'][class~='with-gap:4']>.cel{width:48%}
+.split[class~='by:3'][class~='with-gap:4']>.cel{width:30.665%}
+.split[class~='by:4'][class~='with-gap:4']>.cel{width:22%}
+.split[class~='by:5'][class~='with-gap:4']>.cel{width:16.8%}
+.split[class~='by:1/2'][class~='with-gap:4']>.cel{width:32%}
+.split[class~='by:1/2'][class~='with-gap:4']>.cel+.cel{width:64%}
+.split[class~='by:2/1'][class~='with-gap:4']>.cel{width:64%}
+.split[class~='by:2/1'][class~='with-gap:4']>.cel+.cel{width:32%}
+.split[class~='by:1/3'][class~='with-gap:4']>.cel{width:24%}
+.split[class~='by:1/3'][class~='with-gap:4']>.cel+.cel{width:72%}
+.split[class~='by:3/1'][class~='with-gap:4']>.cel{width:72%}
+.split[class~='by:3/1'][class~='with-gap:4']>.cel+.cel{width:24%}
+.split[class~='by:2/3'][class~='with-gap:4']>.cel{width:38.4%}
+.split[class~='by:2/3'][class~='with-gap:4']>.cel+.cel{width:57.6%}
+.split[class~='by:3/2'][class~='with-gap:4']>.cel{width:57.6%}
+.split[class~='by:3/2'][class~='with-gap:4']>.cel+.cel{width:38.4%}
+
+/*5% gap*/
+.split[class~='by:2'][class~='with-gap:5']>.cel{width:47.5%}
+.split[class~='by:3'][class~='with-gap:5']>.cel{width:30%}
+.split[class~='by:4'][class~='with-gap:5']>.cel{width:21.25%}
+.split[class~='by:5'][class~='with-gap:5']>.cel{width:16%}
+.split[class~='by:1/2'][class~='with-gap:5']>.cel{width:31.665%}
+.split[class~='by:1/2'][class~='with-gap:5']>.cel+.cel{width:63.335%}
+.split[class~='by:2/1'][class~='with-gap:5']>.cel{width:63.335%}
+.split[class~='by:2/1'][class~='with-gap:5']>.cel+.cel{width:31.665%}
+.split[class~='by:1/3'][class~='with-gap:5']>.cel{width:23.75%}
+.split[class~='by:1/3'][class~='with-gap:5']>.cel+.cel{width:71.25%}
+.split[class~='by:3/1'][class~='with-gap:5']>.cel{width:71.25%}
+.split[class~='by:3/1'][class~='with-gap:5']>.cel+.cel{width:23.75%}
+.split[class~='by:2/3'][class~='with-gap:5']>.cel{width:38%}
+.split[class~='by:2/3'][class~='with-gap:5']>.cel+.cel{width:57%}
+.split[class~='by:3/2'][class~='with-gap:5']>.cel{width:57%}
+.split[class~='by:3/2'][class~='with-gap:5']>.cel+.cel{width:38%}
+
+
+/*gap spacing*/
+
+.split.with-gap>.cel+.cel{margin-left:2.5%}
+.split[class~='with-gap:1']>.cel+.cel{margin-left:1%}
+.split[class~='with-gap:2']>.cel+.cel{margin-left:2%}
+.split[class~='with-gap:3']>.cel+.cel{margin-left:3%}
+.split[class~='with-gap:4']>.cel+.cel{margin-left:4%}
+.split[class~='with-gap:5']>.cel+.cel{margin-left:5%}
+
+.split.with-gap.flip>.cel+.cel{margin:0 2.5% 0 0}
+.split[class~='with-gap:1'].flip>.cel+.cel{margin:0 1% 0 0}
+.split[class~='with-gap:2'].flip>.cel+.cel{margin:0 2% 0 0}
+.split[class~='with-gap:3'].flip>.cel+.cel{margin:0 3% 0 0}
+.split[class~='with-gap:4'].flip>.cel+.cel{margin:0 4% 0 0}
+.split[class~='with-gap:5'].flip>.cel+.cel{margin:0 5% 0 0}
+
+
+/*vertical line rule*/
+
+.split[class*='with-gap'].and-line>:before{
+    content:'';
+    position:absolute;
+    /* border-width:0 0 0 1px !important; */
+    border-width:0 0 0 1px;
+    width:0;
+}
+.split>:first-child:before{
+    /* display:none; */
+}
+.split.flip>.last-child:before{
+    /* display:none; */
+}
+.split.flip>:last-child:before{
+    /* display:none; */
+}
+.split.flip>:first-child:before{
+    /* display:block; */
+}
+
+/*Allow the author to more easily override line styles*/
+.split>:before{
+    top:0;
+    bottom:0;
+    border:solid #ccc;
+}
+
+.split.with-gap.and-line>:before{margin-left:-1.33%}
+.split[class~='with-gap:1'].and-line>:before{margin-left:-.551%}
+.split[class~='with-gap:2'].and-line>:before{margin-left:-1.05%}
+.split[class~='with-gap:3'].and-line>:before{margin-left:-1.55%}
+.split[class~='with-gap:4'].and-line>:before{margin-left:-2.05%}
+.split[class~='with-gap:5'].and-line>:before{margin-left:-2.55%}
