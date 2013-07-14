@@ -103,28 +103,30 @@
     <button id="add" type="button">add</button>
     <button id="remove" type="button">remove</button>
     
-    <!-- <script src="../../release/0.2.0/cel_0.1.0.js"></script> -->
+    <script src="../../release/0.2.0/cel_0.1.0.js"></script>
     <script>
     
         var test = document.getElementById('test');
         
         document.querySelector('#add').onclick = function () {
-            /*
+            
             var div = document.createElement('div');
             div.className = 'cel';
             div.appendChild(document.createTextNode('new'));
             test.appendChild(div);
-            */
             
             
-            add_class(test.firstChild, 'test');
+            
+            //add_class(test.firstChild, 'test');
         };
         
         document.querySelector('#remove').onclick = function () {
-            remove_class(test.firstChild, 'test');
+            //remove_class(test.firstChild, 'test');
         };
         
         
+        
+        /*
         var trim = function (str) {
             return str.replace(/^\s+|\s+$/g, '');
         };
@@ -203,7 +205,7 @@
             //split.firstChild.className += ' test';
             
         }
-    
+        */
         
         
     

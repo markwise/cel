@@ -24,8 +24,6 @@
 
 
         var add_class = function (ele, klass) {
-            console.log('add class');
-        
             var a;
             
             if (has_class(ele, klass)) {
@@ -36,13 +34,10 @@
             a = a.length ? a.split(/\s+/) : [];
             a.push(klass);
             ele.className = a.join(' ');
-            console.log(ele.className);
         };
         
         
         var remove_class = function (ele, klass) {
-            console.log('remove class');
-        
             var a = trim(ele.className).split(/\s+/),
                 i = a.length;
         
@@ -53,7 +48,6 @@
             }
             
             ele.className = a.join(' ');
-            console.log(ele.className);
         };
         
 
@@ -68,22 +62,15 @@
         };
        
        
-        var add_last_child_class = function (ele) {
-            
-            /*
+        var update_last_child = function (ele) {
             var n = ele.firstChild;
-    
+            
             do {
-                if (n.nodeType === 1) {
-                    remove_class(n, 'last-child');
-                } 
+                remove_class(n, 'last-child');
             } while (n = n.nextSibling);
-            */
             
-            
-            
-            //add_class(ele.lastChild, 'last-child');
-        }
+            add_class(ele.lastChild, 'last-child');
+        };
        
        
        
@@ -94,29 +81,33 @@
         
         var Node = {
             
+            
+            //call for appendChild, removeChild, replaceChild
+            
             appendChild : function () {
-                var self = this;
-                var node;
-               
-                
-                //console.log(self.lastChild);
+                var self = this,
+                    node;
                 
                 //Call native method
                 node = __appendChild__.apply(self, arguments);
                 
-                //Update classes
+                //Update cel nodes
                 if (has_class(self, 'split')) {
                     clean(self);
-                    //add_last_child_class(self);
-                    
-                    //console.log(self.lastChild.className);
+                    update_last_child(self);
                 }
                 
                 
-                //walk down new nodes inserted and check for split class
-                    //alter last-child class
-                    
+                //check child nodes
                 
+                //var list = node.querySelectorAll('.split');
+                //var i = list.length;
+                //var split
+                //while (i--) {
+                    //split = list[i];
+                    //clean(split);
+                    //update_last_child(split); 
+                //};
                 
                 
             
@@ -135,7 +126,7 @@
         
         
         
-       
+       //create function to initialize this
 
         var a = document.querySelectorAll('.split'),
             l = a.length,
@@ -144,13 +135,8 @@
     
         for (; i < l; i++) {
             split = a[i];
-            //clean(split);
-            //add_last_child_class(split);
-        
-            //add_class(split.lastChild, 'last-child');
-            
-            //remove_class(split.lastChild, 'last-child');
-            
+            clean(split);
+            update_last_child(split);
         }
     }
 }());

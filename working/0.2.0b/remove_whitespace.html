@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<style>
+	    
+	    
+	    .a {
+	        margin:5px 0;
+	        width:200px;
+	        background:#ccc;
+	        border:1px solid red;
+	        letter-spacing:-.307em;
+	    }
+	    .a > * {
+	        display:inline-block;
+	        -webkit-box-sizing:border-box;
+	        -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+	        vertical-align:top;
+	        /*reset*/
+	        letter-spacing:normal;
+	        width:50%;
+	        
+	    }
+	    .b {
+	        border-right:2px solid red;
+	        background:green;
+	    }
+	    .c {
+	        background:orange;
+	    }
+	    
+	    
+	    #tests {
+	        display:table;
+	        table-layout:fixed;
+	        border-spacing:25px;
+	    }
+	    #tests > div {
+	        display:table-cell;
+	    }
+	    #tests > :first-child {} 
+	    #tests > :first-child + * {font-family:Arial}
+	    #tests > :first-child + * + * {font-family:Georgia}
+	    #tests > :first-child + * + * + * {font-family:Verdana}
+	    #tests > :first-child + * + * + * + * {font-family:'Courier New'}
+	
+	</style>
+</head>
+<body>
+    <div class="a">
+        <div class="b">AA</div>
+        <div class="c">BB</div>
+    </div>
+   
+    <div id="tests">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+    <script>
+        (function () {
+            var D = document;
+            var variants = D.querySelectorAll('#tests > div');
+            var i = variants.length;
+            var variant;
+            var a, b, c, j;
+        
+            while (i--) {
+                variant = variants[i];
+                j = 1;
+        
+                for (; j < 25; j++) {
+                    a = D.createElement('div');
+                    a.className = 'a';
+                    a.style.fontSize = j + 'px';
+            
+                    b = D.createElement('div');
+                    b.className = 'b';
+                    b.appendChild(D.createTextNode('AA'));
+                    a.appendChild(b);
+                    a.appendChild(D.createTextNode('\n\t'));
+            
+                    c = D.createElement('div');
+                    c.className = 'c';
+                    c.appendChild(D.createTextNode('BB'));
+                    a.appendChild(c);
+                    a.appendChild(D.createTextNode('\n\t'));
+
+                    variant.appendChild(a);
+                }
+            }
+        }());
+        
+        
+        /*
+        (function () {
+            //Remove white space between .cel elements
+            
+            var split = document.querySelectorAll('.a');
+            var l = split.length;
+            var i = 0;
+            var item;
+            var node;
+            var n;
+        
+            for (; i < l; i++) {
+                item = split[i];
+                n = item.childNodes;
+                j = n.length - 1;
+            
+                do {
+                    node = n[j];
+                    if (node.nodeType === 3) {
+                        item.removeChild(node);
+                    }
+                } while (j--);
+            }
+            
+        }());
+        */
+        
+        
+    
+    </script>
+    
+
+</body>
+</html>

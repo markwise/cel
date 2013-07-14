@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+    <style>
+        
+        .split {
+            line-height:0;
+            text-align:justify;
+        }
+        
+        /*Force a second line to justify cels*/
+        .split:after {
+            content:'';
+            display:inline-block;
+            width:100%;
+            vertical-align:top;
+        }
+        .split > .cel {
+            display:inline-block;
+            vertical-align:top;
+            /*reset*/
+            line-height:1.5;
+        }    
+        
+        
+        
+        /*Author defined styles*/
+        
+        .split {
+            background:#ccc;
+        }
+        .cel {
+            background:orange;
+        }
+        
+        .split.aa > .cel {
+            width:45%;
+        }
+        .split.bb > .cel {
+            width:28%;
+        }
+        .split.cc > .cel {
+            width:20%;
+        }
+        
+        /*nested*/
+        .split.aaa .cel {
+            width:45%;
+        }
+        .split.aaa > .cel .cel {
+            background:green;
+        }
+        .split.aaa > .cel .cel .cel {
+            background:yellow;
+        }
+        
+        
+    </style>
+</head>
+<body>
+   
+    <div class="split aaa">
+        <div class="cel">
+            <div class="split">
+                <div class="cel">
+                    <div class="split">
+                        <div class="cel">aaa</div>
+                        <div class="cel">aab</div>
+                    </div>
+                </div>
+                <div class="cel">
+                    <div class="split">
+                        <div class="cel">aba</div>
+                        <div class="cel">abb</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cel">
+            <div class="split">
+                <div class="cel">ba</div>
+                <div class="cel">bb</div>
+            </div>
+        </div>
+    </div>
+   
+    <!--
+    <br><br>
+    
+    <div class="split a">
+        <div class="cel">a</div>
+        <div class="cel">b<br>b</div>
+    </div>
+    
+    <br><br>
+    
+    <div class="split b">
+        <div class="cel">a</div>
+        <div class="cel">b<br>b</div>
+        <div class="cel">c<br>c<br>c</div>
+    </div>
+    
+    <br><br>
+    
+    <div class="split c">
+        <div class="cel">a</div>
+        <div class="cel">b<br>b</div>
+        <div class="cel">c<br>c<br>c</div>
+        <div class="cel">d<br>d<br>d<br>d</div>
+    </div>
+    
+    <br><br>
+    
+    <div class="split aa">
+        <div class="cel">a</div>
+        <div class="cel">b<br>b</div>
+    </div>
+    
+    <br><br>
+    
+    <div class="split bb">
+        <div class="cel">a</div>
+        <div class="cel">b<br>b</div>
+        <div class="cel">c<br>c<br>c</div>
+    </div>
+    
+    <br><br>
+    
+    <div class="split cc">
+        <div class="cel">a</div>
+        <div class="cel">b<br>b</div>
+        <div class="cel">c<br>c<br>c</div>
+        <div class="cel">d<br>d<br>d<br>d</div>
+    </div>
+    -->
+
+</body>
+</html>

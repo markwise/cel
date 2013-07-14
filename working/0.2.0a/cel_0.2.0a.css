@@ -182,15 +182,16 @@
 .split[class*='with-gap'].and-line>:before{
     content:'';
     position:absolute;
-    /* border-width:0 0 0 1px !important; */
-    border-width:0 0 0 1px;
+    border-width:0 0 0 1px !important;
     width:0;
 }
 .split>:first-child:before{
     /* display:none; */
 }
 .split.flip>.last-child:before{
-    /* display:none; */
+    /*content must change to force a repaint*/
+    content:' ';
+    display:none;
 }
 .split.flip>:last-child:before{
     /* display:none; */
