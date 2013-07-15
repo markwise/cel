@@ -5,30 +5,69 @@
 	<title></title>
 	<style>
 	    
-	    
-	    .a {
+	    .split {
+            line-height:0;
+            text-align:justify;
+            /*
+            Removes whitespace between inline-block elements. 
+    
+            For most font families and sizes the whitespace is removed. In cases when
+            a few pixels of whitespace remain, the default gap size provides enough
+            clearance to prevent wrapping.
+
+            Monospace fonts require a bigger letter-spacing value to remove whitespace 
+            and will need to be set manually by the author.
+            
+            letter-spacing:-.307em;
+            */
+            
+            
+            /*
+            
+            
+            */
+            letter-spacing:-1em;
+        }
+        
+        /*Force a second line to distribute cels*/
+        .split:after {
+            content:'';
+            display:inline-block;
+            width:100%;
+            vertical-align:top;
+        }
+    
+        .split > .cel {
+            display:inline-block;
+            vertical-align:top;
+            /*reset*/
+            line-height:1.5;
+            /*reset*/
+            text-align:left;
+            /*reset*/
+	        letter-spacing:normal;
+        }
+        
+        
+        /*Author styles*/
+        	    
+	    .split {
 	        margin:5px 0;
 	        width:200px;
 	        background:#ccc;
 	        border:1px solid red;
-	        letter-spacing:-.307em;
 	    }
-	    .a > * {
-	        display:inline-block;
+	    .split > .cel {
 	        -webkit-box-sizing:border-box;
 	        -moz-box-sizing:border-box;
 	        box-sizing:border-box;
-	        vertical-align:top;
-	        /*reset*/
-	        letter-spacing:normal;
 	        width:50%;
-	        
 	    }
-	    .b {
+	    .cel:first-child {
 	        border-right:2px solid red;
 	        background:green;
 	    }
-	    .c {
+	    .cel {
 	        background:orange;
 	    }
 	    
@@ -46,13 +85,34 @@
 	    #tests > :first-child + * + * {font-family:Georgia}
 	    #tests > :first-child + * + * + * {font-family:Verdana}
 	    #tests > :first-child + * + * + * + * {font-family:'Courier New'}
+	    
+        .a {
+            width:auto;
+        }
+        .a > .cel {
+            width:33.33%;
+        }
+        .b {
+            
+        }
+        .c {
+            border-right:2px solid red;
+            
+        }
+        .d {
+            background:yellow;
+        }
+        
+	    
+	    
 	
 	</style>
 </head>
 <body>
-    <div class="a">
-        <div class="b">AA</div>
-        <div class="c">BB</div>
+    <div class="split a">
+        <div class="cel b">AA</div>
+        <div class="cel c">BB</div>
+        <div class="cel d">CC</div>
     </div>
    
     <div id="tests">
@@ -77,17 +137,17 @@
         
                 for (; j < 25; j++) {
                     a = D.createElement('div');
-                    a.className = 'a';
+                    a.className = 'split';
                     a.style.fontSize = j + 'px';
             
                     b = D.createElement('div');
-                    b.className = 'b';
+                    b.className = 'cel';
                     b.appendChild(D.createTextNode('AA'));
                     a.appendChild(b);
                     a.appendChild(D.createTextNode('\n\t'));
             
                     c = D.createElement('div');
-                    c.className = 'c';
+                    c.className = 'cel';
                     c.appendChild(D.createTextNode('BB'));
                     a.appendChild(c);
                     a.appendChild(D.createTextNode('\n\t'));

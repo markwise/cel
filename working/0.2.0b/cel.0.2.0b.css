@@ -5,23 +5,21 @@
 .split {
     /*Contain vertical line rules*/
     position:relative;
-    /*
-    Removes whitespace between inline-block elements. For most font families and 
-    sizes this removes the whitespace or is off by 1 or 2 pixels.
-    better explanation needed...
-    monspace fonts
-    */
-    letter-spacing:-.307em;
     line-height:0;
     text-align:justify;
+    /*
+    need to reword this...
+    
+    A negative letter-spacing value of 1em removes whitespace between cels 
+    causing adjacent cels to overlap. 
+    
+    Distributing elements with text-align:justify spreads elements evenly across
+    their parent and removes the overlap.
+    */
+    letter-spacing:-1em;
 }
 
-/*
-Force a second line to justify cels
-text-align:justify
-doesn't work on last line
-better explanation needed...
-*/
+/*Force a second line to distribute cels*/
 .split:after {
     content:'';
     display:inline-block;
@@ -31,17 +29,21 @@ better explanation needed...
 
 .split > .cel {
     display:inline-block;
+    position:relative;
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
+    min-height:100%;
     vertical-align:top;
     /*reset*/
     line-height:1.5;
     /*reset*/
     letter-spacing:normal;
+    /*reset*/
+    text-align:left;
 }
 
-.split[class~='align:v']>.cel{vertical-align:top}
+/* .split[class~='align:v']>.cel{vertical-align:top} */
 .split[class~='align:vv']>.cel{vertical-align:middle}
 .split[class~='align:vvv']>.cel{vertical-align:bottom}
 

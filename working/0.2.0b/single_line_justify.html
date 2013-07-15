@@ -10,29 +10,59 @@
             text-align:justify;
         }
         
-        /*Force a second line to justify cels*/
+        /*Force a second line to distribute cels*/
         .split:after {
             content:'';
             display:inline-block;
             width:100%;
             vertical-align:top;
         }
+    
         .split > .cel {
             display:inline-block;
             vertical-align:top;
             /*reset*/
             line-height:1.5;
-        }    
+            /*reset*/
+            text-align:left;
+        }
         
+        /*
+        text-align-last does not work on native block elements even if their
+        display value is changed
+        
+        .ie7 .split {
+            text-align-last:justify;
+        }
+        .ie7 .split > .cel {
+            display:inline;
+            zoom:1;
+        }
+        */
         
         
         /*Author defined styles*/
         
         .split {
             background:#ccc;
+            /* letter-spacing:-1em; */
+            /* text-align:right; */
         }
         .cel {
             background:orange;
+            width:49.5%;
+            width:49.8%;
+            position:relative;
+        }
+        .cel .cel {
+            background:green;
+        }
+        .cel .cel .cel {
+            background:yellow;
+        }
+        
+        .split.a > :first-child {
+            border-right:1px solid red;
         }
         
         .split.aa > .cel {
@@ -45,22 +75,18 @@
             width:20%;
         }
         
-        /*nested*/
         .split.aaa .cel {
             width:45%;
         }
-        .split.aaa > .cel .cel {
-            background:green;
-        }
-        .split.aaa > .cel .cel .cel {
-            background:yellow;
-        }
-        
         
     </style>
 </head>
+<!--[if IE 7 ]><body class="ie7"><![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
 <body>
-   
+<!--<![endif]-->
+
+    <!--
     <div class="split aaa">
         <div class="cel">
             <div class="split">
@@ -85,8 +111,8 @@
             </div>
         </div>
     </div>
-   
-    <!--
+    -->
+    
     <br><br>
     
     <div class="split a">
@@ -94,6 +120,7 @@
         <div class="cel">b<br>b</div>
     </div>
     
+    <!--
     <br><br>
     
     <div class="split b">
@@ -135,6 +162,5 @@
         <div class="cel">d<br>d<br>d<br>d</div>
     </div>
     -->
-
 </body>
 </html>
