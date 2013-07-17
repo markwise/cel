@@ -4,28 +4,11 @@
 	<meta charset="utf-8" />
 	<title></title>
 	<style>
-	    
+        
 	    .split {
             line-height:0;
             text-align:justify;
-            /*
-            Removes whitespace between inline-block elements. 
-    
-            For most font families and sizes the whitespace is removed. In cases when
-            a few pixels of whitespace remain, the default gap size provides enough
-            clearance to prevent wrapping.
-
-            Monospace fonts require a bigger letter-spacing value to remove whitespace 
-            and will need to be set manually by the author.
-            
-            letter-spacing:-.307em;
-            */
-            
-            
-            /*
-            
-            
-            */
+            /*letter-spacing:-.307em;*/
             letter-spacing:-1em;
         }
         
@@ -36,9 +19,12 @@
             width:100%;
             vertical-align:top;
         }
-    
+        
         .split > .cel {
             display:inline-block;
+            -webkit-box-sizing:border-box;
+	        -moz-box-sizing:border-box;
+	        box-sizing:border-box;
             vertical-align:top;
             /*reset*/
             line-height:1.5;
@@ -53,142 +39,134 @@
         	    
 	    .split {
 	        margin:5px 0;
-	        width:200px;
 	        background:#ccc;
-	        border:1px solid red;
-	    }
-	    .split > .cel {
-	        -webkit-box-sizing:border-box;
-	        -moz-box-sizing:border-box;
-	        box-sizing:border-box;
-	        width:50%;
-	    }
-	    .cel:first-child {
-	        border-right:2px solid red;
-	        background:green;
+	        border:1px solid #000;
 	    }
 	    .cel {
-	        background:orange;
+	        border-right:1px solid yellow;
+	    }
+	    .last-child {
+	        border:0;
 	    }
 	    
+	    .split>:first-child{background:#009999}
+	    .split>:first-child+*{background:#33adad}
+	    .split>:first-child+*+*{background:#66c2c2}
+	    .split>:first-child+*+*+*{background:#99d6d6}
+	    .split>:first-child+*+*+*+*{background:#ccebeb}
+	   
+	    .testa .cel {width:50%} 
+	    .testb .cel {width:33.33%}
+	    .testc .cel {width:25%}
+	    .testd .cel {width:20%} 	    
 	    
-	    #tests {
-	        display:table;
+	    
+	    #font_test {
 	        table-layout:fixed;
-	        border-spacing:25px;
+	        border-spacing:25px 0;
+	        width:100%;
 	    }
-	    #tests > div {
-	        display:table-cell;
+	    #font_test .a {font-family:Sans-serif} 
+	    #font_test .b {font-family:Serif}
+	    #font_test .c {font-family:Monospace}
+	    #font_test .d {font-family:Cursive}
+	    #font_test .e {font-family:Fantasy}
+	   
+	    #font_test .cel {
+	        width:50%;
 	    }
-	    #tests > :first-child {} 
-	    #tests > :first-child + * {font-family:Arial}
-	    #tests > :first-child + * + * {font-family:Georgia}
-	    #tests > :first-child + * + * + * {font-family:Verdana}
-	    #tests > :first-child + * + * + * + * {font-family:'Courier New'}
-	    
-        .a {
-            width:auto;
-        }
-        .a > .cel {
-            width:33.33%;
-        }
-        .b {
-            
-        }
-        .c {
-            border-right:2px solid red;
-            
-        }
-        .d {
-            background:yellow;
-        }
-        
-	    
-	    
 	
 	</style>
 </head>
 <body>
-    <div class="split a">
-        <div class="cel b">AA</div>
-        <div class="cel c">BB</div>
-        <div class="cel d">CC</div>
+    <!--
+    These tests demonstrate that cels (columns) are flush with adjacent cels and 
+    there is no whitespace in between them.
+    
+    There should also be a yellow line dividing cels. If the yellow line is not 
+    visible, then an adjacent cel is incorrectly overlapping the previous cel.
+    -->
+    
+    <div class="split testa">
+        <div class="cel">A</div>
+        <div class="cel last-child">B</div>
+    </div>
+    
+    <div class="split testb">
+        <div class="cel">A</div>
+        <div class="cel">B</div>
+        <div class="cel last-child">C</div>
+    </div>
+    
+    <div class="split testc">
+        <div class="cel">A</div>
+        <div class="cel">B</div>
+        <div class="cel">C</div>
+        <div class="cel last-child">D</div>
+    </div>
+    
+    <div class="split testd">
+        <div class="cel">A</div>
+        <div class="cel">B</div>
+        <div class="cel">C</div>
+        <div class="cel">D</div>
+        <div class="cel last-child">E</div>
     </div>
    
-    <div id="tests">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+   
+    <!-- 
+    Whitespace between inline/inline-block elements varies based on the fonts 
+    family and size. In this test the five generic font families are tested at 
+    sizes up to 25px for whitspace and overlap.
+    -->
+    
+    <table id="font_test">
+        <thead>
+            <tr>
+                <th class="a">Sans-serif</th>
+                <th class="b">Serif</th>
+                <th class="c">Monospace</th>
+                <th class="d">Cursive</th>
+                <th class="e">Fantasy</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="a"></td>
+                <td class="b"></td>
+                <td class="c"></td>
+                <td class="d"></td>
+                <td class="e"></td>
+            </tr>
+        </tbody>
+    </table>
     
     <script>
         (function () {
-            var D = document;
-            var variants = D.querySelectorAll('#tests > div');
-            var i = variants.length;
-            var variant;
-            var a, b, c, j;
-        
-            while (i--) {
-                variant = variants[i];
+            var tests = document.querySelectorAll('#font_test td'),
+                i = tests.length - 1,
+                j, 
+                a;
+            
+            do {
                 j = 1;
-        
-                for (; j < 25; j++) {
-                    a = D.createElement('div');
-                    a.className = 'split';
-                    a.style.fontSize = j + 'px';
+                a = [];
             
-                    b = D.createElement('div');
-                    b.className = 'cel';
-                    b.appendChild(D.createTextNode('AA'));
-                    a.appendChild(b);
-                    a.appendChild(D.createTextNode('\n\t'));
-            
-                    c = D.createElement('div');
-                    c.className = 'cel';
-                    c.appendChild(D.createTextNode('BB'));
-                    a.appendChild(c);
-                    a.appendChild(D.createTextNode('\n\t'));
-
-                    variant.appendChild(a);
+                for (; j < 26; j++) {
+                    a.push(
+                        '<div class="split" style="font-size:', j, 'px">',
+                            '\r\n\t',
+                            '<div class="cel">AA</div>',
+                            '\r\n\t',
+                            '<div class="cel last-child">BB</div>',
+                            '\r\n\t',
+                        '</div>'
+                    );
                 }
-            }
+                
+                tests[i].innerHTML = a.join('');
+            } while (i--);
         }());
-        
-        
-        /*
-        (function () {
-            //Remove white space between .cel elements
-            
-            var split = document.querySelectorAll('.a');
-            var l = split.length;
-            var i = 0;
-            var item;
-            var node;
-            var n;
-        
-            for (; i < l; i++) {
-                item = split[i];
-                n = item.childNodes;
-                j = n.length - 1;
-            
-                do {
-                    node = n[j];
-                    if (node.nodeType === 3) {
-                        item.removeChild(node);
-                    }
-                } while (j--);
-            }
-            
-        }());
-        */
-        
-        
-    
     </script>
-    
-
 </body>
 </html>
