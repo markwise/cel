@@ -3,58 +3,42 @@
 /*! cel v0.2.0 -- (c) 2013 Mark Wise */
 
 .split{
+    /*
+    Safari 3.1 - 6, Chrome 4 - 21, iOS 3.2 - 6.1 and Android 2.1 - 4.2 are based
+    on the July 23, 2009 version of the Flexbox Working Draft.
+    */
+    display:-webkit-box;
+    -webkit-box-pack:justify;
+    -webkit-box-align:stretch;
+    
+    /*IE10 is based on the March 22, 2012 version of the Flexbox Working Draft*/
+    display:-ms-flexbox;
+    -ms-flex-pack:justify;
+    -ms-flex-align:stretch;
+    
+    /*
+    Chrome 21+, Safari 6.1 are based on the July 23, 2013 version of the
+    Flexbox Working Draft, but still use a browser prefix.
+    */
+    display:-webkit-flex;
+    -webkit-justify-content:space-between;
+    -webkit-align-items:stretch;
+    
+    /*
+    Firefox 22+ and IE11 are based on the July 23, 2013 version of the Flexbox 
+    Working Draft.
+    */
+    display:flex;
+    justify-content:space-between;
+    align-items:stretch; 
+    
     /*Contain vertical line rules*/
     position:relative;
+    /*
+    The following styles are a fallback implementation for Cel supported
+    browsers that don't support one of the above flexbox working drafts.
+    */
     line-height:0;
-    text-align:justify;
-}
-
-/*Force a second line to distribute cels*/
-.split:after {
-    content:'';
-    display:inline-block;
-    width:100%;
-    vertical-align:top;
-}
-
-.split>.cel{
-    display:inline-block;
-    position:relative;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
-    /*Fix IE9,10 resize bug*/
-    min-height:100%;
-    vertical-align:top;
-    /*reset*/
-    line-height:1.5;
-    /*reset*/
-    text-align:left;
-    /*reset*/
-    letter-spacing:normal;
-}
-
-
-/*Alignment*/
-
-.split[class~='align:h']{text-align:left}
-.split[class~='align:hh']{text-align:center}
-.split[class~='align:hhh']{text-align:right}
-
-.split[class~='align:vv']>.cel{vertical-align:middle}
-.split[class~='align:vvv']>.cel{vertical-align:bottom}
-
-
-/*Direction*/
-
-.split.flip{direction:rtl}
-.split.flip>.cel{direction:ltr}
-
-
-/*Layouts*/
-
-.split[class*='by:']{
-    text-align:justify !important;
     /*
     A negative letter-spacing value of 1em removes the default whitespace between 
     inline/inline-block elements causing adjacent elements to overlap.
@@ -64,6 +48,111 @@
     is less than or equal to 100%.
     */
     letter-spacing:-1em;
+    /*Required for IE to justify last line*/
+    text-align:justify;
+    -moz-text-align-last:justify;
+    -ms-text-align-last:justify;
+}
+
+.split>.cel{
+    display:inline-block;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    /*IE9,10 resize bug fix*/
+    min-height:100%;
+    vertical-align:top;
+    /*reset the following*/
+    line-height:1.5;
+    letter-spacing:normal;
+    text-align:left;
+    -moz-text-align-last:auto;
+    -ms-text-align-last:auto;
+}
+/*
+Safari and Chrome versions that use the 2009 flexbox spec require flex items to
+be block-level elements. This doesn't affect newer flexbox implementations.
+*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .split > .cel {
+        display:block;
+    }
+}
+
+
+/*Horizontal alignment*/
+
+.split[class~='align:h'],
+.split[class~='align:hh'],
+.split[class~='align:hhh']{
+    -moz-text-align-last:auto;
+    -ms-text-align-last:auto;
+}
+.split[class~='align:h']{
+    -webkit-box-pack:start;
+    -ms-flex-pack:start;
+    -webkit-justify-content:flex-start;
+    justify-content:flex-start;
+    text-align:left;
+}
+.split[class~='align:hh']{
+    -webkit-box-pack:center;
+    -ms-flex-pack:center;
+    -webkit-justify-content:center;
+    justify-content:center;
+    text-align:center;
+}
+.split[class~='align:hhh']{
+    -webkit-box-pack:end;
+    -ms-flex-pack:end;
+    -webkit-justify-content:flex-end;
+    justify-content:flex-end;
+    text-align:right;
+}
+
+
+/*Vertical alignment*/
+
+.split[class~='align:v']{
+    -webkit-box-align:start;
+    -ms-flex-align:start;
+    -webkit-align-items:flex-start;
+    align-items:flex-start;
+}
+.split[class~='align:v']>.cel{
+    vertical-align:top;
+}
+.split[class~='align:vv']{
+    -webkit-box-align:center;
+    -ms-flex-align:center;
+    -webkit-align-items:center;
+    align-items:center;
+}
+.split[class~='align:vv']>.cel{
+    vertical-align:middle;
+}
+.split[class~='align:vvv']{
+    -webkit-box-align:end;
+    -ms-flex-align:end;
+    -webkit-align-items:flex-end;
+    align-items:flex-end;
+}
+.split[class~='align:vvv']>.cel{
+    vertical-align:bottom;
+}
+
+
+/*Direction*/
+
+/*
+.split.flip{direction:rtl}
+.split.flip>.cel{direction:ltr}
+*/
+
+/*Layouts*/
+
+.split[class*='by:']{
+    text-align:justify !important;
 }
 
 /*no gap (default)*/
