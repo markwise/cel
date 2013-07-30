@@ -7,35 +7,38 @@
         
 	    .split {
             line-height:0;
-            text-align:justify;
-            /*letter-spacing:-.307em;*/
             letter-spacing:-1em;
+            text-align:justify;
+            -moz-text-align-last:justify;
+            -ms-text-align-last:justify;
         }
         
         /*Force a second line to distribute cels*/
+        /*Fallback method for legacy browsers*/
+        /*
         .split:after {
             content:'';
             display:inline-block;
             width:100%;
             vertical-align:top;
         }
+        */
         
         .split > .cel {
             display:inline-block;
             -webkit-box-sizing:border-box;
 	        -moz-box-sizing:border-box;
 	        box-sizing:border-box;
+	        /*IE9,10 resize bug fix*/
+	        min-height:100%;
             vertical-align:top;
-            /*reset*/
+            /*reset the following*/
             line-height:1.5;
-            /*reset*/
+            letter-spacing:normal;
             text-align:left;
-            /*reset*/
-	        letter-spacing:normal;
+            -moz-text-align-last:auto;
+            -ms-text-align-last:auto;
         }
-        
-        
-        /*Author styles*/
         	    
 	    .split {
 	        margin:5px 0;
@@ -45,7 +48,7 @@
 	    .cel {
 	        border-right:1px solid yellow;
 	    }
-	    .last-child {
+	    .cel.last-child {
 	        border:0;
 	    }
 	    
@@ -71,7 +74,7 @@
 	    #font_test .c {font-family:Monospace}
 	    #font_test .d {font-family:Cursive}
 	    #font_test .e {font-family:Fantasy}
-	   
+	    
 	    #font_test .cel {
 	        width:50%;
 	    }
@@ -112,7 +115,7 @@
         <div class="cel">D</div>
         <div class="cel last-child">E</div>
     </div>
-   
+    
    
     <!-- 
     Whitespace between inline/inline-block elements varies based on the fonts 
