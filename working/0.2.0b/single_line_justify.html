@@ -7,64 +7,52 @@
         
         .split {
             line-height:0;
+            letter-spacing:-1em;
             text-align:justify;
+            -moz-text-align-last:justify;
+            -ms-text-align-last:justify;
         }
         
         /*Force a second line to distribute cels*/
+        /*Fallback method for legacy browsers*/
+        /*
         .split:after {
             content:'';
             display:inline-block;
             width:100%;
             vertical-align:top;
         }
+        */
     
         .split > .cel {
             display:inline-block;
+            -webkit-box-sizing:border-box;
+	        -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+	        /*IE9,10 resize bug fix*/
+	        min-height:100%;
             vertical-align:top;
-            /*reset*/
+            /*reset the following*/
             line-height:1.5;
-            /*reset*/
+            letter-spacing:normal;
             text-align:left;
+            -moz-text-align-last:auto;
+            -ms-text-align-last:auto;
         }
-        
-        /*
-        text-align-last does not work on native block elements even if their
-        display value is changed
-        
-        .ie7 .split {
-            text-align-last:justify;
-        }
-        .ie7 .split > .cel {
-            display:inline;
-            zoom:1;
-        }
-        */
-        
-        
-        /*Author defined styles*/
         
         .split {
             background:#ccc;
-            /* letter-spacing:-1em; */
-            /* text-align:right; */
-        }
-        .cel {
-            background:orange;
-            width:49.5%;
-            width:49.8%;
-            position:relative;
-        }
-        .cel .cel {
-            background:green;
-        }
-        .cel .cel .cel {
-            background:yellow;
         }
         
+        .split>:first-child{background:#009999}
+	    .split>:first-child+*{background:#33adad}
+	    .split>:first-child+*+*{background:#66c2c2}
+	    .split>:first-child+*+*+*{background:#99d6d6}
+	    .split>:first-child+*+*+*+*{background:#ccebeb}
+    
         .split.a > :first-child {
-            border-right:1px solid red;
+            /* border-right:1px solid red; */
         }
-        
         .split.aa > .cel {
             width:45%;
         }
@@ -81,12 +69,8 @@
         
     </style>
 </head>
-<!--[if IE 7 ]><body class="ie7"><![endif]-->
-<!--[if (gt IE 7)|!(IE)]><!-->
 <body>
-<!--<![endif]-->
 
-    <!--
     <div class="split aaa">
         <div class="cel">
             <div class="split">
@@ -111,7 +95,7 @@
             </div>
         </div>
     </div>
-    -->
+    
     
     <br><br>
     
@@ -120,7 +104,7 @@
         <div class="cel">b<br>b</div>
     </div>
     
-    <!--
+    
     <br><br>
     
     <div class="split b">
@@ -161,6 +145,6 @@
         <div class="cel">c<br>c<br>c</div>
         <div class="cel">d<br>d<br>d<br>d</div>
     </div>
-    -->
+    
 </body>
 </html>
