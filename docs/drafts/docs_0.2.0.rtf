@@ -1,5 +1,5 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf510
-{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fmodern\fcharset0 Courier;}
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;}
 {\colortbl;\red255\green255\blue255;\red163\green217\blue121;}
 \margl1440\margr1440\vieww16960\viewh17520\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
@@ -23,16 +23,28 @@ It is designed from the ground up to be naturally responsive.\
 \
 Column widths and gaps are defined using percentages, so they are flexible and scale with any screen size on any device.\
 \
-Cel offers complete control over alignment\
+\
+graceful fallback for unsupported features\
+\
+\
+Cel uses a hybrid inline-block / flexbox implementation.\
+\
+Browser support includes:\
+\
+Safari 3.1+ (flexbox)\
+Firefox 12 - 21 (inline-block)\
+Firefox 22+ (flexbox)\
+Internet Explorer 8 - 9 (inline-block)\
+Internet Explorer 10+ (flexbox)\
+Chrome 4+ (flexbox)\
+Opera 12.1+ (flexbox)\
+iOS 3.2 (flexbox)\
+Android 2.1+ (flexbox)\
 \
 \
 \
 \
 \
-\
-\
-\
-Supports CH, SA, OP, FF, IE8+\
 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
@@ -48,6 +60,10 @@ Supports CH, SA, OP, FF, IE8+\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b\fs48 \cf0 \
+\
+Browser support\
+\
+\
 \
 About
 \b0\fs24 \
@@ -211,8 +227,7 @@ Since helper classes are the strength in the cel framework, it is always recomme
 \b0 \
 \
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-\cf0 The classes \cb2 split\cb1  and \cb2 cel\cb1  are the only required classes in the cel framework. \
+The classes \cb2 split\cb1  and \cb2 cel\cb1  are the only required classes in the cel framework. \
 \
 Cel is added to columns and split is added to the columns' parent.\
 \
@@ -234,15 +249,13 @@ To create an authored layout, add the class \cb2 cel\cb1  to columns and the cla
 \
 \
 \
-The default alignment of an authored layout distributes columns evenly across their parent. \
+The default horizontal alignment of an authored layout distributes columns evenly across their parent. \
 \
 The first and last columns will be flush with the left and right edges of their parent, and all columns in between are spread evenly across the remaining space.\
 \
 This is the same behavior exhibited when styling a paragraph with text-align:justify.\
 \
 The alignment of columns can be altered using the align helper class\
-\
-\
 \
 To left align columns, add the class align:h to a split element\
 \
@@ -251,23 +264,6 @@ To left align columns, add the class align:h to a split element\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
 </div>\
-\
-To center align columns, add the class align:hh to a split element\
-\
-<div class="split align:hh">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel">C</div>\
-</div>\
-\
-To right align columns, add the class align:hhh to a split element\
-\
-<div class="split align:hhh">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel">C</div>\
-</div>\
-\
 \
 Columns can also be vertically aligned\
 \
@@ -278,9 +274,14 @@ To bottom align columns, add the class align:vvv to a split element\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
 </div>\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-\cf0 \
 \
+They can also be used together\
+\
+\
+\
+\
+\
+See the section about align for more details.\
 \
 \
 \
@@ -357,9 +358,8 @@ More info on align and flip can be found\
 \
 \
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b \cf0 Structured layouts
+\b Structured layouts
 \b0 \
 \
 Structured layouts are created by adding the helper class 'by' to a split element to define a layout.\
@@ -404,7 +404,7 @@ split, cel\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b0\fs24 \cf0 \
-The classes \cb2 split\cb1  and \cb2 cel\cb1  are the only required classes in the cel library. Cel is added to columns and split is added to the columns' parent.\
+The classes \cb2 split\cb1  and \cb2 cel\cb1  are the only required classes in the cel library. The class cel is added to columns and split is added to the columns' parent.\
 \
 \
 The cel framework can be used to create layouts in two ways, authored and structured. \
@@ -422,9 +422,18 @@ Since helper classes are the strength in the cel framework, it is always recomme
 \
 \
 \
-Split by itself creates a generic layout (authored) that can be used with helper classes to further refine a layout. \
+Split by itself creates a generic layout that can be used with helper classes to further refine a layout.\
 \
 \
+\
+\
+default horizontal alignment\
+\
+\
+default vertical alignment\
+\
+\
+describe default characteristics\
 \
 \
 \
@@ -494,28 +503,70 @@ or\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b\fs48 \cf0 by
+\b\fs48 \cf0 by:
 \b0\fs24 \
 \
-The class \cb2 by\cb1  is used to define a layout for a split element. This class has no default value and requires an argument expressed as an integer or a fraction. If the argument is an integer, column widths will be split evenly by that value. If the argument is a fraction, column widths will be split by a ratio based on that value.\
+The class \cb2 by\cb1  is used to define a structured layout.\
+\
+Widths, gaps and other layout characteristics are controlled entirely by cel helper classes.\
+\
+If using by to define a layout, you should never override widths\
+\
+\
+\
+\
+\
+\
+\
+This class has no default value and requires an argument expressed as an integer or a fraction. \
+\
+If the argument is an integer, column widths will be split evenly by that value. \
+\
+If the argument is a fraction, column widths will be split by a ratio based on that value.\
+\
+\
+\
+\
+\
 \
 Split supports up to five equal width columns and six ratios that affect two column layouts.\
 \
 If the argument is an integer:\
 \
-by:2 - two equal width columns\
-by:3 - three equal width columns\
-by:4 - four equal width columns\
-by:5 - five equal width columns\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 by:2
+\b0 	 two equal width columns\
+
+\b by:3
+\b0 	three equal width columns\
+
+\b by:4
+\b0 	four equal width columns\
+
+\b by:5
+\b0 	five equal width columns\
 \
 If the argument is a fraction:\
 \
-by:1/2 - column two is 2x the size of column one\
-by:2/1 - column one is 2x the size of column two\
-by:1/3 - column two is 3x the size of column one\
-by:3/1 - column one is 3x the size of column two\
-by:2/3 - column two is 1/3 wider than column one\
-by:3/2 - column one is 1/3 wider than column two\
+
+\b by:1/2
+\b0 	  column two is 2x the size of column one\
+
+\b by:2/1
+\b0 	  column one is 2x the size of column two\
+
+\b by:1/3
+\b0    column two is 3x the size of column one\
+
+\b by:3/1
+\b0    column one is 3x the size of column two\
+
+\b by:2/3
+\b0    column two is 1/3 wider than column one\
+
+\b by:3/2
+\b0    column one is 1/3 wider than column two\
 \
 The following split element defines a layout with three equal width columns.\
 \
@@ -538,124 +589,103 @@ The following split element defines a layout by a ratio of 2 to 3. Column B is 1
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 </div>\
-
-\b\fs48 \
 \
-with-gap
-\b0\fs24 \
 \
-The class \cb2 with-gap\cb1  adds horizontal space between columns. The default gap size is 2.5%, but additional gap sizes can be expressed by passing an optional integer value as an argument to the class.\
 \
-Split supports gap sizes up to 5%.\
 \
-with-gap    -  2.5% gap (default)\
-with-gap:1 - 1% gap\
-with-gap:2 - 2% gap\
-with-gap:3 - 3% gap\
-with-gap:4 - 4% gap\
-with-gap:5 - 5% gap\
 \
-To use the default gap size of 2.5%, add the class \cb2 with-gap\cb1  to a split element.
-\f1 \
+\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\f0 \cf0 \
-<div class="split with-gap">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-</div>\
+\b\fs48 \cf0 \
 \
-To use a 1% gap size, pass the value 1 as an argument to the class.\
+with-gap:
+\b0\fs24 \
+\
+The class \cb2 with-gap\cb1  adds horizontal space between columns.\
+\
+This class has no default value and requires an integer as an argument.\
+\
+The integer represents a percentage of the split element's width and supports gap sizes up to 5%.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 with-gap:1
+\b0 	1% gap\
+
+\b with-gap:2
+\b0 	2% gap\
+
+\b with-gap:3
+\b0 	3% gap\
+
+\b with-gap:4
+\b0 	4% gap\
+
+\b with-gap:5
+\b0 	5% gap\
+\
+\
+To add a 1% gap between columns, pass the value 1 as an argument to the class.\
 \
 <div class="split with-gap:1">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 </div>\
+\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-
-\b\fs48 \cf0 \
+\cf0 To add a 2% gap between columns, pass the value 2 as an argument to the class.\
 \
-and-line
-\b0\fs24 \
-\
-The class \cb2 and-line\cb1  adds a vertical line rule between columns. This class cannot be used by itself, it can only be used with the class \cb2 with-gap\cb1 .\
-\
-To add a line, add the class \cb2 and-line\cb1  to a split element that also has the class \cb2 with-gap\cb1 .\
-\
-<div class="split with-gap and-line">\
+<div class="split with-gap:2">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 </div>\
 \
+To add a 3% gap between columns, pass the value 3 as an argument to the class.\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-
-\b \cf0 Usage notes
-\b0 \
-\
-Lines are created by inserting content for each column using a :before pseudo-element, and are positioned relative to the split element not the column. This allows the top and bottom edges of a line to always be flush with the top and bottom edges of the split element.\
-\
-Lines are offset from the columns left edge using a negative margin value. Because of this, border-left and/or padding-left styles cannot be used on columns with a line. Doing so will incorrectly offset a line from the columns left edge.\
-\
-It's by design that lines can only be used with a gap. The space between a line and column should provide adequate separation where padding left on a column isn't necessary. If more space is needed increase the gap size.\
-\
-\
-
-\b Customizing line styles
-\b0 \
-\
-The default line styles are \cb2 border-left:1px solid #ccc\cb1 . Because split is designed to use a 1px line width, only border style and color values should be changed.\
-\
-You do not have to use border-left-style and border-left-color to change the styles for a line. Styles have been setup so you can more generically target the line using border-style and border-color or even the shorthand syntax border:style color.\
-\
-The following style rules will change the lines style and color values site wide.\
-\
-.split > :before \{\
-	border-left-style:dashed;\
-	border-left-color:blue;\
-\}\
-\
-or\
-\
-.split > :before \{\
-	border-style:dashed;\
-	border-color:blue;\
-\}\
-\
-or\
-\
-.split > :before \{\
-	border:dashed blue;\
-\}\
+<div class="split with-gap:3">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+</div>\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b\fs48 \cf0 \
 \
-align\
+align:\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b0\fs24 \cf0 \
-The class align can be used to change the horizontal and vertical alignment of columns.\
+The class \cb2 align\cb1  can be used to change the horizontal and vertical alignment of columns (cels). The default horizontal alignment is justify, which distributes columns evenly across their parent. The default vertical alignment is stretch (equal heights) for browsers that use a flexbox implementation, otherwise the default is top.\
 \
-The default horizontal and vertical alignment is justify and top.\
+Align accepts a string as an argument to the class. If the value is one or more h's, alignment will be horizontal. If the value is one or more v's alignment will be vertical. The number of h's or v's corresponds to the alignment position.\
 \
-Align accepts a string as an argument to the class.\
-\
-If the value is an 'h', alignment will be horizontal, if the value is a 'v' alignment will be vertical.\
-\
-The number of h's or v's corresponds to the alignment position.\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-\cf0 \
-align:h	left \
-align:hh	center\
-align:hhh	right\
+
+\b \cf0 align:h
+\b0 	left \
+
+\b align:hh
+\b0 	center\
+
+\b align:hhh
+\b0 	right\
 \
-align:v	top (default)\
-align:vv	middle\
-align:vvv	bottom\
+
+\b align:v
+\b0 	top\
+
+\b align:vv
+\b0 	middle\
+
+\b align:vvv
+\b0 	bottom\
 \
 \
-To align columns left, add the class align:h to a split element\
+
+\b Horizontal alignment
+\b0 \
+\
+To align columns left, add the class \cb2 align:h\cb1  to a split element.\
 \
 <div class="split align:h">\
 	<div class="cel">A</div>\
@@ -663,7 +693,7 @@ To align columns left, add the class align:h to a split element\
 	<div class="cel">C</div>\
 </div>\
 \
-To align columns center, add the class align:hh to a split element\
+To align columns center, add the class \cb2 align:hh\cb1  to a split element.\
 \
 <div class="split align:hh">\
 	<div class="cel">A</div>\
@@ -671,7 +701,7 @@ To align columns center, add the class align:hh to a split element\
 	<div class="cel">C</div>\
 </div>\
 \
-To align columns right, add the class align:hhh to a split element\
+To align columns right, add the class \cb2 align:hhh\cb1  to a split element.\
 \
 <div class="split align:hhh">\
 	<div class="cel">A</div>\
@@ -679,47 +709,51 @@ To align columns right, add the class align:hhh to a split element\
 	<div class="cel">C</div>\
 </div>\
 \
-\
-It's important to note that structured layouts, layouts defined with the class 'by' cannot be aligned horizontally.\
-\
-That's because columns in structured layouts are designed span the width of their parent.\
+It's important to note that layouts defined with the class 'by' cannot be aligned horizontally because they are designed to span the width of their parent.\
 \
 \
+
+\b Vertical alignment
+\b0 \
+\
+To align columns top, add the class \cb2 align:v\cb1  to a split element.\
+\
+<div class="split align:v">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+</div>\
+\
+To align columns middle, add the class \cb2 align:vv\cb1  to a split element.\
+\
+<div class="split align:vv">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+</div>\
+\
+To align columns bottom, add the class \cb2 align:vvv\cb1  to a split element.\
+\
+<div class="split align:vvv">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+</div>\
 \
 \
-	\
+These classes can be used together to affect both horizontal and vertical alignment\
 \
-\
-\
-\
-\
-\
-\
-\
-\
-\
-examples\
-\
-\
-\
-\
+example\
 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b\fs48 \cf0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-
-\b0\fs24 \cf0 \
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-
-\b\fs48 \cf0 flip
+flip
 \b0\fs24 \
 \
 The class \cb2 flip\cb1  reverses the column order in the rendered page.\
-\
-Flip can be used to keep important content higher in the document. This may affect search engine page rank and indexing.\
 \
 When the page is rendered, the columns will be ordered from left to right D, C, B, A.\
 \

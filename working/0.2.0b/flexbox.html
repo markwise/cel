@@ -20,82 +20,71 @@
 	    CH4+    flex
 	    OP12.1  flex
 	    */
-	    
+	    /*
 	    .split{
-	        /*
-	        SA4+, CH4+
-	        2009 implementation
-	        */
-	        /* display:-webkit-box; */
-	        /*IE10 is based on the March 22, 2012 version of the Flexbox Working Draft*/
-	        /* display:-ms-flexbox; */
-	        /*CH21+, SA6.1*/
-	        /* display:-webkit-flex; */
-	        /*
-	        2013 flexbox spec
-	        FF22+ without changing about:config preference 'layout.css.flexbox.enabled' to true
-	        IE11
-	        */
-	        /* display:flex; */
-	        
-            position:relative;
             line-height:0;
-            
-            /*
-            This will be ignored by flex box implemenations and is implemented
-            as a fallback for inline-block legacy support
-            */
-            /*Required for IE to justify last line*/
             text-align:justify;
             -moz-text-align-last:justify;
             -ms-text-align-last:justify;
             letter-spacing:-1em;
-            white-space:nowrap;
         }
-        @-moz-document url-prefix() {
-            .split {
-                letter-spacing:-.25em;
-            }
-        }
-        
+        */
+        /*
         .split>.cel{
+            
             display:inline-block;
-            position:relative;
             -webkit-box-sizing:border-box;
             -moz-box-sizing:border-box;
             box-sizing:border-box;
             min-height:100%;
             vertical-align:top;
             line-height:1.5;
-            
             text-align:left;
             -moz-text-align-last:auto;
             -ms-text-align-last:auto;
             letter-spacing:normal;
-            white-space:normal;
+        
         }
+        */
       
     
         .split[class~='align:hh'] {
             /* text-align:center; */
-            -moz-text-align-last:center;
+            /* -moz-text-align-last:center; */
             /* -ms-text-align-last:center; */
         
         }
 	    
+	    /* @supports */
+	    
 	    .split {
-	        /*
-	        New syntax support is: Chrome 21+, Safari 6.1+, Firefox 22+, 
-	        Opera (& Opera Mobile) 12.1+, IE 11+, and Blackberry 10+.
-	        */
+	        display:-webkit-box;
+	        -webkit-lines:multiple;
+	        -webkit-box-lines:multiple;
+	        /* -webkit-box-orient:horizontal; */
+	        /* -webkit-box-orient:vertical; */
+	        
+	    
+	        /* -webkit-lines:multiple; */
+	        /* flex-break-before */
+	        /* flex-break-after */
+	        /* -webkit-line-clamp: */
+	    
+	        /*vertical alignment*/
+	        /* -webkit-box-align:start; */
+	        /* -webkit-box-align:center; */
+	        /* -webkit-box-align:end; */
+	        /* -webkit-box-align:stretch; */
+	    
+	        /*horizontal alignment*/
+	        -webkit-box-pack:justify;
+	        /* -webkit-box-pack:start; */
+	        /* -webkit-box-pack:center; */
+	        /* -webkit-box-pack:end; */
 	        
 	        
-	        
-	        
-	        
-	        
-	        /*IE10 is based on the March 22, 2012 version of the Flexbox Working Draft*/
 	        /* display:-ms-flexbox; */
+	        /* -ms-flex-wrap:wrap; */
 	        
 	        /*horizontal alignment*/
 	        /* -ms-flex-pack:start; */
@@ -109,100 +98,58 @@
 	        /* -ms-flex-align:end; */
 	        /* -ms-flex-align:stretch; */
 	        
+	       
+	        /* display:-webkit-flex; */
+	        /* -webkit-flex-wrap:wrap; */
 	        
+	        /*horizontal alignment*/
+	        /* -webkit-justify-content:flex-end; */ 
+	        /* -webkit-justify-content:flex-start;  */
+	        /* -webkit-justify-content:center;  */
+	        /* -webkit-justify-content:space-between; */
 	        
-	        
-	        
-	        
-	        
+	        /*vertical alignment*/
+	        /* -webkit-align-items:flex-start; */
+	        /* -webkit-align-items:flex-end; */
+	        /* -webkit-align-items:center;  */
+	        /* -webkit-align-items:stretch; */ 
 	    
+	        
 	        /*FF22+ without changing about:config preference 'layout.css.flexbox.enabled' to true*/
 	        /* display:flex; */
+	        /* flex-wrap:wrap; */
 	        
-	        /*text-align:right*/
+	        /*horizontal alignment*/
 	        /* justify-content:flex-end; */
-	        /*text-align:left*/
 	        /* justify-content:flex-start;  */
-	        /*text-align:center*/
 	        /* justify-content:center; */ 
-	        /*text-align:justify*/
 	        /* justify-content:space-between; */
-	        /*not used*/ 
 	        
-	        
+	        /*vertical alignment*/
 	        /* align-items:flex-start; */
 	        /* align-items:center;  */
 	        /* align-items:flex-end; */
 	        /* align-items:stretch;  */
-	        
-	        
-	        
-	        
-	        /*OP12 supports new syntax */
-	        
-	        /*CH21+, SA6.1*/
-	        /* display:-webkit-flex; */
-	        
-	        /*text-align:right*/
-	        /* -webkit-justify-content:flex-end; */ 
-	        /*text-align:left*/
-	        /* -webkit-justify-content:flex-start;  */
-	        /*text-align:center*/
-	        /* -webkit-justify-content:center;  */
-	        /*text-align:justify*/
-	        /* -webkit-justify-content:space-between; */
-	        /*not used*/ 
-	        /* -webkit-justify-content:space-around; */
-	        
-	        
-	        /*vertical-align:top*/
-	        /* -webkit-align-items:flex-start; */
-	        /*vertical-align:bottom*/
-	        /* -webkit-align-items:flex-end; */
-	        /*vertical-align:middle*/
-	        /* -webkit-align-items:center;  */
-	        /*Equal height columns; not reproducable for IE8,9,FF*/
-	        /* -webkit-align-items:stretch; */ 
-	    
-	    
-	    
-	        /* display:-webkit-box; */
-	    
-	        /*vertical alignment*/
-	        /* -webkit-box-align:start; */
-	        /* -webkit-box-align:center; */
-	        /* -webkit-box-align:end; */
-	        /* -webkit-box-align:stretch; */
-	    
-	        /*horizontal alignment*/
-	        /* -webkit-box-pack:justify; */
-	        /* -webkit-box-pack:start; */
-	        /* -webkit-box-pack:center; */
-	        /* -webkit-box-pack:end; */
-	        
-	        /*
-	        display:-moz-box;
-	        width:100%;
-	        -moz-box-pack:end;
-	        -moz-box-align:start;
-	        */
-	        
-	        /* text-align:left; */
-	        /* letter-spacing:-1em; */
-	        /* padding:25px; */
 	    }
 	    
-	    .split > .cel {
-	        /* display:-moz-box; */
+	    /*
+	    Firefox doesn't support the flex-wrap property which is important for
+	    creating grids. Turn off flex box when creating grids.
+	    */
+	    @-moz-document url-prefix() {
+	        /*.split[class~='by:2'] etc..*/
+	        .split {
+	            display:block;
+	        }
+	    }
 	    
-	        /* display:-webkit-box; */
-	        /* vertical-align:middle; */
-	        /* vertical-align:bottom; */
-	        /* width:50%; */
-	        /* height:1px; */
+	    
+	    .split > .cel {
 	        width:40%;
-	        /* width:50%; */
-	        
+	        /* width:33.33%; */
+	        /* width:25%; */
+	        font-size:10px;
+	        -webkit-box-flex:1;
 	    }
 	    
 	    /*
@@ -218,9 +165,7 @@
 	
 	    
 	    .split > .cel + .cel {
-	        /* margin-left:1em; */
-	        /* left:50px; */
-	        /* border-left:1px solid red; */
+            
 	        
 	    }
 	    
@@ -232,7 +177,7 @@
 	        border:1px solid #000;
 	    }
 	    .cel:not(:last-child) {
-	        border-right:1px solid yellow;
+	        /* border-right:1px solid yellow; */
 	    }
 	    
 	    .split>:first-child{background:#009999}
@@ -240,26 +185,15 @@
 	    .split>:first-child+*+*{background:#66c2c2}
 	    .split>:first-child+*+*+*{background:#99d6d6}
 	    .split>:first-child+*+*+*+*{background:#ccebeb}
-	    
-	    /*
-	    .testa .cel {width:50%} 
-	    .testb .cel {width:33.33%}
-	    .testc .cel {width:25%}
-	    .testd .cel {width:20%} 
-	    */
-	
 	
 	</style>
 </head>
 <body>
 
-    <div class="split align:hh">
+    <div class="split">
         <div class="cel">A</div>
-        <div class="cel">B<br>B
-        <!--
-        Synergistically build market positioning expertise vis-a-vis standardized processes. Distinctively reconceptualize front-end growth strategies rather than synergistic information. Conveniently evolve holistic scenarios and strategic sources.
-        -->
-        </div>
+        <div class="cel">B<br>B</div>
+        <div class="cel">C<br>C<br>C</div>
         <!-- <div class="cel">C<br>C<br>C</div> -->
     </div>
 

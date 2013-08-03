@@ -2,169 +2,81 @@
 
 /*! cel v0.2.0 -- (c) 2013 Mark Wise */
 
-.split{
-    /*
-    Safari 3.1 - 6, Chrome 4 - 21, iOS 3.2 - 6.1 and Android 2.1 - 4.2 are based
-    on the July 23, 2009 version of the Flexbox Working Draft.
-    */
-    display:-webkit-box;
-    -webkit-box-pack:justify;
-    -webkit-box-align:stretch;
-    
-    /*IE10 is based on the March 22, 2012 version of the Flexbox Working Draft*/
-    display:-ms-flexbox;
-    -ms-flex-pack:justify;
-    -ms-flex-align:stretch;
-    
-    /*
-    Chrome 21+, Safari 6.1 are based on the July 23, 2013 version of the
-    Flexbox Working Draft, but still use a browser prefix.
-    */
-    display:-webkit-flex;
-    -webkit-justify-content:space-between;
-    -webkit-align-items:stretch;
-    
-    /*
-    Firefox 22+ and IE11 are based on the July 23, 2013 version of the Flexbox 
-    Working Draft.
-    */
-    display:flex;
-    justify-content:space-between;
-    align-items:stretch; 
-    
-    /*Contain vertical line rules*/
-    position:relative;
-    
-    /*
-    The following styles are a fallback implementation for Cel supported
-    browsers that don't support one of the above flexbox working drafts.
-    
-    The following styles are a fallback for the inline-block implementation for
-    browsers that don't support one of the above flexbox working drafts.
-    
-    */
-    
-    
-    /*
-    outer font has a bigger font size than columns
-    makes the outer container the height of columns if the font size is smaller
-    than the parent container
-    */
+.split {
     line-height:0;
-    /*
-    A negative letter-spacing value of 1em removes the default whitespace between 
-    inline/inline-block elements causing adjacent elements to overlap.
-    
-    Distributing elements with text-align:justify spreads elements evenly across
-    their parent and negates the overlap. This is true if the combined cel width
-    is less than or equal to 100%.
-    */
-    letter-spacing:-1em;
-    /*Required for IE to justify last line*/
     text-align:justify;
     -moz-text-align-last:justify;
     -ms-text-align-last:justify;
 }
 
-.split>.cel{
+/*Force a second line to distribute cels*/
+.split:after {
+    content:'';
+    display:inline-block;
+    /*Hide pseudo-element; IE uses native code to justify the last line*/
+    display:none\9;
+    /*Force a second line*/
+    width:100%;
+    /*Remove extra space in webkit browsers*/
+    vertical-align:top;
+    visibility:hidden;
+}
+
+/*Hide pseudo-element; Firefox uses native code to justify the last line*/
+@-moz-document url-prefix() {
+    .split:after {
+        display:none;
+    }
+}
+
+.split > .cel {
     display:inline-block;
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
-    /*IE resize bug fix for inline-block implementation*/
+    /*IE bug fix to prevent wrapping when resizing*/
     min-height:100%;
     vertical-align:top;
-    /*reset the following*/
+    /*Reset the following*/
     line-height:1.5;
+    text-align:left;
+    -moz-text-align-last:auto;
+    -ms-text-align-last:auto;
     letter-spacing:normal;
-    text-align:left;
+}
+
+
+/*Alignment*/
+
+.split[class*='align:h'] {
     -moz-text-align-last:auto;
     -ms-text-align-last:auto;
 }
-/*
-Safari and Chrome that use the 2009 version of flexbox require flex items to
-be block-level elements.
-*/
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    .split > .cel {
-        display:block;
-    }
-}
+.split[class~='align:h']{text-align:left}
+.split[class~='align:hh']{text-align:center}
+.split[class~='align:hhh']{text-align:right}
 
-
-/*Horizontal alignment*/
-
-.split[class~='align:h'],
-.split[class~='align:hh'],
-.split[class~='align:hhh']{
-    -moz-text-align-last:auto;
-    -ms-text-align-last:auto;
-}
-.split[class~='align:h']{
-    -webkit-box-pack:start;
-    -ms-flex-pack:start;
-    -webkit-justify-content:flex-start;
-    justify-content:flex-start;
-    text-align:left;
-}
-.split[class~='align:hh']{
-    -webkit-box-pack:center;
-    -ms-flex-pack:center;
-    -webkit-justify-content:center;
-    justify-content:center;
-    text-align:center;
-}
-.split[class~='align:hhh']{
-    -webkit-box-pack:end;
-    -ms-flex-pack:end;
-    -webkit-justify-content:flex-end;
-    justify-content:flex-end;
-    text-align:right;
-}
-
-
-/*Vertical alignment*/
-
-.split[class~='align:v']{
-    -webkit-box-align:start;
-    -ms-flex-align:start;
-    -webkit-align-items:flex-start;
-    align-items:flex-start;
-}
-.split[class~='align:v']>.cel{
-    vertical-align:top;
-}
-.split[class~='align:vv']{
-    -webkit-box-align:center;
-    -ms-flex-align:center;
-    -webkit-align-items:center;
-    align-items:center;
-}
-.split[class~='align:vv']>.cel{
-    vertical-align:middle;
-}
-.split[class~='align:vvv']{
-    -webkit-box-align:end;
-    -ms-flex-align:end;
-    -webkit-align-items:flex-end;
-    align-items:flex-end;
-}
-.split[class~='align:vvv']>.cel{
-    vertical-align:bottom;
-}
+.split[class~='align:vv']>.cel{vertical-align:middle}
+.split[class~='align:vvv']>.cel{vertical-align:bottom}
 
 
 /*Direction*/
 
-/*
 .split.flip{direction:rtl}
 .split.flip>.cel{direction:ltr}
-*/
+
 
 /*Layouts*/
 
-.split[class*='by:']{
-    text-align:justify !important;
+.split[class*='by:'] {
+    text-align:justify;
+    letter-spacing:-1em;
+}
+
+@-moz-document url-prefix() {
+    .split[class*='with-gap:'] {
+        letter-spacing:normal;
+    }
 }
 
 /*no gap (default)*/
@@ -277,9 +189,76 @@ be block-level elements.
 
 
 
+/*Responsive*/
 
-
-
+@media screen and (max-width:480px) {
+    .split[class~='at:481']:after{display:none}
+    .split[class~='at:481']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:500px) {
+    .split[class~='at:501']:after{display:none}
+    .split[class~='at:501']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:520px) {
+    .split[class~='at:521']:after{display:none}
+    .split[class~='at:521']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:540px) {
+    .split[class~='at:541']:after{display:none}
+    .split[class~='at:541']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:560px) {
+    .split[class~='at:561']:after{display:none}
+    .split[class~='at:561']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:580px) {
+    .split[class~='at:581']:after{display:none}
+    .split[class~='at:581']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:600px) {
+    .split[class~='at:601']:after{display:none}
+    .split[class~='at:601']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:620px) {
+    .split[class~='at:621']:after{display:none}
+    .split[class~='at:621']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:640px) {
+    .split[class~='at:641']:after{display:none}
+    .split[class~='at:641']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:660px) {
+    .split[class~='at:661']:after{display:none}
+    .split[class~='at:661']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:680px) {
+    .split[class~='at:681']:after{display:none}
+    .split[class~='at:681']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:700px) {
+    .split[class~='at:701']:after{display:none}
+    .split[class~='at:701']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:720px) {
+    .split[class~='at:721']:after{display:none}
+    .split[class~='at:721']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:740px) {
+    .split[class~='at:741']:after{display:none}
+    .split[class~='at:741']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:760px) {
+    .split[class~='at:761']:after{display:none}
+    .split[class~='at:761']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:780px) {
+    .split[class~='at:781']:after{display:none}
+    .split[class~='at:781']>.cel{display:block;width:auto !important}
+}
+@media screen and (max-width:800px) {
+    .split[class~='at:801']:after{display:none}
+    .split[class~='at:801']>.cel{display:block;width:auto !important}
+}
 
 
 
