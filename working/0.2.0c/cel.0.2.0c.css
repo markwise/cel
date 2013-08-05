@@ -5,28 +5,17 @@
 .split {
     line-height:0;
     text-align:justify;
-    -moz-text-align-last:justify;
-    -ms-text-align-last:justify;
 }
 
-/*Force a second line to distribute cels*/
+/*Allow single line justified alignment*/
 .split:after {
     content:'';
     display:inline-block;
-    /*Hide pseudo-element; IE uses native code to justify the last line*/
-    display:none\9;
     /*Force a second line*/
     width:100%;
-    /*Remove extra space in webkit browsers*/
+    /*Remove extra space*/
     vertical-align:top;
     visibility:hidden;
-}
-
-/*Hide pseudo-element; Firefox uses native code to justify the last line*/
-@-moz-document url-prefix() {
-    .split:after {
-        display:none;
-    }
 }
 
 .split > .cel {
@@ -37,21 +26,17 @@
     /*IE bug fix to prevent wrapping when resizing*/
     min-height:100%;
     vertical-align:top;
-    /*Reset the following*/
+    /*reset*/
     line-height:1.5;
+    /*reset*/
     text-align:left;
-    -moz-text-align-last:auto;
-    -ms-text-align-last:auto;
+    /*reset*/
     letter-spacing:normal;
 }
 
 
 /*Alignment*/
 
-.split[class*='align:h'] {
-    -moz-text-align-last:auto;
-    -ms-text-align-last:auto;
-}
 .split[class~='align:h']{text-align:left}
 .split[class~='align:hh']{text-align:center}
 .split[class~='align:hhh']{text-align:right}
@@ -70,12 +55,11 @@
 
 .split[class*='by:'] {
     text-align:justify;
-    letter-spacing:-1em;
+    letter-spacing:-.791em;
 }
-
 @-moz-document url-prefix() {
     .split[class*='with-gap:'] {
-        letter-spacing:normal;
+        letter-spacing:-.25em;
     }
 }
 

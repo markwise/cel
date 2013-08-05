@@ -5,12 +5,20 @@
 	<title>Untitled</title>
 	<link type="text/css" rel="stylesheet" href="cel.0.2.0c.css">
 	<style>
+	    
+	    body {
+	        /* font-family:Arial; */
+	        /* font-size:16px; */
+	    }
+	
+	
 	    .split {
 	        /* border:1px solid #ccc; */
 	        /* padding:13px; */
 	        /* width:500px; */
 	        /* max-width:960px; */
 	        background:#eee;
+	        background:orange;
 	        /* margin:0 5em; */
 	        /* padding:25px; */
 	    }
@@ -34,6 +42,11 @@
 	    .split>:first-child+*+*{background:#66c2c2}
 	    .split>:first-child+*+*+*{background:#99d6d6}
 	    .split>:first-child+*+*+*+*{background:#ccebeb}
+	    .split>:first-child+*+*+*+*+*{background:#009999}
+	    .split>:first-child+*+*+*+*+*+*{background:#33adad}
+	    .split>:first-child+*+*+*+*+*+*+*{background:#66c2c2}
+	    .split>:first-child+*+*+*+*+*+*+*+*{background:#99d6d6}
+	    .split>:first-child+*+*+*+*+*+*+*+*+*{background:#ccebeb}
 	    
 	
 	    .split>:before{
@@ -59,20 +72,18 @@
 	    }
 	    .split>.cel+.cel{
 	        /* margin-left:1em; */
+	        margin:0;
 	    }
 	    
 	</style>
 </head>
 <body>
     
-    <div class="split by:2 at:801">
-        <div class="cel">
-            Dramatically harness cutting-edge materials for bleeding-edge sources. Quickly optimize ethical niche markets through diverse bandwidth.
-        </div>
-        <div class="cel">
-            Distinctively harness front-end leadership skills vis-a-vis cooperative interfaces. Conveniently recaptiualize high-quality materials without world-class customer service. Dynamically matrix multidisciplinary core competencies via leading-edge total linkage.
-        </div>
-    
+    <div class="split by:3 with-gap:1 flip">
+        <div class="cel">a</div>
+        <div class="cel">b</div>
+        <div class="cel">a</div>
+        <div class="cel">b</div>
     </div>
     
    

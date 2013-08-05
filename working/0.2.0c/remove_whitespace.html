@@ -8,17 +8,29 @@
 	    .split {
             line-height:0;
             text-align:justify;
-            -moz-text-align-last:justify;
-            -ms-text-align-last:justify;
-            letter-spacing:-1em;
+            /* -moz-text-align-last:justify; */
+            /* -ms-text-align-last:justify; */
+            /* letter-spacing:-1em; */
+            
+            /*Firefox without gaps*/
+            /*Firefox shows horizontal scrollbars with values greater than .811*/
+            /* letter-spacing:-.811em; */
+            letter-spacing:-.791em;
+            /*Firefox with gaps*/
+            letter-spacing:-.25em;
+            
         }
+        
+        
+        
+        
         
         /*Force a second line to distribute cels*/
         .split:after {
             content:'';
             display:inline-block;
             /*IE uses native code to justify last line*/
-            display:none\9;
+            /* display:none\9; */
             /*Force a second line*/
             width:100%;
             /*Remove extra space in webkit browsers*/
@@ -29,7 +41,7 @@
         /*Firefox uses native code to justify last line*/
         @-moz-document url-prefix() {
             .split:after {
-                display:none;
+                /* display:none; */
             }
         }
     
@@ -44,8 +56,8 @@
             /*Reset the following*/
             line-height:1.5;
             text-align:left;
-            -moz-text-align-last:auto;
-            -ms-text-align-last:auto;
+            /* -moz-text-align-last:auto; */
+            /* -ms-text-align-last:auto; */
             letter-spacing:normal;
         }
         
@@ -83,12 +95,25 @@
 	    }
 	    #font_test .a {font-family:Sans-serif} 
 	    #font_test .b {font-family:Serif}
-	    #font_test .c {font-family:Monospace}
+	    /* #font_test .c {font-family:Monospace} */
 	    #font_test .d {font-family:Cursive}
 	    #font_test .e {font-family:Fantasy}
 	    
 	    #font_test .cel {
-	        width:50%;
+	        /* width:50%; */
+	        /*1% gap*/
+	        /* width:49.5%; */
+	        /*2% gap*/
+	        width:49%;
+	        /*3% gap*/
+	        /* width:48.5%; */
+	        /*4% gap*/
+	        /* width:48%; */
+            /*5% gap*/
+ 	        /* width:47.5%; */
+	        
+	        
+	        
 	    }
 	
 	</style>
@@ -101,8 +126,10 @@
     There should also be a yellow line dividing cels. If the yellow line is not 
     visible, then an adjacent cel is incorrectly overlapping the previous cel.
     -->
-    
+    <!--
     <div class="split testa">
+        <div class="cel">A</div>
+        <div class="cel last-child">B</div>
         <div class="cel">A</div>
         <div class="cel last-child">B</div>
     </div>
@@ -111,9 +138,16 @@
         <div class="cel">A</div>
         <div class="cel">B</div>
         <div class="cel last-child">C</div>
+        <div class="cel">A</div>
+        <div class="cel">B</div>
+        <div class="cel last-child">C</div>
     </div>
     
     <div class="split testc">
+        <div class="cel">A</div>
+        <div class="cel">B</div>
+        <div class="cel">C</div>
+        <div class="cel last-child">D</div>
         <div class="cel">A</div>
         <div class="cel">B</div>
         <div class="cel">C</div>
@@ -126,8 +160,13 @@
         <div class="cel">C</div>
         <div class="cel">D</div>
         <div class="cel last-child">E</div>
+        <div class="cel">A</div>
+        <div class="cel">B</div>
+        <div class="cel">C</div>
+        <div class="cel">D</div>
+        <div class="cel last-child">E</div>
     </div>
-
+    -->
    
     <!-- 
     Whitespace between inline/inline-block elements varies based on the fonts 
@@ -170,6 +209,11 @@
                 for (; j < 26; j++) {
                     a.push(
                         '<div class="split" style="font-size:', j, 'px">',
+                            '\r\n\t',
+                            '<div class="cel">AA</div>',
+                            '\r\n\t',
+                            '<div class="cel last-child">BB</div>',
+                            '\r\n\t',
                             '\r\n\t',
                             '<div class="cel">AA</div>',
                             '\r\n\t',
