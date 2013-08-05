@@ -58,6 +58,7 @@
 	    }
 	    
 	    .split {
+	        position:relative;
 	        /* text-align:right; */
 	        /* letter-spacing:1%; */
 	        /* letter-spacing:-1em; */
@@ -72,18 +73,20 @@
 	    }
 	    .split>.cel+.cel{
 	        /* margin-left:1em; */
-	        margin:0;
+	        /* margin:0; */
 	    }
+	    
 	    
 	</style>
 </head>
 <body>
     
-    <div class="split by:3 with-gap:1 flip">
-        <div class="cel">a</div>
-        <div class="cel">b</div>
-        <div class="cel">a</div>
-        <div class="cel">b</div>
+    <div class="split by:2 with-gap:1">
+        <div class="cel">A</div>
+        <div class="cel"></div>
+        <div class="cel">B<br>B</div>
+        <!-- <div class="cel"></div> -->
+        <!-- <div class="cel">C<br>C<br>C</div> -->
     </div>
     
    

@@ -3,6 +3,8 @@
 /*! cel v0.2.0 -- (c) 2013 Mark Wise */
 
 .split {
+    /*Contain vertical line rules*/
+    position:relative;
     line-height:0;
     text-align:justify;
 }
@@ -170,6 +172,33 @@
 .split[class~='by:2/3'][class~='with-gap:5']>.cel+.cel{width:57%}
 .split[class~='by:3/2'][class~='with-gap:5']>.cel{width:57%}
 .split[class~='by:3/2'][class~='with-gap:5']>.cel+.cel{width:38%}
+
+
+/*Vertical line rule*/
+
+.split[class*='with-gap:'] > .cel:empty {
+    display:inline-block;
+    position:absolute;
+    border-width:0 0 0 1px !important;
+    width:0;
+}
+
+/*Allow the author to more easily override line styles*/
+.split > :empty {
+    display:none;
+    top:0;
+    bottom:0;
+    /* border:solid #ccc; */
+    border:solid red;
+}
+
+
+.split[class~='with-gap:1']>.cel:empty{margin-left:-.552%}
+.split[class~='with-gap:2']>.cel:empty{margin-left:-1.05%}
+.split[class~='with-gap:3']>.cel:empty{margin-left:-1.55%}
+.split[class~='with-gap:4']>.cel:empty{margin-left:-2.05%}
+.split[class~='with-gap:5']>.cel:empty{margin-left:-2.55%}
+
 
 
 
