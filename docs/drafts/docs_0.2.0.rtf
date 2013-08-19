@@ -24,10 +24,10 @@ It is designed from the ground up to be naturally responsive.\
 Column widths and gaps are defined using percentages, so they are flexible and scale with any screen size on any device.\
 \
 \
-graceful fallback for unsupported features\
 \
 \
-Cel uses a hybrid inline-block / flexbox implementation.\
+\
+\
 \
 Browser support includes:\
 \
@@ -65,66 +65,17 @@ Browser support\
 \
 \
 \
-About
-\b0\fs24 \
-\
-\
-There are many CSS frameworks currently available and most of them seem to be copies of each other. They are geared towards designers and are based on 12 and 16 column grids. They are also accompanied by a downloadable photoshop file.\
-\
-\
-Cel is designed to be simple, powerful and designed with the front-end developers in mind since that is who will be using it.\
-\
-\
-\
-\
-I personally find this approach a bit too rigid and not developer friendly especially for responsive needs.\
-\
-\
-\
-\
-\
-\
-\
-I personally find the class names either to long or to cryptic.\
-\
-\
-\
-\
-\
-\
-Cel is designed to be simple, powerful and designed with the front-end developers in mind since that is who will be using it.\
-\
-There is no photoshop file to download\
-\
-\
-It is designed from the ground up to be responsive and \
-\
-\
-\
-\
-\
-\
-\
-\
-There are many differences between cels approach and other CSS frameworks.\
-\
-Outside of the class cel that is applied to columns all controlling classes are applied to the parent element. \
-\
-\
-\
-\
-\
-\
-\
-If you would like to become a cel contributor, please read the \ul project guidelines\ulnone .\
-\
-\
-\
-\
-\
-\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
-\b\fs48 License
+\b0\fs24 \cf0 \
+\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b\fs48 \cf0 License
 \b0\fs24 \
 \
 Cel is owned and maintained by Mark Wise. It is released under the MIT License.\
@@ -407,30 +358,40 @@ split, cel\
 The classes \cb2 split\cb1  and \cb2 cel\cb1  are the only required classes in the cel library. The class cel is added to columns and split is added to the columns' parent.\
 \
 \
-The cel framework can be used to create layouts in two ways, authored and structured. \
+Split by itself creates a generic layout.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 Split by itself creates a generic layout the can be modified by the author or refined using helper classes.\
 \
 \
-Authored layouts use a subset of cel helper classes and allow the author to define column widths and gap sizes.\
+The default horizontal alignment is justify, columns (cels) are distributed evenly across their parent.\
 \
-This context provides the most flexibility and allows the author to work outside the cel framework.\
-\
-\
-With structured layouts, column widths, gap sizes and other layout characteristics are controlled entirely by cel helper classes.\
-\
-Since helper classes are the strength in the cel framework, it is always recommended to define layouts before authoring your own.\
-\
-\
-\
-\
-Split by itself creates a generic layout that can be used with helper classes to further refine a layout.\
+The default vertical alignment is top.\
 \
 \
 \
 \
-default horizontal alignment\
 \
 \
-default vertical alignment\
+ with helper classes to further refine a layout.\
+\
+\
+\
+\
+Split by itself creates a generic layout that can be modified by the author to \
+\
+ with helper classes to further refine a layout.\
+\
+\
+Adding the class split to an element creates a generic layout that can either be modified by the author or refined using cel helper classes.\
+\
+\
+\
+\
+The default horizontal alignment is justify, columns (cels) are distributed evenly across their parent.\
+\
+The default vertical alignment is top.\
+\
 \
 \
 describe default characteristics\
@@ -509,13 +470,6 @@ or\
 The class \cb2 by\cb1  is used to define a structured layout.\
 \
 Widths, gaps and other layout characteristics are controlled entirely by cel helper classes.\
-\
-If using by to define a layout, you should never override widths\
-\
-\
-\
-\
-\
 \
 \
 This class has no default value and requires an argument expressed as an integer or a fraction. \
@@ -604,7 +558,7 @@ with-gap:
 \
 The class \cb2 with-gap\cb1  adds horizontal space between columns.\
 \
-This class has no default value and requires an integer as an argument.\
+With-gap has no default value and requires an integer as an argument.\
 \
 The integer represents a percentage of the split element's width and supports gap sizes up to 5%.\
 \
@@ -633,8 +587,7 @@ To add a 1% gap between columns, pass the value 1 as an argument to the class.\
 	<div class="cel">B</div>\
 </div>\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
-\cf0 To add a 2% gap between columns, pass the value 2 as an argument to the class.\
+To add a 2% gap between columns, pass the value 2 as an argument to the class.\
 \
 <div class="split with-gap:2">\
 	<div class="cel">A</div>\
@@ -655,7 +608,7 @@ align:\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
 
 \b0\fs24 \cf0 \
-The class \cb2 align\cb1  can be used to change the horizontal and vertical alignment of columns (cels). The default horizontal alignment is justify, which distributes columns evenly across their parent. The default vertical alignment is stretch (equal heights) for browsers that use a flexbox implementation, otherwise the default is top.\
+The class \cb2 align\cb1  can be used to change the horizontal and vertical alignment of columns (cels). The default horizontal alignment is justify, which distributes columns evenly across their parent. The default vertical alignment is top.\
 \
 Align accepts a string as an argument to the class. If the value is one or more h's, alignment will be horizontal. If the value is one or more v's alignment will be vertical. The number of h's or v's corresponds to the alignment position.\
 \
