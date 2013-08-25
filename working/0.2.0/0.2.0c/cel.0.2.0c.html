@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+	<link type="text/css" rel="stylesheet" href="cel.0.2.0c.css">
+	<style>
+	
+	    [class*='split'] {
+	        /* border:1px solid #ccc; */
+	        /* padding:13px; */
+	        /* width:500px; */
+	        /* max-width:960px; */
+	        background:#eee;
+	        /* background:#ccc; */
+	        /* margin:0 5em; */
+	        /* padding:25px; */
+	        /* max-width:960px; */
+	        /* word-spacing:.25em; */
+	        /* letter-spacing:-.25em; */
+	        
+	    }
+	    
+	    /*
+	    .split>:first-child{background:#009966}
+	    .split>:first-child+*{background:#33ad85}
+	    .split>:first-child+*+*{background:#66c2a3}
+	    .split>:first-child+*+*+*{background:#99d6c2}
+	    .split>:first-child+*+*+*+*{background:#ccebe0}
+	    */
+	    
+	    [class*='split']>.cel:first-child{background:#009999}
+	    [class*='split']>.cel:first-child~.cel{background:#33adad}
+	    [class*='split']>.cel:first-child~.cel~.cel{background:#66c2c2}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel{background:#99d6d6}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel{background:#ccebeb}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel~.cel{background:#009999}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel~.cel~.cel{background:#33adad}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel~.cel~.cel~.cel{background:#66c2c2}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel~.cel~.cel~.cel~.cel{background:#99d6d6}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel~.cel~.cel~.cel~.cel~.cel{background:#ccebeb}
+	
+	    .cel-line {
+	        /* border-width:5px; */
+	        /* border-color:blue; */
+	        /* border-style:dotted; */
+	        /* border:2px solid blue; */
+	        /* padding:0 !important; */
+	    }
+	   
+	    .cel{
+	        /* margin-top:1em; */
+	        /* border-right:1px solid red; */
+	        /* margin-left:1em; */
+	        /* padding-left:5px; */
+	        border:1px solid blue;
+	        /* width:40%; */
+	    }
+	    
+	    
+	    
+	    
+	    
+	</style>
+	<script type="text/javascript" src="cel.0.2.0c.js"></script>
+</head>
+<body>
+    
+    <div class="split by:3/2 with-gap:1 flip">
+        <div class="cel">A</div>
+        <div class="cel-line"></div>
+        <div class="cel">B<br>B</div>
+    </div>
+    
+    
+    
+   
+    
+
+</body>
+</html>
