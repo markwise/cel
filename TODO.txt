@@ -1,0 +1,63 @@
+remove list styling from split and cel elements that are lists
+    padding, margins, list-style
+    
+find a way to not use important for removing cel widths in responsive
+
+add in horizontal alignment with gaps
+    remove white-space between elements
+    
+add display:block to split element
+
+should I add position:relative to split or cels?
+
+explore creating custom elements
+    <split>
+        <cel></cel>
+        <line>
+        <cel></cel>
+    </split>
+    
+    <layout class="split by:2">
+        <cel></cel>
+        <line>
+        <cel></cel>
+    </layout>
+    
+    
+add support for 9 equal width columns
+
+
+add support for 3 column layout variations
+    by:1/2/1
+    ...etc
+
+
+
+cel lines
+    
+    should support the 5 scenarios of adjusting cel lines height
+        on domready
+        window resize
+        element resize
+        initially hidden (display:none) then shown
+        inserted with innerHTML or appendChild
+            when a node is inserted check cel lines length
+    
+    ability to style using border properties and background
+        custom dotted cel lines
+	    gradient cel lines
+	    background images with cel lines
+	
+	explore using custom element for cel lines instead of applying the class
+	cel-line to an empty <div> element
+	    <divider>
+	    <line>
+	    <cel-line>
+	    
+    Be able to use cel lines with grid layouts
+	
+	
+	
+	
+	
+	

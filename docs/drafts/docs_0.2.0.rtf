@@ -1,11 +1,36 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf510
-{\fonttbl\f0\fswiss\fcharset0 ArialMT;}
-{\colortbl;\red255\green255\blue255;\red26\green26\blue26;\red163\green217\blue121;}
-\margl1440\margr1440\vieww13960\viewh17360\viewkind0
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;\red26\green26\blue26;\red230\green230\blue230;\red230\green230\blue230;
+}
+\margl1440\margr1440\vieww14460\viewh17160\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
 \f0\fs30 \cf2 \
 0.2.0 docs\
+\
+cel\
+	about\
+	browser support\
+	downloads\
+	license\
+setup\
+nickel tour\
+classes\
+	split, cel\
+	by\
+	with-gap\
+	align\
+	flip\
+	cel-line\
+nested layouts\
+grid layouts\
+responsive layouts\
+layout contexts\
+	authored\
+	structured\
+\
+\
+\
 \
 This project is actively developed and is subject to change based on work toward the 1.0.0 release.\
 
@@ -54,22 +79,18 @@ Android 2.1+ (flexbox)\
 \
 \
 \
-\ul \ulc0 Download the 0.2.0 release\ulnone \
+Download the 0.2.0 release\
 \
-\ul View the 0.2.0 release\ulnone \
+View the 0.2.0 release\
 \
-\ul View the 0.2.0 docs\ulnone \
+View the 0.2.0 docs\
 \
-\ul Changelog\ulnone \
+Changelog\
 \
-\ul Todo's\ulnone \
+Todo's\
 
 \b \
 \
-Browser support\
-\
-\
-\
 
 \b0 \
 \
@@ -78,96 +99,582 @@ Browser support\
 \
 \
 
-\b License
-\b0 \
+\b\fs48 License
+\b0\fs30 \
 \
 Cel is owned and maintained by Mark Wise. It is released under the MIT License.\
 \
 \
-\
-\
-\
-\
-\
-cel\
-	about\
-	browser support\
-	downloads\
-	license\
-motivation\
-setup\
-nickel tour\
-syntax\
-layout contexts\
-	authored\
-	structured\
-layout types\
-	static layouts\
-	responsive layouts\
-	grid layouts\
-	nested layouts\
-classes\
-	split\
-	cel\
-	by\
-	with-gap\
-	align\
-	flip\
-	cel-line\
-	hide~\
-	show~\
-\
-\
 
 \b \
 \
-Classes
+\
+
 \b0 \
 \
-There are five classes, two core class and three helper classes. Skip ahead to learn more or take the nickel tour below.\
 \
-split, cel\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\f1 \cf2 \
+\
+--------------------------------------------------------------------------------
+\f0 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b\fs48 \cf2 Classes
+\b0\fs30 \
+\
+Cel is comprised of seven core classes that include:\
+\
+split\
+cel\
 by\
-with-gap\
+with-gap	\
 align\
 flip\
+cel-line\
 \
+The classes split and cel are required and the rest are optional (helper) classes.\
 \
-\
-\
-\
+There are two additional classes show and hide that are not part of the core set of classes. They are discussed in the documentation describing responsive layouts.\
 
-\b nickel tour
+\b\fs48 \
+\
+split, cel
+\fs30 \
+
 \b0 \
+The class split defines a layout and the class cel defines a column within a layout.\
 \
-By itself, split creates a generic layout that can be modified outside the cel framework and/or further refined with helper classes as described in the following sections.\
+
+\b ex:
+\b0 \
+To create a layout, add the class cel to columns and the class split to the columns' parent.\
 \
-Layouts can also be nested, built into grids and setup to respond to various screen sizes\
+\cb3 <div class="split">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+</div>\
+\cb1 \
+Columns are created by setting the element's display type to inline-block. This allows width and height values to be set and columns to be manipulated by text properties, such as text-align, vertical-align and text-direction, all of which are used throughout the cel framework.\
 \
-See layouts.\
+The default horizontal alignment of columns is justify and cannot be changed with a helper class and should not be changed outside the cel framework. Cel relies on justified alignment to keep the first and last columns of each line flush with left and right edges of a layout while distributing additional columns evenly across the remaining space. This provides a natural way to create gaps between columns without using margins or positioning.\
+\
+The default vertical alignment of columns is top and can be changed with the helper class align.\
+\
+The default orientation of columns is left to right and can be changed with the helper class flip to reverse the order of columns in the rendered page.
+\b\fs48 \
 \
 \
+by:<columns|ratio>
+\b0\fs30 \
 \
-Layout contexts\
-	authored\
-	structured\
+The class by creates a structured layout context in which the cel framework defines column widths and should not be overridden.\
 \
-Layout types\
-	static layouts\
-	responsive layouts\
-	grid layouts\
-	nested layouts\
+By requires an argument expressed as an integer or a fraction. If the argument is an integer, column widths will be split evenly by that value. If the argument is a fraction, column widths will be split by a ratio based on that value.\
 \
+Cel supports up to five equal width columns and six ratios that affect two column layouts.\
+\
+If the argument is an integer:\
+\
+
+\b by:2
+\b0 		two equal width columns\
+
+\b by:3
+\b0 		three equal width columns\
+
+\b by:4
+\b0 		four equal width columns\
+
+\b by:5
+\b0 		five equal width columns\
+\
+If the argument is a fraction:\
+\
+
+\b by:1/2	
+\b0 column two is 2x the size of column one\
+
+\b by:2/1
+\b0 	column one is 2x the size of column two\
+
+\b by:1/3
+\b0 	column two is 3x the size of column one\
+
+\b by:3/1
+\b0 	column one is 3x the size of column two\
+
+\b by:2/3
+\b0 	column two is 1/3 wider than column one\
+
+\b by:3/2
+\b0 	column one is 1/3 wider than column two\
+\
+
+\b ex:
+\b0 \
+To define a layout with three equal width columns, add the class by:3 to a layout.\
+\
+\cb3 <div class="split by:3">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+</div>\
+\cb1 \
+
+\b ex:
+\b0 \
+The following layout defines column widths by a ratio of 2 to 1. Column A is 2x the width of column B.\
+\
+\cb3 <div class="split by:2/1">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+</div>\
+
+\b\fs48 \cb1 \
+\
+with-gap:<percent>
+\b0\fs30 \
+\
+The class with-gap adds horizontal space between columns and can only be used in combination with the helper class by.\
+\
+With-gap requires an argument expressed as an integer that represents a percentage of a layout's width. Cel supports gap sizes up to 5%.\
+\
+Supported values include:\
+\
+
+\b with-gap:1
+\b0 	1% gap\
+
+\b with-gap:2
+\b0 	2% gap\
+
+\b with-gap:3
+\b0 	3% gap\
+
+\b with-gap:4
+\b0 	4% gap\
+
+\b with-gap:5
+\b0 	5% gap\
+\
+
+\b ex:
+\b0 \
+To add a 1% gap between columns, pass the value 1 as an argument to the class.\
+\
+\cb3 <div class="split by:3 with-gap:1">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+</div>\
+
+\b\fs48 \cb1 \
+\
+align:<vertical>
+\fs30 \
+
+\b0 \
+The class align is used to change the vertical alignment of columns.\
+\
+Align requires an argument and can be the values top, middle and bottom, which correspond to CSS vertical-align property values. Columns are initially aligned top.\
+\
+An alternate syntax can be used by specifying the first letter of a value only, e.g. align:m instead of align:middle. This provides a shorter more succinct syntax.\
+\
+Supported values include:\
+\
+
+\b align:top | t		
+\b0 Columns top edges are aligned\
+
+\b align:middle | m	
+\b0 Columns center points are aligned\
+
+\b align:bottom | b	
+\b0 Columns bottom edges are aligned\
 
 \b \
+ex:
+\b0 \
+To align columns to their center points, add the class align:middle to a layout.\
+\
+\cb3 <div class="split align:middle">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+</div>\
+\cb1 \
+Using the alternate syntax it would be:\
+\
+\cb3 <div class="split align:m">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+</div>\
 
-\b0 Adding the class split to an element defines a layout. More specifically, it defines an authored layout context.\
+\b\fs48 \cb1 \
+\
+flip
+\b0\fs30 \
+\
+The class flip is used to reverse the column order in the rendered page.\
+\
 
-\b \
+\b ex:\
+
+\b0 To reverse the column order, add the class flip to a layout.
+\b  
+\b0 When the page is rendered, the columns will be ordered from left to right C, B, A.\
+\
+\cb3 <div class="split flip">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+</div>\
+
+\b\fs48 \cb1 \
+\
+cel-line
+\b0\fs30 \
+\
+The class cel-line is used to create a vertical line divider.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\i \cf2 Note that cel lines can't be used with grid layouts (layouts that span multiple lines).\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\i0\b\fs34 \cf2 \
+
+\b0\fs30 Cel lines are created by adding the class cel-line to an empty <div> element and are typically placed between columns, but can be added anywhere within a layout.\
+\
+
+\b ex:
+\i\b0 \
+
+\i0 The following layout has two cel lines, one between each column.\
+\
+\cb4 <div class="split by:3 with-gap:5">\
+	<div class="cel">A</div>\
+	<div class="cel-line"></div>\
+	<div class="cel">B</div>\
+	<div class="cel-line"></div>\
+	<div class="cel">C</div>\
+</div>\
+\cb1 \
+
+\b ex:
+\b0 \
+The following layout has four cel lines, one before column A, after column C and in between columns.\
+\
+\cb3 <div class="split by:3 with-gap:5">\
+	<div class="cel-line"></div>\
+	<div class="cel">A</div>\
+	<div class="cel-line"></div>\
+	<div class="cel">B</div>\
+	<div class="cel-line"></div>\
+	<div class="cel">C</div>\
+	<div class="cel-line"></div>\
+</div>\
+\cb1 \
+
+\b ex:
+\b0 \
+The following layout has one cel line between columns A and B.\
+\
+\cb3 <div class="split by:3 with-gap:5">\
+	<div class="cel">A</div>\
+	<div class="cel-line"></div>\
+	<div class="cel">B</div\
+	<div class="cel">C</div>\
+</div>\
+\cb1 \
+Because cel lines take up horizontal space, there can be as many cel lines added to a layout as space permits before columns and/or cel lines begin to wrap.\
+\
+Wrapping is typically caused by column widths that add up to 100%, meaning columns will be flush without space to accommodate cel lines.\
+\
+
+\b ex:
+\b0 \
+The following three column layout is defined without gap spacing causing column C to wrap.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb4 <div class="split by:3">\
+	<div class="cel">A</div>\
+	<div class="cel-line"></div>\
+	<div class="cel">B</div\
+	<div class="cel-line"></div>\
+	<div class="cel">C</div>\
+</div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b\fs34 \cf2 \cb1 \
+Customizing line styles
+\b0\fs30 \
+\
+Cel lines use border style properties and have the default style border:1px solid #ccc. These styles can be changed globally or on a per instance basis.\
+\
+
+\i Note that only border style properties should be modified. Modifying other properties may produce unexpected results.
+\i0 \
+\
+
+\b ex:
+\b0 \
+To globally change styles, create a new style rule anywhere after the inclusion of the cel stylesheet that targets the class cel-line directly.\
+\
+\cb3 <style>\
+	.cel-line \{\
+		border-style:dotted;\
+		border-color:blue;\
+	\}\
+</style>\
+\cb1 \
+
+\b ex:
+\b0 \
+The width of a cel lines can also be changed. However, be mindful of available space especially when the window is resized as this can cause columns and/or cel lines to wrap.\
+\
+\cb3 <style>\
+	.cel-line \{\
+		border-width:3px;\
+	\}\
+</style>\
+\cb1 \
+
+\b ex:
+\b0 \
+The border style short syntax can be also used when setting all three border properties.\
+\
+\cb3 <style>\
+	.cel-line \{\
+		border:3px dotted blue;\
+	\}\
+</style>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\f1 \cf2 \cb1 \
 \
 \
+--------------------------------------------------------------------------------
+\f0 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
-\fs48 Layout contexts
+\b\fs48 \cf2 Nested layouts
+\fs30 \
+\
+
+\b0 A layouts structure can be nested to create complex layouts as shown below.\
+\
+can be nested an unlimited number of times\
+\
+doesn't make sense to nest to far as the columns get to small\
+\
+gap sizes must be increased the smaller the columns to make them useful\
+\
+\
+<div class="split">\
+	<div class="cel">\
+		<div class="split">\
+			<div class="cel">A1</div>\
+			<div class="cel">A2</div>\
+		</div>\
+	</div>\
+	<div class="cel"></div>\
+</div>\
+\
+Columns, however, cannot be split elements.\
+\
+not\
+\
+<div class="split">\
+	<div class="cel split">\
+		<div class="cel">A1</div>\
+		<div class="cel">A2</div>\
+	</div>\
+	<div class="cel">B</div>\
+</div>\
+\
+or\
+\
+<div class="split">\
+	<div class="split">\
+		<div class="cel">A1</div>\
+		<div class="cel">A2</div>\
+	</div>\
+	<div class="cel">B</div>\
+</div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\f1 \cf2 \
+\
+\
+--------------------------------------------------------------------------------
+\f0 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b\fs48 \cf2 Grid layouts
+\b0\fs30 \
+\
+Grid layouts are layouts that span multiple lines.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\i \cf2 Note that cel lines have erratic rendering when used with grid layouts and cannot be used.
+\i0 \cf2 \
+\
+Grids are created by adding more columns to a layout than defined with the class by causing additional columns to wrap. Because columns are inline-block elements, they are treated like normal runs of text. If there is not enough space to fit a column on a line, it wraps to the next line.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b \cf2 ex:
+\b0 \
+To create a 4x4 grid with equal width columns, add the class by:2 to a layout with four columns.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb4 <div class="split by:2">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+	<div class="cel">D</div>\
+</div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
+
+\b ex:
+\b0 \
+To create a 4x4 grid with offset column widths, add the class by:1/2 to a layout with four columns.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb4 <div class="split by:1/2">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+	<div class="cel">D</div>\
+</div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b\fs34 \cf2 Empty columns
+\b0\fs30 \cf2 \
+\
+Columns are horizontally aligned using text-align:justify and are always distributed evenly across a layout. This can affect the last line of a grid layout where columns will not be aligned next to each other as you might expect.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b \cf2 ex:
+\b0 \
+The following three column grid layout has two columns on the last line. Column D will be flush with the layouts left edge and column E will be flush with the layouts right edge.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb4 <div class="split by:3">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+	<div class="cel">D</div>\
+	<div class="cel">E</div>\
+</div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
+To remedy this, add an empty column to the layout, so the number columns on the last line matches the expected number of columns per line. \
+\
+
+\b ex:
+\b0 \
+An empty column is added after column E aligning columns D and E left.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb4 <div class="split by:3">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+	<div class="cel">D</div>\
+	<div class="cel">E</div>\
+	<div class="cel"></div>\
+</div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
+
+\b ex:
+\b0 \
+An empty column is added after column C aligning columns D and E right.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb4 <div class="split by:3">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+	<div class="cel"></div>\
+	<div class="cel">D</div>\
+	<div class="cel">E</div>\
+</div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\f1 \cf2 --------------------------------------------------------------------------------
+\f0 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b\fs48 \cf2 Responsive layouts
+\b0\fs30 \
+\
+Cel supports responsive screen sizes from 480 to 960 in increments of 20. \
+\
+The class split has an alternate syntax. Adding a tilde (~) followed by a supported screen size to the class split creates a responsive layout, e.g. split~720.\
+\
+The following layout will respond to screen sizes less than or equal to 720.\
+\
+<div class="split~720 by:3">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel">C</div>\
+</div>\
+\
+The tilde (~) has special meaning and is a responsive hook. When added to the class split, it tells a layout to respond if the screen size is less than or equal to the supplied screen size argument.\
+\
+In addition, cel can also show and hide elements. The class show~ initially hides elements until the layout responds to a screen size, whereas, the class hide~ initially shows elements.\
+\
+To hide cels when a layout responds, add the class hide~ to cels you want to hide.\
+\
+<div class="split~720 by:3">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel hide~">C</div>\
+</div>\
+\
+To show cels when a layout responds, add the class show~ to cels you want to show.\
+\
+<div class="split~720 by:3">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel show~">C</div>\
+</div>\
+\
+The following example hides cel C and shows cel D.\
+\
+<div class="split~720 by:3">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel hide~">C</div>\
+	<div class="cel show~">D</div>\
+</div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\f1 \cf2 \
+\
+\
+--------------------------------------------------------------------------------
+\f0 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b\fs48 \cf2 Layout contexts
 \b0\fs30 \
 \
 Cel can be used to create layouts in two different contexts, authored and structured. \
@@ -243,382 +750,20 @@ Structured layouts
 \b0 \
 \
 Structured layouts are created using the by helper class and is the most common way to create a layout. \
-\
-\
-\
-\
-In this context, columns widths and gap sizes are controlled by the cel framework and should not be overridden.\
-\
 All helper classes are available in this context.\
 \
-\
-\
-To create a structured layout context, add the helper class by:3, for instance, to a layout.\
+To create a structured layout context, add the helper class by:3, for instance, to create a three column layout.\
 \
 <div class="split by:3">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
 </div>\
+\
+Columns widths are defined and should not be overridden.\
+\
 \
 More information can be found in the section describing the by helper class.\
-\
-\
-\
-\
-\
-\
-\
-
-\b\fs48 Layout types
-\b0\fs30 \
-\
-There are four layout type in cel.\
-\
-Layout types describe a characteristic of a layout and w\
-\
-There are four layout types that include:\
-\
-\
-\
-\
-They can be used together\
-\
-\
-It is possible to have a nested layout, responsive and grid layout used together\
-\
-\
-\
-\
-\
-\
-\
-\
-
-\b Nested layouts\
-\
-
-\b0 A split element's structure can be nested to create complex layouts as shown below.\
-\
-can be nested an unlimited number of times\
-\
-doesn't make sense to nest to far as the columns get to small\
-\
-gap sizes must be increased the smaller the columns to make them useful\
-\
-\
-<div class="split">\
-	<div class="cel">\
-		<div class="split">\
-			<div class="cel">A1</div>\
-			<div class="cel">A2</div>\
-		</div>\
-	</div>\
-	<div class="cel"></div>\
-</div>\
-\
-Columns, however, cannot be split elements.\
-\
-not\
-\
-<div class="split">\
-	<div class="cel split">\
-		<div class="cel">A1</div>\
-		<div class="cel">A2</div>\
-	</div>\
-	<div class="cel">B</div>\
-</div>\
-\
-or\
-\
-<div class="split">\
-	<div class="split">\
-		<div class="cel">A1</div>\
-		<div class="cel">A2</div>\
-	</div>\
-	<div class="cel">B</div>\
-</div>\
-\
-\
-\
-\
-\
-\
-\
-\
-
-\b Responsive layouts
-\b0 \
-\
-Cel supports responsive screen sizes from 480 to 960 in increments of 20. \
-\
-The class split has an alternate syntax. Adding a tilde (~) followed by a supported screen size to the class split creates a responsive layout, e.g. split~720.\
-\
-The following layout will respond to screen sizes less than or equal to 720.\
-\
-<div class="split~720 by:3">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel">C</div>\
-</div>\
-\
-The tilde (~) has special meaning and is a responsive hook. When added to the class split, it tells a layout to respond if the screen size is less than or equal to the supplied screen size argument.\
-\
-In addition, cel can also show and hide elements. The class show~ initially hides elements until the layout responds to a screen size, whereas, the class hide~ initially shows elements.\
-\
-To hide cels when a layout responds, add the class hide~ to cels you want to hide.\
-\
-<div class="split~720 by:3">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel hide~">C</div>\
-</div>\
-\
-To show cels when a layout responds, add the class show~ to cels you want to show.\
-\
-<div class="split~720 by:3">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel show~">C</div>\
-</div>\
-\
-The following example hides cel C and shows cel D.\
-\
-<div class="split~720 by:3">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel hide~">C</div>\
-	<div class="cel show~">D</div>\
-</div>\
-\
-\
-\
-\
-\
-
-\b \
-
-\fs48 split, cel
-\fs30 \
-
-\b0 \
-The classes \cb3 split\cb1  and \cb3 cel\cb1  are the only required classes in the cel framework. Cel is added to columns (cels) and split is added to the columns' parent.\
-\
-Adding the class split to an element defines a layout. This sets the element's display type to block and guarantees a layout has a block context that will stack in the flow of the document.\
-\
-Adding the class cel to an element defines a column within a layout. Columns are created by setting the element's display type to inline-block. This allows width and height values to be set, and columns to be manipulated by text properties, such as text-align, vertical-align and text-direction, all of which are used throughout the cel framework.\
-\
-The default horizontal alignment of columns is justify and cannot be changed with a helper class and should not be changed outside the cel framework. Cel relies on justified alignment to keep the first and last columns flush with left and right edges of a layout while distributing additional columns evenly across the remaining space. This provides a natural way to create gaps between columns without using margins or positioning.\
-\
-The default vertical alignment is top and can be changed with the align helper class.\
-\
-To create a layout, add the class \cb3 cel\cb1  to columns and the class \cb3 split\cb1  to the columns' parent.\
-\
-<div class="split">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-</div>\
-
-\b\fs48 \
-\
-by:<columns|ratio>
-\b0\fs30 \
-\
-The helper class \cb3 by\cb1  is used to define columns widths. This creates a structured layout context in which the cel framework controls column widths and should not be overridden. See authored layouts for defining custom columns widths.\
-\
-By has no default value and requires an argument expressed as an integer or a fraction. If the argument is an integer, column widths will be split evenly by that value. If the argument is a fraction, column widths will be split by a ratio based on that value.\
-\
-The following layout defines three equal width columns.\
-\
-<div class="split by:3">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel">C</div>\
-</div>\
-\
-The following layout defines column widths by a ratio of 2 to 1. Column A is 2x the width of column B.\
-\
-<div class="split by:2/1">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-</div>\
-\
-Cel supports up to five equal width columns and six ratios that affect two column layouts.\
-\
-If the argument is an integer:\
-\
-
-\b by:2
-\b0 		two equal width columns\
-
-\b by:3
-\b0 		three equal width columns\
-
-\b by:4
-\b0 		four equal width columns\
-
-\b by:5
-\b0 		five equal width columns\
-\
-If the argument is a fraction:\
-\
-
-\b by:1/2	
-\b0 column two is 2x the size of column one\
-
-\b by:2/1
-\b0 	column one is 2x the size of column two\
-
-\b by:1/3
-\b0 	column two is 3x the size of column one\
-
-\b by:3/1
-\b0 	column one is 3x the size of column two\
-
-\b by:2/3
-\b0 	column two is 1/3 wider than column one\
-
-\b by:3/2
-\b0 	column one is 1/3 wider than column two\
-\
-\
-
-\b Grid layouts
-\b0 \
-\
-Grids are created by adding more columns to a layout than defined with the by helper class causing additional columns to wrap. There is nothing special going on here. Columns are inline-block elements and are treated like normal runs of text. If there is not enough space to fit a column on a line, it wraps to a new line the same as text.\
-\
-Note that cel-lines have erratic rendering when used with grid layouts and should be avoided.\
-\
-To create a 4x4 grid with equal width columns, add the class \cb3 by:2\cb1  to a layout with four columns.\
-\
-<div class="split by:2">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel">C</div>\
-	<div class="cel">D</div>\
-</div>\
-\
-To create a 4x4 grid with offset column widths, add the class \cb3 by:1/2\cb1  to a layout with four columns.\
-\
-<div class="split by:1/2">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel">C</div>\
-	<div class="cel">D</div>\
-</div>\
-\
-\
-
-\b Empty columns
-\b0 \
-\
-Since columns are horizontally aligned using text-align:justify, columns will always be distributed across a layout. This means that a three column grid layout, for instance, with two columns on the last line will not be aligned next to each other. The first columns left edge will be flush with the layouts left edge and the second columns right edge will be flush with the layouts right edge.\
-\
-To remedy this, add an empty column to the layout, so the number columns on the last line matches the number of columns specified with the by helper class.\
-
-\b\fs48 \
-\
-with-gap:<percent>
-\b0\fs30 \
-\
-The helper class \cb3 with-gap\cb1  adds horizontal space between columns and can only be used in combination with the by helper class.\
-\
-With-gap has no default value and requires an argument expressed as an integer, which represents a percentage of the layout's width.\
-\
-To add a 1% gap between columns, pass the value 1 as an argument to the class.\
-\
-<div class="split by:2 with-gap:1">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-</div>\
-\
-Cels supports gap sizes up to 5%.\
-\
-
-\b with-gap:1
-\b0 	1% gap\
-
-\b with-gap:2
-\b0 	2% gap\
-
-\b with-gap:3
-\b0 	3% gap\
-
-\b with-gap:4
-\b0 	4% gap\
-
-\b with-gap:5
-\b0 	5% gap\
-
-\b\fs48 \
-\
-align:<vertical alignment>
-\fs30 \
-
-\b0 \
-The helper class \cb3 align\cb1  is used to change the vertical alignment of columns.\
-\
-Align accepts a string as an argument to the class and can be the values 'top', 'middle' and 'bottom', which correspond to CSS vertical-align property values. The default vertical alignment is top.\
-\
-An alternate syntax can be used by specifying the first letter of a value only. For example, align:m instead of align:middle. This provides a shorter more succinct syntax.\
-\
-The following layout vertically aligns columns middle.\
-\
-<div class="split align:middle">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel">C</div>\
-</div>\
-\
-Using the alternate syntax it would be:\
-\
-<div class="split align:m">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel">C</div>\
-</div>\
-\
-Supported align values include:\
-\
-
-\b align:top		align:t	
-\b0 Columns top edges are aligned\
-
-\b align:middle	align:m	
-\b0 Columns center points are aligned\
-
-\b align:bottom	align:b	
-\b0 Columns bottom edges are aligned\
-
-\b\fs48 \
-\
-Flip
-\b0\fs30 \
-\
-The class \cb3 flip\cb1  reverses the column order in the rendered page.\
-\
-When the page is rendered, the columns will be ordered from left to right D, C, B, A.\
-\
-<div class="split flip">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel">C</div>\
-	<div class="cel">D</div>\
-</div>\
-
-\b\fs48 \
-\
-cel-line
-\b0\fs30 \
-\
-adfadfadf\
-\
-\
-\
-\
-\
-\
 \
 \
 }
