@@ -10,18 +10,28 @@ add display:block to split element
 
 should I add position:relative to split or cels?
 
-explore creating custom elements
-    <split>
-        <cel></cel>
-        <line>
-        <cel></cel>
-    </split>
+--------------------------------------------------------------------------------
+
+Explore using custom elements for internal applications.
+
+
+<split>
+    <cel></cel>
+    <line>
+    <cel></cel>
+</split>
+
+or
+
+<layout class="split by:2">
+    <cel></cel>
+    <line>
+    <cel></cel>
+</layout>
+
+not sure if we even need the class split here since that would be assummed with layout element
     
-    <layout class="split by:2">
-        <cel></cel>
-        <line>
-        <cel></cel>
-    </layout>
+    
     
     
 add support for 9 equal width columns
@@ -55,6 +65,12 @@ cel lines
 	    <cel-line>
 	    
     Be able to use cel lines with grid layouts
+	
+	
+--------------------------------------------------------------------------------	
+	
+When using the responsive classes hide or show with a layout that has cel lines
+	
 	
 	
 	

@@ -2,46 +2,25 @@
 {\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;\red26\green26\blue26;\red230\green230\blue230;\red230\green230\blue230;
 }
-\margl1440\margr1440\vieww14520\viewh17300\viewkind0
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid1\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid101\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid201\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid301\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid401\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}}
+\margl1440\margr1440\vieww14520\viewh17380\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
 \f0\fs30 \cf2 \
-0.2.0 project outline\
-\
-readme\
-	cel\
-	getting started\
-	browser support\
-\
+0.2.0 docs\
 
-\b Wiki
-\b0 \
-nickel tour\
-classes\
-	split, cel\
-	by\
-	with-gap\
-	align\
-	flip\
-	cel-line\
-nested layouts\
-grid layouts\
-responsive layouts\
-layout contexts\
-	authored\
-	structured\
-\
-changelog\
-todos\
-\
-\
-
-\b\fs48 Cel
+\b\fs48 \
+Cel
 \b0\fs30 \
 \
 Cel is a CSS framework for creating responsive layouts that are flexible and scale with any screen size on any device.\
 \
-It is owned and maintained by Mark Wise and is released under the MIT License.\
+Cel is owned and maintained by Mark Wise and is released under the MIT License.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
@@ -57,48 +36,192 @@ The current version is 0.2.0 released on 9/30/2013.\
 \
 Download the latest release\
 \
-Once downloaded, unzip the resource and there should be a folder containing four files that include the uncompressed and min versions of the latest release. The min versions should be used for production. The uncompressed versions can be discarded or used for reference.\
+Once downloaded, unzip the resource and there should be a folder containing four files that include the uncompressed and min versions of the latest release. The min versions should be used for production. The uncompressed versions can be discarded, used for reference or for development.\
 \
-cel-0.2.0.css\
-cel-0.2.0.js\
-cel-0.2.0.min.css\
-cel-0.2.0.min.js\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\sl360\slmult1\pardirnatural
+\ls1\ilvl0\cf2 {\listtext	\uc0\u9642 	}cel-0.2.0.css\
+{\listtext	\uc0\u9642 	}cel-0.2.0.js\
+{\listtext	\uc0\u9642 	}cel-0.2.0.min.css\
+{\listtext	\uc0\u9642 	}cel-0.2.0.min.js\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b\fs34 \cf2 Usage
+\b0\fs30 \
 \
-Link the css file in the head section of the document, the same as you would with any other external stylesheet. The js file can be included in the head section of the document or at the bottom of the page.\
+Link the css file in the head section of the document, the same as you would with any other external stylesheet. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <head>\
+	<title></title>\
+	<link rel="stylesheet" href="split-0.2.0.min.css">\
+</head>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
+The js file can be included in the head section of the document or at the bottom of the page.\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
 \b\fs34 \cf2 \
-Additional information
-\b0\fs30 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b0\fs30 \cf2 \cb3 <head>\
+	<title></title>\
+	<link rel="stylesheet" href="split-0.2.0.min.css">\
+	<script src="split-0.2.0.min.js"></script>\
+</head>
+\b\fs34 \cf2 \cb3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b0\fs30 \cf2 \cb1 \
+or\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <body>\
+	...\
+	<script src="split-0.2.0.min.js"></script>\
+</body>\
+</html>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b\fs48 \cf2 \cb1 \
+\
+Documentation
+\b0\fs30 \
 \
 Documentation for the current release can be found in the wiki.\
 \
 A history of improvements, added features and bug fixes can be found in the changelog.\
  \
 A running list of ideas that may be part of a future release can be found in todos. This includes potential changes to syntax, improvements to the code base, new feature requests and other completely outlandish ideas to be explored.\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
-\b\fs48 \cf2 \
+\b\fs48 \
 \
-Browser support
+Browser compatibility
 \b0\fs30 \
 \
 Supported browsers include: \
 \
-Android 2.1+\
-Chrome\
-Internet Explorer 8+\
-iOS 3.2+\
-Firefox 12+\
-Opera 4+\
-Safari 4+\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\sl360\slmult1\pardirnatural
+\ls2\ilvl0\cf2 {\listtext	\uc0\u9642 	}Android 2.1+\
+{\listtext	\uc0\u9642 	}Chrome\
+{\listtext	\uc0\u9642 	}Internet Explorer 8+\
+{\listtext	\uc0\u9642 	}iOS 3.2+\
+{\listtext	\uc0\u9642 	}Firefox 12+\
+{\listtext	\uc0\u9642 	}Opera 4+\
+{\listtext	\uc0\u9642 	}Safari 4+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\f1 \cf2 \
+\
+\
+--------------------------------------------------------------------------------\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\f0\b\fs48 \cf2 Cel Wiki
+\f1\b0\fs30 \
+\
+
+\f0 This Wiki is the official documentation for Cel, a CSS framework for creating responsive layouts that are flexible and scale with any screen size on any device.\
+\
+Cel is owned and maintained by Mark Wise and is released under the MIT License.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\i \cf2 Note that this project is actively being developed and is subject to change based on work towards the 1.0.0 release. That means syntax and current features may change or be removed in future revisions.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\i0 \cf2 \
+
+\b Areas of interest
+\b0 \
+\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\sl360\slmult1\pardirnatural
+\ls3\ilvl0\cf2 {\listtext	\uc0\u9642 	}Getting Started\
+{\listtext	\uc0\u9642 	}Classes\
+{\listtext	\uc0\u9642 	}Nested layouts\
+{\listtext	\uc0\u9642 	}Grid layouts\
+{\listtext	\uc0\u9642 	}Responsive layouts\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \
+
+\b Supported browsers
+\b0  \
+\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\sl360\slmult1\pardirnatural
+\ls4\ilvl0\cf2 {\listtext	\uc0\u9642 	}Android 2.1+\
+{\listtext	\uc0\u9642 	}Chrome\
+{\listtext	\uc0\u9642 	}Internet Explorer 8+\
+{\listtext	\uc0\u9642 	}iOS 3.2+\
+{\listtext	\uc0\u9642 	}Firefox 12+\
+{\listtext	\uc0\u9642 	}Opera 4+\
+{\listtext	\uc0\u9642 	}Safari 4+\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
 \f1 \cf2 \
 \
 \
 --------------------------------------------------------------------------------
-\f0 \cf2 \
+\f0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b\fs48 \cf2 Getting started
+\b0\fs30 \
+\
+The current version is 0.2.0 released on 9/30/2013.\
+\
+Download the latest release\
+\
+Once downloaded, unzip the resource and there should be a folder containing four files that include the uncompressed and min versions of the latest release. The min versions should be used for production. The uncompressed versions can be discarded, used for reference or for development.\
+\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\sl360\slmult1\pardirnatural
+\ls5\ilvl0\cf2 {\listtext	\uc0\u9642 	}cel-0.2.0.css\
+{\listtext	\uc0\u9642 	}cel-0.2.0.js\
+{\listtext	\uc0\u9642 	}cel-0.2.0.min.css\
+{\listtext	\uc0\u9642 	}cel-0.2.0.min.js\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b\fs34 \cf2 Usage
+\b0\fs30 \
+\
+Link the css file in the head section of the document, the same as you would with any other external stylesheet. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb4 <head>\
+	<title></title>\
+	<link rel="stylesheet" href="split-0.2.0.min.css">\
+</head>\
+\cb1 \
+The js file can be included in the head section of the document or at the bottom of the page.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b\fs34 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b0\fs30 \cf2 \cb4 <head>\
+	<title></title>\
+	<link rel="stylesheet" href="split-0.2.0.min.css">\
+	<script src="split-0.2.0.min.js"></script>\
+</head>
+\b\fs34 \
+
+\b0\fs30 \cb1 \
+or\
+\
+\cb4 <body>\
+	...\
+	<script src="split-0.2.0.min.js"></script>\
+</body>\
+</html>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\f1 \cf2 \cb1 \
+\
+\
+--------------------------------------------------------------------------------
+\f0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
 \b\fs48 \cf2 Classes
@@ -145,11 +268,13 @@ The classes split and cel are the only required classes in the Cel framework. Sp
 \b0 \
 To create a layout, add the class cel to columns and the class split to the columns' parent.\
 \
-\cb3 <div class="split">\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <div class="split">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 </div>\
-\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
 Columns are created by setting the element's display type to inline-block. This allows width and height values to be set and columns to be manipulated by text properties, such as text-align, vertical-align and text-direction, all of which are used throughout the cel framework.\
 \
 The default horizontal alignment of columns is justify and cannot be changed with a helper class and should not be changed outside the cel framework. Cel relies on justified alignment to keep the first and last columns of each line flush with left and right edges of a layout while distributing additional columns evenly across the remaining space. This provides a natural way to create gaps between columns without using margins or positioning.\
@@ -163,7 +288,7 @@ The default direction of columns is left to right and can be changed with the he
 by:<columns|ratio>
 \b0\fs30 \
 \
-The class by creates a structured layout context in which the cel framework defines column widths and should not be overridden.\
+The class by creates a structured layout context in which the cel framework defines column widths and should not be overridden. In this context, it is not safe to author column widths without affecting the core framework. If you would like to work outside Cel, don't use the helper class by.\
 \
 By requires an argument expressed as an integer or a fraction. If the argument is an integer, column widths will be split evenly by that value. If the argument is a fraction, column widths will be split by a ratio based on that value.\
 \
@@ -210,23 +335,27 @@ If the argument is a fraction:\
 \b0 \
 To define a layout with three equal width columns, add the class by:3 to a layout.\
 \
-\cb3 <div class="split by:3">\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <div class="split by:3">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
 </div>\
-\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
 
 \b ex:
 \b0 \
 The following layout defines column widths by a ratio of 2 to 1. Column A is 2x the width of column B.\
 \
-\cb3 <div class="split by:2/1">\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <div class="split by:2/1">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 </div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
-\b\fs48 \cb1 \
+\b\fs48 \cf2 \cb1 \
 \
 with-gap:<percent>
 \b0\fs30 \
@@ -258,13 +387,15 @@ Supported values include:\
 \b0 \
 To add a 1% gap between columns, pass the value 1 as an argument to the class.\
 \
-\cb3 <div class="split by:3 with-gap:1">\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <div class="split by:3 with-gap:1">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
 </div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
-\b\fs48 \cb1 \
+\b\fs48 \cf2 \cb1 \
 \
 align:<vertical>
 \fs30 \
@@ -293,21 +424,25 @@ ex:
 \b0 \
 To align columns to their center points, add the class align:middle to a layout.\
 \
-\cb3 <div class="split align:middle">\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <div class="split align:middle">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
 </div>\
-\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
 Using the alternate syntax it would be:\
 \
-\cb3 <div class="split align:m">\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <div class="split align:m">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
 </div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
-\b\fs48 \cb1 \
+\b\fs48 \cf2 \cb1 \
 \
 flip
 \b0\fs30 \
@@ -321,13 +456,15 @@ The class flip is used to change the direction of columns.\
 \b  
 \b0 When the page is rendered, the columns will be ordered from left to right C, B, A.\
 \
-\cb3 <div class="split flip">\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <div class="split flip">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
 </div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
-\b\fs48 \cb1 \
+\b\fs48 \cf2 \cb1 \
 \
 cel-line
 \b0\fs30 \
@@ -340,8 +477,9 @@ The class cel-line is used to create a vertical line divider.\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
 \i0\b\fs34 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
-\b0\fs30 Cel lines are created by adding the class cel-line to an empty <div> element and are typically placed between columns, but can be added anywhere within a layout.\
+\b0\fs30 \cf2 Cel lines are created by adding the class cel-line to an empty <div> element and are typically placed between columns, but can be added anywhere within a layout.\
 \
 
 \b ex:
@@ -349,20 +487,23 @@ The class cel-line is used to create a vertical line divider.\
 
 \i0 The following layout has two cel lines, one between each column.\
 \
-\cb4 <div class="split by:3 with-gap:5">\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <div class="split by:3 with-gap:5">\
 	<div class="cel">A</div>\
 	<div class="cel-line"></div>\
 	<div class="cel">B</div>\
 	<div class="cel-line"></div>\
 	<div class="cel">C</div>\
 </div>\
-\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
 
 \b ex:
 \b0 \
 The following layout has four cel lines, one before column A, after column C and in between columns.\
 \
-\cb3 <div class="split by:3 with-gap:5">\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <div class="split by:3 with-gap:5">\
 	<div class="cel-line"></div>\
 	<div class="cel">A</div>\
 	<div class="cel-line"></div>\
@@ -371,19 +512,22 @@ The following layout has four cel lines, one before column A, after column C and
 	<div class="cel">C</div>\
 	<div class="cel-line"></div>\
 </div>\
-\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
 
 \b ex:
 \b0 \
 The following layout has one cel line between columns A and B.\
 \
-\cb3 <div class="split by:3 with-gap:5">\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <div class="split by:3 with-gap:5">\
 	<div class="cel">A</div>\
 	<div class="cel-line"></div>\
 	<div class="cel">B</div\
 	<div class="cel">C</div>\
 </div>\
-\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
 Because cel lines take up horizontal space, there can be as many cel lines added to a layout as space permits before columns and/or cel lines begin to wrap.\
 \
 Wrapping is typically caused by column widths that add up to 100%, meaning columns will be flush without space to accommodate cel lines.\
@@ -394,7 +538,7 @@ Wrapping is typically caused by column widths that add up to 100%, meaning colum
 The following three column layout is defined without gap spacing causing column C to wrap.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
-\cf2 \cb4 <div class="split by:3">\
+\cf2 \cb3 <div class="split by:3">\
 	<div class="cel">A</div>\
 	<div class="cel-line"></div>\
 	<div class="cel">B</div\
@@ -409,39 +553,46 @@ Customizing line styles
 \
 Cel lines use border style properties and have the default style border:1px solid #ccc. These styles can be changed globally or on a per instance basis.\
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
-\i Note that only border style properties should be modified. Modifying other properties may produce unexpected results.
+\i \cf2 Note that only border style properties should be modified. Modifying other properties may produce unexpected results.
 \i0 \
 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
-\b ex:
+\b \cf2 ex:
 \b0 \
 To globally change styles, create a new style rule anywhere after the inclusion of the cel stylesheet that targets the class cel-line directly.\
 \
-\cb3 <style>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <style>\
 	.cel-line \{\
 		border-style:dotted;\
 		border-color:blue;\
 	\}\
 </style>\
-\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
 
 \b ex:
 \b0 \
 The width of a cel lines can also be changed. However, be mindful of available space especially when the window is resized as this can cause columns and/or cel lines to wrap.\
 \
-\cb3 <style>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <style>\
 	.cel-line \{\
 		border-width:3px;\
 	\}\
 </style>\
-\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
 
 \b ex:
 \b0 \
 The border style short syntax can be also used when setting all three border properties.\
 \
-\cb3 <style>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <style>\
 	.cel-line \{\
 		border:3px dotted blue;\
 	\}\
@@ -452,60 +603,61 @@ The border style short syntax can be also used when setting all three border pro
 \
 \
 --------------------------------------------------------------------------------
-\f0 \cf2 \
+\f0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
 \b\fs48 \cf2 Nested layouts
 \fs30 \
 \
 
-\b0 A layouts structure can be nested to create complex layouts as shown below.\
+\b0 A layout can be nested an unlimited number of times to create complex structures. Although it is unlikely for most designs that you will need to nest a layout more than two levels deep.\
 \
-can be nested an unlimited number of times\
+Nested layouts are created by adding a new layout as a child of a column. Cel doesn't support direct level nesting, so columns cannot be layouts.\
 \
-doesn't make sense to nest to far as the columns get to small\
+
+\b ex:
+\b0 \
+The following layout has one level of nesting.\
 \
-gap sizes must be increased the smaller the columns to make them useful\
-\
-\
-<div class="split">\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <div class="split by:2">\
 	<div class="cel">\
-		<div class="split">\
+		<div class="split by:2">\
 			<div class="cel">A1</div>\
 			<div class="cel">A2</div>\
 		</div>\
 	</div>\
-	<div class="cel"></div>\
-</div>\
-\
-Columns, however, cannot be split elements.\
-\
-not\
-\
-<div class="split">\
-	<div class="cel split">\
-		<div class="cel">A1</div>\
-		<div class="cel">A2</div>\
-	</div>\
 	<div class="cel">B</div>\
 </div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb1 \
+
+\b ex:
+\b0 \
+The following layout has two levels of nesting.\
 \
-or\
-\
-<div class="split">\
-	<div class="split">\
-		<div class="cel">A1</div>\
-		<div class="cel">A2</div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+\cf2 \cb3 <div class="split by:2">\
+	<div class="cel">\
+		<div class="split by:2">\
+			<div class="cel">\
+				<div split by:2>\
+					<div class="cel">AAA</div>\
+					<div class="cel">AAB</div>\
+				</div>\
+			</div>\
+			<div class="cel">AB</div>\
+		</div>\
 	</div>\
 	<div class="cel">B</div>\
 </div>\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
-\f1 \cf2 \
+\f1 \cf2 \cb1 \
 \
 \
 --------------------------------------------------------------------------------
-\f0 \cf2 \
+\f0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
 \b\fs48 \cf2 Grid layouts
@@ -516,7 +668,7 @@ Grid layouts are layouts that span multiple lines.\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
 \i \cf2 Note that cel lines have erratic rendering when used with grid layouts and cannot be used.
-\i0 \cf2 \
+\i0 \
 \
 Grids are created by adding more columns to a layout than defined with the class by causing additional columns to wrap. Because columns are inline-block elements, they are treated like normal runs of text. If there is not enough space to fit a column on a line, it wraps to the next line.\
 \
@@ -527,7 +679,7 @@ Grids are created by adding more columns to a layout than defined with the class
 To create a 4x4 grid with equal width columns, add the class by:2 to a layout with four columns.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
-\cf2 \cb4 <div class="split by:2">\
+\cf2 \cb3 <div class="split by:2">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
@@ -541,7 +693,7 @@ To create a 4x4 grid with equal width columns, add the class by:2 to a layout wi
 To create a 4x4 grid with offset column widths, add the class by:1/2 to a layout with four columns.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
-\cf2 \cb4 <div class="split by:1/2">\
+\cf2 \cb3 <div class="split by:1/2">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
@@ -552,7 +704,7 @@ To create a 4x4 grid with offset column widths, add the class by:1/2 to a layout
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
 \b\fs34 \cf2 Empty columns
-\b0\fs30 \cf2 \
+\b0\fs30 \
 \
 Columns are horizontally aligned using text-align:justify and are always distributed evenly across a layout. This can affect the last line of a grid layout where columns will not be aligned next to each other as you might expect.\
 \
@@ -560,10 +712,10 @@ Columns are horizontally aligned using text-align:justify and are always distrib
 
 \b \cf2 ex:
 \b0 \
-The following three column grid layout has two columns on the last line. Column D will be flush with the layouts left edge and column E will be flush with the layouts right edge.\
+The following three column grid layout has two columns on the last line. Column D will be flush with the layouts left edge and column E will be flush with the layouts right edge leaving empty space in between.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
-\cf2 \cb4 <div class="split by:3">\
+\cf2 \cb3 <div class="split by:3">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
@@ -580,7 +732,7 @@ To remedy this, add an empty column to the layout, so the number columns on the 
 An empty column is added after column E aligning columns D and E left.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
-\cf2 \cb4 <div class="split by:3">\
+\cf2 \cb3 <div class="split by:3">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
@@ -596,7 +748,7 @@ An empty column is added after column E aligning columns D and E left.\
 An empty column is added after column C aligning columns D and E right.\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
-\cf2 \cb4 <div class="split by:3">\
+\cf2 \cb3 <div class="split by:3">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
 	<div class="cel">C</div>\
@@ -611,151 +763,93 @@ An empty column is added after column C aligning columns D and E right.\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
 \f1 \cf2 --------------------------------------------------------------------------------
-\f0 \cf2 \
+\f0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
 \b\fs48 \cf2 Responsive layouts
 \b0\fs30 \
 \
-Cel supports responsive screen sizes from 480 to 960 in increments of 20. \
+Cel supports responsive screen sizes from 480 to 960 in increments of 20.\
 \
-The class split has an alternate syntax. Adding a tilde (~) followed by a supported screen size to the class split creates a responsive layout, e.g. split~720.\
-\
-The following layout will respond to screen sizes less than or equal to 720.\
-\
-<div class="split~720 by:3">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel">C</div>\
-</div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\i \cf2 Note that Cel is not tied to explicit devices, so there are no classes to distinguish between web, tablet and mobile.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\i0 \cf2 \
+Responsive layouts are created by adding a tilde (~) followed by a supported screen size to the class split. For example, split~640.\
 \
 The tilde (~) has special meaning and is a responsive hook. When added to the class split, it tells a layout to respond if the screen size is less than or equal to the supplied screen size argument.\
 \
-In addition, cel can also show and hide elements. The class show~ initially hides elements until the layout responds to a screen size, whereas, the class hide~ initially shows elements.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\i \cf2 Note that cel lines are automatically hidden when a layout responds.
+\i0 \
 \
-To hide cels when a layout responds, add the class hide~ to cels you want to hide.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\b \cf2 ex:
+\b0 \
+To create a layout that responds to a screen size of 640, add the class split~640 to a layout.\
 \
-<div class="split~720 by:3">\
+\cb4 <div class="split~640 by:3">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
-	<div class="cel hide~">C</div>\
-</div>\
-\
-To show cels when a layout responds, add the class show~ to cels you want to show.\
-\
-<div class="split~720 by:3">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel show~">C</div>\
-</div>\
-\
-The following example hides cel C and shows cel D.\
-\
-<div class="split~720 by:3">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel hide~">C</div>\
-	<div class="cel show~">D</div>\
+	<div class="cel">C</div>\
 </div>\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
-\f1 \cf2 \
-\
-\
---------------------------------------------------------------------------------
-\f0 \cf2 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
-
-\b\fs48 \cf2 Layout contexts
+\b\fs34 \cf2 \cb1 \
+Showing and hiding elements
 \b0\fs30 \
 \
-Cel can be used to create layouts in two different contexts, authored and structured. \
+In addition, Cel can also show and hide elements. The class show initially hides elements until a layout responds to a screen size, whereas, the class hide initially shows elements.\
 \
-Authored layouts use a subset of cel helper classes and allow the author to define column widths. This context provides the most flexibility and allows the author to work outside the cel framework.\
-\
-With structured layouts, column widths and gap sizes are controlled entirely by cel helper classes. Helper classes are the strength in the cel framework and it is always recommended to define structured layouts before authoring your own.\
-\
-Note that a layout will only ever be in one context or the other.\
-\
-\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
 
-\b Authored layouts
+\b \cf2 ex:
 \b0 \
+Column C will be hidden at 640.\
 \
-An authored layout is nothing more than the default state of a cel layout after adding the class cel to columns and the class split to the columns parent. The only helper classes available in this context are align and flip.\
-\
-The following layout is defined in an authored layout context.\
-\
-<div class="split">\
+\cb4 <div class="split~640 by:3">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
-	<div class="cel">C</div>\
+	<div class="cel hide">C</div>\
 </div>\
-\
-Unlike structured layouts, column widths can safely be defined without affecting the core framework.\
-\
-The following example defines a three column layout, where the first column has a width of 20%, the second column has a width of 30% and the third column has a width of 50%.\
-\
-<style>\
-	.cel:nth-child(1) \{ \
-		width:20%;\
-	\}\
-	.cel:nth-child(2) \{\
-		width:30%;\
-	\}\
-	.cel:nth-child(3) \{\
-		width:50%;\
-	\}\
-</style>\
-\
-<div class="split">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel">C</div>\
-</div>\
-\
-To add gaps between columns, set columns widths that when added together equal a value less than 100%.\
-\
-Using the above example, the following layout has a 5% gap between columns.\
-\
-<style>\
-	.cel:nth-child(1) \{\
-		width:18%;\
-	\}\
-	.cel:nth-child(2) \{\
-		width:27%;\
-	\}\
-	.cel:nth-child(3) \{\
-		width:45%;\
-	\}\
-</style>\
-\
-<div class="split">\
-	<div class="cel">A</div>\
-	<div class="cel">B</div>\
-	<div class="cel">C</div>\
-</div>\
+\cb1 \
 
-\b \
-\
-Structured layouts
+\b ex:
 \b0 \
+Column C will be visible at 640.\
 \
-Structured layouts are created using the by helper class and is the most common way to create a layout. \
-All helper classes are available in this context.\
-\
-To create a structured layout context, add the helper class by:3, for instance, to create a three column layout.\
-\
-<div class="split by:3">\
+\cb4 <div class="split~640 by:3">\
 	<div class="cel">A</div>\
 	<div class="cel">B</div>\
-	<div class="cel">C</div>\
+	<div class="cel show">C</div>\
 </div>\
+\cb1 \
+
+\b ex:
+\b0 \
+Column C will be hidden and column D will be visible at 640.\
 \
-Columns widths are defined and should not be overridden.\
+\cb4 <div class="split~640 by:3">\
+	<div class="cel">A</div>\
+	<div class="cel">B</div>\
+	<div class="cel hide">C</div>\
+	<div class="cel show">D</div>\
+</div>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\sl360\slmult1\pardirnatural
+
+\f1 \cf2 \cb1 \
 \
 \
-More information can be found in the section describing the by helper class.\
+\
+\
+\
+\
+\
+\
 \
 \
 }
