@@ -71,19 +71,57 @@ Cel supports up to five equal width columns and six ratios that affect two colum
 
 If the argument is an integer:
 
-__by:2__    two equal width columns  
-__by:3__    three equal width columns  
-__by:4__    four equal width columns  
-__by:5__    five equal width columns  
+<table>
+    <tbody>
+        <tr>
+            <td>by:2</td>
+            <td>two equal width columns</td>
+        </tr>
+        <tr>
+            <td>by:3</td>
+            <td>three equal width columns</td>
+        </tr>
+        <tr>
+            <td>by:4</td>
+            <td>four equal width columns</td>
+        </tr>
+        <tr>
+            <td>by:5</td>
+            <td>five equal width columns</td>
+        </tr>  
+    </tbody>
+</table>
 
 If the argument is a fraction:
 
-__by:1/2__	column two is 2x the size of column one  
-__by:2/1__	column one is 2x the size of column two  
-__by:1/3__	column two is 3x the size of column one  
-__by:3/1__	column one is 3x the size of column two  
-__by:2/3__	column two is 1/3 wider than column one  
-__by:3/2__	column one is 1/3 wider than column two  
+<table>
+    <tbody>
+        <tr>
+            <td>by:1/2</td>
+            <td>column two is 2x the size of column one</td>
+        </tr>
+        <tr>
+            <td>by:2/1</td>
+            <td>column one is 2x the size of column two</td>
+        </tr>  
+        <tr>
+            <td>by:1/3</td>
+            <td>column two is 3x the size of column one</td>
+        </tr>  
+        <tr>
+            <td>by:3/1</td>
+            <td>column one is 3x the size of column two</td>
+        </tr>  
+        <tr>
+            <td>by:2/3</td>
+            <td>column two is 1/3 wider than column one</td>
+        </tr>  
+        <tr>
+            <td>by:3/2</td>
+            <td>column one is 1/3 wider than column two</td>
+        </tr>    
+    </tbody>
+</table>
 
 __ex:__  
 To define a layout with three equal width columns, add the class by:3 to a layout.
@@ -115,11 +153,30 @@ With-gap requires an argument expressed as an integer that represents a percenta
 
 Supported values include:
 
-__with-gap:1__  1% gap  
-__with-gap:2__	2% gap  
-__with-gap:3__	3% gap  
-__with-gap:4__	4% gap  
-__with-gap:5__	5% gap  
+<table>
+    <tbody>
+        <tr>
+            <td>with-gap:1</td>
+            <td>1% gap</td>
+        </tr>
+        <tr>
+            <td>with-gap:2</td>
+            <td>2% gap</td>
+        </tr>
+        <tr>
+            <td>with-gap:3</td>
+            <td>3% gap</td>
+        </tr>
+        <tr>
+            <td>with-gap:4</td>
+            <td>4% gap</td>
+        </tr>
+        <tr>
+            <td>with-gap:5</td>
+            <td>5% gap</td>
+        </tr>
+    </tbody>
+</table>
 
 __ex:__  
 To add a 1% gap between columns, pass the value 1 as an argument to the class.
@@ -143,9 +200,25 @@ An alternate syntax can be used by specifying the first letter of a value only, 
 
 Supported values include:
 
-__align:top | t__	    Columns top edges are aligned  
-__align:middle | m__    Columns center points are aligned  
-__align:bottom | b__    Columns bottom edges are aligned  
+<table>
+    <tbody>
+        <tr>
+            <td>align:top</td>
+            <td>align:t</td>
+            <td>Columns top edges are aligned</td>
+        </tr>
+        <tr>
+            <td>align:middle</td>
+            <td>align:m</td>
+            <td>Columns center points are aligned</td>
+        </tr>
+        <tr>
+            <td>align:bottom</td>
+            <td>align:b</td>
+            <td>Columns bottom edges are aligned</td>
+        </tr>
+    </tbody>
+</table>
 
 __ex:__  
 To align columns to their center points, add the class align:middle to a layout.
