@@ -1,12 +1,3 @@
-# Cel
-
-Cel is a CSS framework for creating responsive layouts that are flexible and scale with any screen size on any device.
-
-Cel is owned and maintained by Mark Wise and is released under the [MIT License](LICENSE.txt).
-
-_Note that this project is actively being developed and is subject to change based on work towards the 1.0.0 release. That means syntax and current features may change or be removed in future revisions._
-
-
 # Getting started
 
 The current version is 0.2.0 released on 9/30/2013.
@@ -51,29 +42,3 @@ or
 </body>
 </html>
 ```
-
-
-# Documentation
-
-Documentation for the current release can be found in the [wiki](https://github.com/markwise/cel/wiki).
-
-A history of improvements, added features and bug fixes can be found in the [changelog](changelog.md).
-
-A running list of ideas that may be part of a future release can be found in [todos](todos.txt). This includes potential changes to syntax, improvements to the code base, new feature requests and other completely outlandish ideas to be explored.
-
-
-# Browser compatibility
-
-Supported browsers include:
-
-- Android 2.1+
-- Chrome
-- Internet Explorer 8+
-- iOS 3.2+
-- Firefox 12+
-- Opera 4+
-- Safari 4+
-
-
-
-
