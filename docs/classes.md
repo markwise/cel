@@ -14,7 +14,7 @@ __[cel-line](#cel-line)__ 	Creates a vertical line divider between columns
 <table>
     <tbody>
         <tr>
-            <td>__[split](#split-cel)__</td>
+            <td><a href="#split-cel"><strong>split</strong></a></td>
             <td>Defines a layout</td>
         </tr>
         <tr>
