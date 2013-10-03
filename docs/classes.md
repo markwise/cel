@@ -2,15 +2,6 @@
 
 Cel is comprised of seven core classes that include:
 
- 		
-__[cel](#split-cel)__ 		Defines a column within a layout  
-__[by](#by)__ 		    Sets column widths  
-__[with-gap](#with-gap)__ 	Adds horizontal space between columns  
-__[align](#align)__ 	    Changes the vertical alignment of columns  
-__[flip](#flip)__ 		Changes the direction of columns  
-__[cel-line](#cel-line)__ 	Creates a vertical line divider between columns
-
-
 <table>
     <tbody>
         <tr>
@@ -18,33 +9,32 @@ __[cel-line](#cel-line)__ 	Creates a vertical line divider between columns
             <td>Defines a layout</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td><a href="#split-cel"><strong>cel</strong></a></td>
+            <td>Defines a column within a layout</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td><a href="#by"><strong>by</strong></a></td>
+            <td>Sets column widths</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td><a href="#with-gap"><strong>with-gap</strong></a></td>
+            <td>Adds horizontal space between columns</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td><a href="#align"><strong>align</strong></a></td>
+            <td>Changes the vertical alignment of columns</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td><a href="#flip"><strong>flip</strong></a></td>
+            <td>Changes the direction of columns</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td><a href="#cel-line"><strong>cel-line</strong></a></td>
+            <td>Creates a vertical line divider between columns</td>
         </tr>
     </tbody>
 </table>
  
-
 There are two additional classes, show and hide that are not part of the core set of classes. They are discussed in the documentation describing responsive layouts.
 
 
