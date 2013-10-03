@@ -74,19 +74,19 @@ If the argument is an integer:
 <table>
     <tbody>
         <tr>
-            <td>by:2</td>
+            <td><strong>by:2</strong></td>
             <td>two equal width columns</td>
         </tr>
         <tr>
-            <td>by:3</td>
+            <td><strong>by:3</strong></td>
             <td>three equal width columns</td>
         </tr>
         <tr>
-            <td>by:4</td>
+            <td><strong>by:4</strong></td>
             <td>four equal width columns</td>
         </tr>
         <tr>
-            <td>by:5</td>
+            <td><strong>by:5</strong></td>
             <td>five equal width columns</td>
         </tr>  
     </tbody>
@@ -97,27 +97,27 @@ If the argument is a fraction:
 <table>
     <tbody>
         <tr>
-            <td>by:1/2</td>
+            <td><strong>by:1/2</strong></td>
             <td>column two is 2x the size of column one</td>
         </tr>
         <tr>
-            <td>by:2/1</td>
+            <td><strong>by:2/1</strong></td>
             <td>column one is 2x the size of column two</td>
         </tr>  
         <tr>
-            <td>by:1/3</td>
+            <td><strong>by:1/3</strong></td>
             <td>column two is 3x the size of column one</td>
         </tr>  
         <tr>
-            <td>by:3/1</td>
+            <td><strong>by:3/1</strong></td>
             <td>column one is 3x the size of column two</td>
         </tr>  
         <tr>
-            <td>by:2/3</td>
+            <td><strong>by:2/3</strong></td>
             <td>column two is 1/3 wider than column one</td>
         </tr>  
         <tr>
-            <td>by:3/2</td>
+            <td><strong>by:3/2</strong></td>
             <td>column one is 1/3 wider than column two</td>
         </tr>    
     </tbody>
@@ -156,23 +156,23 @@ Supported values include:
 <table>
     <tbody>
         <tr>
-            <td>with-gap:1</td>
+            <td><strong>with-gap:1</strong></td>
             <td>1% gap</td>
         </tr>
         <tr>
-            <td>with-gap:2</td>
+            <td><strong>with-gap:2</strong></td>
             <td>2% gap</td>
         </tr>
         <tr>
-            <td>with-gap:3</td>
+            <td><strong>with-gap:3</strong></td>
             <td>3% gap</td>
         </tr>
         <tr>
-            <td>with-gap:4</td>
+            <td><strong>with-gap:4</strong></td>
             <td>4% gap</td>
         </tr>
         <tr>
-            <td>with-gap:5</td>
+            <td><strong>with-gap:5</strong></td>
             <td>5% gap</td>
         </tr>
     </tbody>
@@ -203,18 +203,18 @@ Supported values include:
 <table>
     <tbody>
         <tr>
-            <td>align:top</td>
-            <td>align:t</td>
+            <td><strong>align:top</strong></td>
+            <td><strong>align:t</strong></td>
             <td>Columns top edges are aligned</td>
         </tr>
         <tr>
-            <td>align:middle</td>
-            <td>align:m</td>
+            <td><strong>align:middle</strong></td>
+            <td><strong>align:m</strong></td>
             <td>Columns center points are aligned</td>
         </tr>
         <tr>
-            <td>align:bottom</td>
-            <td>align:b</td>
+            <td><strong>align:bottom</strong></td>
+            <td><strong>align:b</strong></td>
             <td>Columns bottom edges are aligned</td>
         </tr>
     </tbody>
