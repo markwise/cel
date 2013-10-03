@@ -2,7 +2,7 @@
 
 Cel is comprised of seven core classes that include:
 
-__[split](#split-cel)__ 		Defines a layout  
+ 		
 __[cel](#split-cel)__ 		Defines a column within a layout  
 __[by](#by)__ 		    Sets column widths  
 __[with-gap](#with-gap)__ 	Adds horizontal space between columns  
@@ -14,12 +14,32 @@ __[cel-line](#cel-line)__ 	Creates a vertical line divider between columns
 <table>
     <tbody>
         <tr>
-            <td>asdf</td>
-            <td> jsdf jasj dfkjaskdfjkdf</td>
+            <td>__[split](#split-cel)__</td>
+            <td>Defines a layout</td>
         </tr>
         <tr>
-            <td>a</td>
-            <td>b</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
         </tr>
     </tbody>
 </table>
