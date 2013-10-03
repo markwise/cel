@@ -8,7 +8,22 @@ __[by](#by)__ 		    Sets column widths
 __[with-gap](#with-gap)__ 	Adds horizontal space between columns  
 __[align](#align)__ 	    Changes the vertical alignment of columns  
 __[flip](#flip)__ 		Changes the direction of columns  
-__[cel-line](#cel-line)__ 	Creates a vertical line divider between columns  
+__[cel-line](#cel-line)__ 	Creates a vertical line divider between columns
+
+
+<table>
+    <tbody>
+        <tr>
+            <td>asdf</td>
+            <td> jsdf jasj dfkjaskdfjkdf</td>
+        </tr>
+        <tr>
+            <td>a</td>
+            <td>b</td>
+        </tr>
+    </tbody>
+</table>
+ 
 
 There are two additional classes, show and hide that are not part of the core set of classes. They are discussed in the documentation describing responsive layouts.
 
