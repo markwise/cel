@@ -1,19 +1,36 @@
-remove list styling from split and cel elements that are lists
-    padding, margins, list-style
-    
-find a way to not use important for removing cel widths in responsive
+TODO's are a running list of ideas that may be part of a future release. This includes potential changes to syntax, improvements to the code base, new feature requests and other completely outlandish ideas to be explored.
 
-add in horizontal alignment with gaps
-    remove white-space between elements
-    
-add display:block to split element
 
-should I add position:relative to split or cels?
+This list is random and not ordered.
+
+--------------------------------------------------------------------------------
+
+Remove list-style, margins and padding from split and cel elements that are lists.
+
+--------------------------------------------------------------------------------
+
+Make a layout's display block.    
+
+--------------------------------------------------------------------------------
+
+Allow columns to be horizontally aligned with gaps
+
+Need to find a way to remove white space between columns. This might done on
+DOM ready via JavaScript.
+
+The class with-gap will need to support horizontal alignments using percentages.
+
+
+--------------------------------------------------------------------------------
+
+Should a layout and/or columns be position relative?
 
 --------------------------------------------------------------------------------
 
 Explore using custom elements for internal applications.
 
+
+This could be.
 
 <split>
     <cel></cel>
@@ -31,17 +48,22 @@ or
 
 not sure if we even need the class split here since that would be assummed with layout element
     
+--------------------------------------------------------------------------------
     
-    
-    
-add support for 9 equal width columns
+Add support for 9 equal width columns.
 
+--------------------------------------------------------------------------------
 
-add support for 3 column layout variations
+Add support for more layout variations.
+    
     by:1/2/1
-    ...etc
-
-
+    by:2/1/1
+    by:1/1/2
+    
+    etc...
+    
+    
+--------------------------------------------------------------------------------
 
 cel lines
     
