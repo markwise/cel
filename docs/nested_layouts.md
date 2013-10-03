@@ -6,7 +6,7 @@ Nested layouts are created by adding a new layout as a child of a column.
 
 _Note that Cel doesn't support direct level nesting, so columns cannot be layouts._
 
-__ex:__
+__ex:__  
 The following layout has one level of nesting.
 
 ```html
@@ -21,7 +21,7 @@ The following layout has one level of nesting.
 </div>
 ```
 
-__ex:__
+__ex:__  
 The following layout has two levels of nesting.
 
 ```html

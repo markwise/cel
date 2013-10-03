@@ -2,13 +2,13 @@
 
 Cel is comprised of seven core classes that include:
 
-__[split]()__ 		Defines a layout
-__[cel]()__ 		Defines a column within a layout
-__[by]()__ 		    Sets column widths
-__[with-gap]()__ 	Adds horizontal space between columns	
-__[align]()__ 	    Changes the vertical alignment of columns
-__[flip]()__ 		Changes the direction of columns
-__[cel-line]()__ 	Creates a vertical line divider between columns
+__[split](#split-cel)__ 		Defines a layout  
+__[cel](#split-cel)__ 		Defines a column within a layout  
+__[by](#by)__ 		    Sets column widths  
+__[with-gap](#with-gap)__ 	Adds horizontal space between columns  
+__[align](#align)__ 	    Changes the vertical alignment of columns  
+__[flip](#flip)__ 		Changes the direction of columns  
+__[cel-line](#cel-line)__ 	Creates a vertical line divider between columns  
 
 There are two additional classes, show and hide that are not part of the core set of classes. They are discussed in the documentation describing responsive layouts.
 
@@ -17,7 +17,7 @@ There are two additional classes, show and hide that are not part of the core se
 
 The classes split and cel are the only required classes in the Cel framework. Split defines a layout and cel defines a column within a layout.
 
-__ex:__
+__ex:__  
 To create a layout, add the class cel to columns and the class split to the columns' parent.
 
 ```html
@@ -36,7 +36,7 @@ The default vertical alignment of columns is top and can be changed with the cla
 The default direction of columns is left to right and can be changed with the class flip to reverse the order of columns in the rendered page.
 
 
-# by:<columns|ratio>
+# by
 
 The class by creates a structured layout context in which the cel framework defines column widths. In this context, it is not safe to author column widths without affecting the core framework.
 
@@ -46,21 +46,21 @@ Cel supports up to five equal width columns and six ratios that affect two colum
 
 If the argument is an integer:
 
-__by:2__    two equal width columns
-__by:3__    three equal width columns
-__by:4__    four equal width columns
-__by:5__    five equal width columns
+__by:2__    two equal width columns  
+__by:3__    three equal width columns  
+__by:4__    four equal width columns  
+__by:5__    five equal width columns  
 
 If the argument is a fraction:
 
-__by:1/2__	column two is 2x the size of column one
-__by:2/1__	column one is 2x the size of column two
-__by:1/3__	column two is 3x the size of column one
-__by:3/1__	column one is 3x the size of column two
-__by:2/3__	column two is 1/3 wider than column one
-__by:3/2__	column one is 1/3 wider than column two
+__by:1/2__	column two is 2x the size of column one  
+__by:2/1__	column one is 2x the size of column two  
+__by:1/3__	column two is 3x the size of column one  
+__by:3/1__	column one is 3x the size of column two  
+__by:2/3__	column two is 1/3 wider than column one  
+__by:3/2__	column one is 1/3 wider than column two  
 
-__ex:__
+__ex:__  
 To define a layout with three equal width columns, add the class by:3 to a layout.
 
 ```html
@@ -71,7 +71,7 @@ To define a layout with three equal width columns, add the class by:3 to a layou
 </div>
 ```
 
-__ex:__
+__ex:__  
 The following layout defines column widths by a ratio of 2 to 1. Column A is 2x the width of column B.
 
 ```html
@@ -82,7 +82,7 @@ The following layout defines column widths by a ratio of 2 to 1. Column A is 2x 
 ```
 
 
-# with-gap:<percent>
+# with-gap
 
 The class with-gap adds horizontal space between columns and can only be used in combination with the class by.
 
@@ -90,13 +90,13 @@ With-gap requires an argument expressed as an integer that represents a percenta
 
 Supported values include:
 
-__with-gap:1__  1% gap
-__with-gap:2__	2% gap
-__with-gap:3__	3% gap
-__with-gap:4__	4% gap
-__with-gap:5__	5% gap
+__with-gap:1__  1% gap  
+__with-gap:2__	2% gap  
+__with-gap:3__	3% gap  
+__with-gap:4__	4% gap  
+__with-gap:5__	5% gap  
 
-__ex:__
+__ex:__  
 To add a 1% gap between columns, pass the value 1 as an argument to the class.
 
 ```html
@@ -108,7 +108,7 @@ To add a 1% gap between columns, pass the value 1 as an argument to the class.
 ```
 
 
-# align:<vertical>
+# align
 
 The class align is used to change the vertical alignment of columns.
 
@@ -118,11 +118,11 @@ An alternate syntax can be used by specifying the first letter of a value only, 
 
 Supported values include:
 
-__align:top | t__	    Columns top edges are aligned
-__align:middle | m__    Columns center points are aligned
-__align:bottom | b__    Columns bottom edges are aligned
+__align:top | t__	    Columns top edges are aligned  
+__align:middle | m__    Columns center points are aligned  
+__align:bottom | b__    Columns bottom edges are aligned  
 
-__ex:__
+__ex:__  
 To align columns to their center points, add the class align:middle to a layout.
 
 ```html
@@ -148,7 +148,7 @@ Using the alternate syntax it would be:
 
 The class flip is used to change the direction of columns.
 
-__ex:__
+__ex:__  
 To reverse the column order, add the class flip to a layout. When the page is rendered, the columns will be ordered from left to right C, B, A.
 
 ```html
@@ -168,7 +168,7 @@ _Note that cel lines can't be used with grid layouts (layouts that span multiple
 
 Cel lines are created by adding the class cel-line to an empty <div> element and are typically placed between columns, but can be added anywhere within a layout.
 
-__ex:__
+__ex:__  
 The following layout has two cel lines, one between each column.
 
 ```html
@@ -181,7 +181,7 @@ The following layout has two cel lines, one between each column.
 </div>
 ```
 
-__ex:__
+__ex:__  
 The following layout has four cel lines, one before column A, after column C and in between columns.
 
 ```html
@@ -196,7 +196,7 @@ The following layout has four cel lines, one before column A, after column C and
 </div>
 ```
 
-__ex:__
+__ex:__  
 The following layout has one cel line between columns A and B.
 
 ```html
@@ -212,7 +212,7 @@ Because cel lines take up horizontal space, there can be as many cel lines added
 
 Wrapping is typically caused by column widths that add up to 100%, meaning columns will be flush without space to accommodate cel lines.
 
-__ex:__
+__ex:__  
 The following three column layout is defined without gap spacing causing column C to wrap.
 
 ```html
@@ -231,7 +231,7 @@ Cel lines use border style properties and have the default style border:1px soli
 
 _Note that only border style properties should be modified. Modifying other properties may produce unexpected results._
 
-__ex:__
+__ex:__  
 To globally change styles, create a new style rule anywhere after the inclusion of the cel stylesheet that targets the class cel-line directly.
 
 ```css
@@ -243,7 +243,7 @@ To globally change styles, create a new style rule anywhere after the inclusion 
 </style>
 ```
 
-__ex:__
+__ex:__  
 The width of a cel lines can also be changed. However, be mindful of available space especially when the window is resized as this can cause columns and/or cel lines to wrap.
 
 ```css
@@ -254,7 +254,7 @@ The width of a cel lines can also be changed. However, be mindful of available s
 </style>
 ```
 
-__ex:__
+__ex:__  
 The border style short syntax can be also used when setting all three border properties.
 
 ```css

@@ -10,7 +10,7 @@ The tilde (~) has special meaning and is a responsive hook. When added to the cl
 
 _Note that cel lines are automatically hidden when a layout responds._
 
-__ex:__
+__ex:__  
 To create a layout that responds to a screen size of 640, add the class split~640 to a layout.
 
 ```html
@@ -26,7 +26,7 @@ To create a layout that responds to a screen size of 640, add the class split~64
 
 In addition, Cel can also show and hide elements. The class show initially hides elements until a layout responds to a screen size, whereas, the class hide initially shows elements.
 
-__ex:__
+__ex:__  
 Column C will be hidden at 640.
 
 ```html
@@ -37,7 +37,7 @@ Column C will be hidden at 640.
 </div>
 ```
 
-__ex:__
+__ex:__  
 Column C will be visible at 640.
 
 ```html
@@ -48,7 +48,7 @@ Column C will be visible at 640.
 </div>
 ```
 
-__ex:__
+__ex:__  
 Column C will be hidden and column D will be visible at 640.
 
 ```html
