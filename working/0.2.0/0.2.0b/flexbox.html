@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+	<style>
+	    
+	    body {
+	        /* font-family:Arial; */
+	        /* font-size:14px; */
+	        /* font:14px Arial; */
+	    }
+	    
+	    /*
+	    FF12+   text-align-last
+	    FF22+   flex
+	    SA4+    flex
+	    IE8+    text-align-last
+	    IE10+   flex
+	    CH4+    flex
+	    OP12.1  flex
+	    */
+	    /*
+	    .split{
+            line-height:0;
+            text-align:justify;
+            -moz-text-align-last:justify;
+            -ms-text-align-last:justify;
+            letter-spacing:-1em;
+        }
+        */
+        /*
+        .split>.cel{
+            
+            display:inline-block;
+            -webkit-box-sizing:border-box;
+            -moz-box-sizing:border-box;
+            box-sizing:border-box;
+            min-height:100%;
+            vertical-align:top;
+            line-height:1.5;
+            text-align:left;
+            -moz-text-align-last:auto;
+            -ms-text-align-last:auto;
+            letter-spacing:normal;
+        
+        }
+        */
+      
+    
+        .split[class~='align:hh'] {
+            /* text-align:center; */
+            /* -moz-text-align-last:center; */
+            /* -ms-text-align-last:center; */
+        
+        }
+	    
+	    /* @supports */
+	    
+	    .split {
+	        display:-webkit-box;
+	        -webkit-lines:multiple;
+	        -webkit-box-lines:multiple;
+	        /* -webkit-box-orient:horizontal; */
+	        /* -webkit-box-orient:vertical; */
+	        
+	    
+	        /* -webkit-lines:multiple; */
+	        /* flex-break-before */
+	        /* flex-break-after */
+	        /* -webkit-line-clamp: */
+	    
+	        /*vertical alignment*/
+	        /* -webkit-box-align:start; */
+	        /* -webkit-box-align:center; */
+	        /* -webkit-box-align:end; */
+	        /* -webkit-box-align:stretch; */
+	    
+	        /*horizontal alignment*/
+	        -webkit-box-pack:justify;
+	        /* -webkit-box-pack:start; */
+	        /* -webkit-box-pack:center; */
+	        /* -webkit-box-pack:end; */
+	        
+	        
+	        /* display:-ms-flexbox; */
+	        /* -ms-flex-wrap:wrap; */
+	        
+	        /*horizontal alignment*/
+	        /* -ms-flex-pack:start; */
+	        /* -ms-flex-pack:center; */
+	        /* -ms-flex-pack:end; */
+	        /* -ms-flex-pack:justify; */
+	        
+	        /*vertical alignment*/
+	        /* -ms-flex-align:start; */
+	        /* -ms-flex-align:center; */
+	        /* -ms-flex-align:end; */
+	        /* -ms-flex-align:stretch; */
+	        
+	       
+	        /* display:-webkit-flex; */
+	        /* -webkit-flex-wrap:wrap; */
+	        
+	        /*horizontal alignment*/
+	        /* -webkit-justify-content:flex-end; */ 
+	        /* -webkit-justify-content:flex-start;  */
+	        /* -webkit-justify-content:center;  */
+	        /* -webkit-justify-content:space-between; */
+	        
+	        /*vertical alignment*/
+	        /* -webkit-align-items:flex-start; */
+	        /* -webkit-align-items:flex-end; */
+	        /* -webkit-align-items:center;  */
+	        /* -webkit-align-items:stretch; */ 
+	    
+	        
+	        /*FF22+ without changing about:config preference 'layout.css.flexbox.enabled' to true*/
+	        /* display:flex; */
+	        /* flex-wrap:wrap; */
+	        
+	        /*horizontal alignment*/
+	        /* justify-content:flex-end; */
+	        /* justify-content:flex-start;  */
+	        /* justify-content:center; */ 
+	        /* justify-content:space-between; */
+	        
+	        /*vertical alignment*/
+	        /* align-items:flex-start; */
+	        /* align-items:center;  */
+	        /* align-items:flex-end; */
+	        /* align-items:stretch;  */
+	    }
+	    
+	    /*
+	    Firefox doesn't support the flex-wrap property which is important for
+	    creating grids. Turn off flex box when creating grids.
+	    */
+	    @-moz-document url-prefix() {
+	        /*.split[class~='by:2'] etc..*/
+	        .split {
+	            display:block;
+	        }
+	    }
+	    
+	    
+	    .split > .cel {
+	        width:40%;
+	        /* width:33.33%; */
+	        /* width:25%; */
+	        font-size:10px;
+	        -webkit-box-flex:1;
+	    }
+	    
+	    /*
+	    SA4+
+	    Affects old 2009 flexbox implementation
+	    needs to be a block element
+	    */
+	    @media screen and (-webkit-min-device-pixel-ratio:0) {
+	        .split > .cel {
+	            display:block;
+	        }
+	    }
+	
+	    
+	    .split > .cel + .cel {
+            
+	        
+	    }
+	    
+	    
+	    
+	    .split {
+	        margin:5px 0;
+	        background:#ccc;
+	        border:1px solid #000;
+	    }
+	    .cel:not(:last-child) {
+	        /* border-right:1px solid yellow; */
+	    }
+	    
+	    .split>:first-child{background:#009999}
+	    .split>:first-child+*{background:#33adad}
+	    .split>:first-child+*+*{background:#66c2c2}
+	    .split>:first-child+*+*+*{background:#99d6d6}
+	    .split>:first-child+*+*+*+*{background:#ccebeb}
+	
+	</style>
+</head>
+<body>
+
+    <div class="split">
+        <div class="cel">A</div>
+        <div class="cel">B<br>B</div>
+        <div class="cel">C<br>C<br>C</div>
+        <!-- <div class="cel">C<br>C<br>C</div> -->
+    </div>
+
+
+</body>
+</html>

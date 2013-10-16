@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<style>
+        
+	    .split {
+            line-height:0;
+            text-align:justify;
+            -moz-text-align-last:justify;
+            -ms-text-align-last:justify;           
+            /*
+            A low negative letter-spacing value removes the white space between
+            inline-block elements (cels) causing adjacent cels to overlap. 
+            
+            Using text-align:justify distributes cels evenly across their parent
+            preventing cel overlap while retaining the removed white space.
+            
+            This allows two cels that have a width of 50%, for instance, to be 
+            flush with one another.
+            
+            The value -.874 is a Firefox threshold. Values lower than this show
+            horizontal scrollbars.
+            */
+            letter-spacing:-.874em;
+    
+            
+            /*
+            Firefox doesn't align the cels right edge flush with the parent
+            containers right edge if the cel widths don't add up to 100% and the
+            letter-spacing is less than -.25em. This applies to grid layouts 
+            with gaps and doesn't affect the last row. 
+            */
+            letter-spacing:-.25em;
+            /*IE can handle a smaller threshold*/
+            letter-spacing:-.874em\9;
+        }
+        
+        /*Force a second line to distribute cels*/
+        .split:after {
+            content:'';
+            display:inline-block;
+            /*IE uses native code to justify last line*/
+            display:none\9;
+            /*Force a second line*/
+            width:100%;
+            /*Remove extra space in webkit browsers*/
+            vertical-align:top;
+        }
+        
+        /*Firefox uses native code to justify last line*/
+        @-moz-document url-prefix() {
+            .split:after {
+                display:none;
+            }
+        }
+    
+        .split > .cel {
+            display:inline-block;
+            -webkit-box-sizing:border-box;
+	        -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+	        /*IE bug fix to prevent wrapping when resizing*/
+	        min-height:100%;
+            vertical-align:top;
+            /*Reset the following*/
+            line-height:1.5;
+            text-align:left;
+            -moz-text-align-last:auto;
+            -ms-text-align-last:auto;
+            letter-spacing:normal;
+        }
+        
+        
+        /*Author styles*/
+           
+	    .split {
+	        margin:5px 0;
+	        background:#ccc;
+	        border:1px solid #000;
+	    }
+	    .cel {
+	        border-right:1px solid yellow;
+	    }
+	    .cel.last-child {
+	        border:0;
+	    }
+	    
+	    .split>:first-child{background:#009999}
+	    .split>:first-child+*{background:#33adad}
+	    .split>:first-child+*+*{background:#66c2c2}
+	    .split>:first-child+*+*+*{background:#99d6d6}
+	    .split>:first-child+*+*+*+*{background:#ccebeb}
+	   
+	    .testa .cel {width:50%} 
+	    .testb .cel {width:33.33%}
+	    .testc .cel {width:25%}
+	    .testd .cel {width:20%} 	    
+	    
+	    
+	    #font_test {
+	        table-layout:fixed;
+	        border-spacing:25px 0;
+	        width:100%;
+	    }
+	    #font_test .a {font-family:Sans-serif} 
+	    #font_test .b {font-family:Serif}
+	    #font_test .c {font-family:Cursive}
+	    #font_test .d {font-family:Fantasy}
+	    /* #font_test .e {font-family:Monospace} */
+	    
+	    #font_test .cel {
+	        /*1% gap*/
+	        /* width:49.5%; */
+	        /*2% gap*/
+	        /* width:49%; */
+	        /*3% gap*/
+	        /* width:48.5%; */
+	        /*4% gap*/
+	        /* width:48%; */
+            /*5% gap*/
+ 	        width:47.5%;
+	        
+	        /* width:50%; */
+	        /* width:40%; */
+	        /* width:100px; */
+	    }
+	
+	</style>
+</head>
+<body>
+    <!--
+    These tests demonstrate that cels (columns) are flush with adjacent cels and 
+    there is no whitespace in between them.
+    
+    There should also be a yellow line dividing cels. If the yellow line is not 
+    visible, then an adjacent cel is incorrectly overlapping the previous cel.
+    -->
+    
+    <div class="split testa">
+        <div class="cel">A</div>
+        <div class="cel last-child">B</div>
+        <!--
+        <div class="cel">A</div>
+        <div class="cel last-child">B</div>
+        -->
+    </div>
+
+    <div class="split testb">
+        <div class="cel">A</div>
+        <div class="cel">B</div>
+        <div class="cel last-child">C</div>
+        <!--
+        <div class="cel">A</div>
+        <div class="cel">B</div>
+        <div class="cel last-child">C</div>
+        -->
+    </div>
+    
+    <div class="split testc">
+        <div class="cel">A</div>
+        <div class="cel">B</div>
+        <div class="cel">C</div>
+        <div class="cel last-child">D</div>
+        <!--
+        <div class="cel">A</div>
+        <div class="cel">B</div>
+        <div class="cel">C</div>
+        <div class="cel last-child">D</div>
+        -->
+    </div>
+    
+    <div class="split testd">
+        <div class="cel">A</div>
+        <div class="cel">B</div>
+        <div class="cel">C</div>
+        <div class="cel">D</div>
+        <div class="cel last-child">E</div>
+        <!--
+        <div class="cel">A</div>
+        <div class="cel">B</div>
+        <div class="cel">C</div>
+        <div class="cel">D</div>
+        <div class="cel last-child">E</div>
+        -->
+    </div>
+    
+   
+    <!-- 
+    Whitespace between inline/inline-block elements varies based on the fonts 
+    family and size. In this test the five generic font families are tested at 
+    sizes up to 25px for whitspace and overlap.
+    -->
+
+    <table id="font_test">
+        <thead>
+            <tr>
+                <th class="a">Sans-serif</th>
+                <th class="b">Serif</th>
+                <th class="c">Cursive</th>
+                <th class="d">Fantasy</th>
+                <!-- <th class="e">Monospace</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="a"></td>
+                <td class="b"></td>
+                <td class="c"></td>
+                <td class="d"></td>
+                <!-- <td class="e"></td> -->
+            </tr>
+        </tbody>
+    </table>
+    
+    <script>
+        (function () {
+            var tests = document.querySelectorAll('#font_test td'),
+                i = tests.length - 1,
+                j, 
+                a;
+            
+            do {
+                j = 1;
+                a = [];
+            
+                for (; j < 26; j++) {
+                
+                    a.push(
+                        '<div class="split" style="font-size:', j, 'px">',
+                            '\r\n\t',
+                            '<div class="cel">AA</div>',
+                            '\r\n\t',
+                            '<div class="cel last-child">BB</div>',
+                            '\r\n\t',
+                            '\r\n\t',
+                            '<div class="cel">AA</div>',
+                            '\r\n\t',
+                            '<div class="cel last-child">BB</div>',
+                            '\r\n\t',
+                        '</div>'
+                    );
+                
+                    /*
+                    a.push(
+                        '<div class="split" style="font-size:', j, 'px">',
+                            '<div class="cel">AA</div>',
+                            '<div class="cel last-child">BB</div>',
+                            '<div class="cel">AA</div>',
+                            '<div class="cel last-child">BB</div>',
+                        '</div>'
+                    );
+                    */
+                    
+                }
+                
+                tests[i].innerHTML = a.join('');
+            } while (i--);
+        }());
+    </script>
+
+</body>
+</html>

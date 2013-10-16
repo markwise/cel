@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+</head>
+<body>
+
+    <div id="test" class="  red green blue "></div>
+
+    <script>
+        var test = document.querySelector('#test');
+        
+        /*
+        console.log(test.className);
+        var c = 'red';
+        var r = new RegExp('\\b' + c + '\\b');
+        test.className = test.className.replace(r, '');
+        console.log(test.className);
+        */
+        
+        var trim = function (str) {
+            return str.replace(/^\s+|\s+$/g, '');
+        };
+        
+        var remove_class = function (ele, klass) {
+            var a = trim(ele.className).split(/\s+/),
+                i = a.length;
+        
+            while (i--) {
+                if (klass === a[i]) {
+                    a.splice(i, 1);
+                } 
+            }
+            
+            ele.className = a.join(' ');
+        };
+       
+        console.log(test.className);
+        remove_class(test, 'blue');
+        console.log(test.className);
+        
+        
+    </script>
+</body>
+</html>

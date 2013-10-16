@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+</head>
+<body>
+    <!-- <div id="test" class="  red green blue "></div> -->
+    <div id="test" class=""></div>
+
+    <script>
+        var test = document.querySelector('#test');
+        
+        var trim = function (str) {
+            return str.replace(/^\s+|\s+$/g, '');
+        };
+        
+        var has_class = function (ele, klass) {
+            var a, i;
+            
+            a = trim(ele.className);
+            a = a.length ? a.split(/\s+/) : [];
+            i = a.length;
+    
+            while (i--) {
+                if (a[i] === klass) {
+                    return true;
+                }
+            }
+            
+            return false;
+        };
+        
+        var add_class = function (ele, klass) {
+            var a;
+            
+            if (has_class(ele, klass)) {
+                return;
+            }
+            
+            a = trim(ele.className);
+            a = a.length ? a.split(/\s+/) : [];
+            a.push(klass);
+            ele.className = a.join(' ');
+        };
+       
+        
+        add_class(test, 'red');
+        console.log(test.className);
+        
+        add_class(test, 'green');
+        console.log(test.className);
+        
+        add_class(test, 'blue');
+        console.log(test.className);
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

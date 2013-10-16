@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+	<link type="text/css" rel="stylesheet" href="../../release/0.2.0/cel_0.2.0.css">
+	<style>
+	    .split {
+	        /* border:1px solid #ccc; */
+	        /* padding:13px; */
+	        /* width:500px; */
+	        /* max-width:960px; */
+	        background:#eee;
+	        margin:0 5em;
+	    }
+	
+	    .split>*+*{
+	        /* padding:0 1px; */
+	        /* border-left:1px solid red; */
+	        /* padding-left:2px; */
+	    }
+	    
+	    .split>*{
+	        background:orange;
+	    }
+	    
+	    /*
+	    .split>:first-child{background:#009966}
+	    .split>:first-child+*{background:#33ad85}
+	    .split>:first-child+*+*{background:#66c2a3}
+	    .split>:first-child+*+*+*{background:#99d6c2}
+	    .split>:first-child+*+*+*+*{background:#ccebe0}
+	    */
+	    
+	    
+	    .split>:first-child{background:#009999}
+	    .split>:first-child+*{background:#33adad}
+	    .split>:first-child+*+*{background:#66c2c2}
+	    .split>:first-child+*+*+*{background:#99d6d6}
+	    .split>:first-child+*+*+*+*{background:#ccebeb}
+	
+	    .split>:before{
+	        /* border:5px dashed blue; */
+	        /* border:dashed blue; */
+	        /* border-style:dashed; */
+	        /* border-color:blue; */
+	        border-color:red;
+	    }
+	    
+	    .split>*{
+	        /* margin-top:1em !important; */
+	    }
+	    
+	    /*
+	    .split[class~='by:2'] > :nth-child(2n+3),
+	    .split[class~='by:3'] > :nth-child(3n+4) {
+	        margin-left:0;
+	        clear:both;
+	    }
+	    */
+	   
+	    .test{background:orange !important}
+	    .test:before{
+	        content:' ' !important;
+	        display:none !important;
+	        
+	        
+	    }
+	    
+	</style>
+</head>
+<body>
+    
+    <div id="test" class="split with-gap and-line flip">
+        <div class="cel">A</div>
+        <div class="cel">B<br>B</div>
+        <div class="cel">C<br>C<br>C</div>
+    </div>
+   
+    
+    <!--
+    <br><br>
+    
+    <div class="split by:2 with-gap and-line">
+        <div class="cel">
+            <div class="split by:2 with-gap and-line">
+                <div class="cel">
+                    <div class="split by:2 with-gap and-line">
+                        <div class="cel">AAA</div>
+                        <div class="cel">BBB<br>BBB</div>
+                    </div>
+                </div>
+                <div class="cel">BB<br>BB</div>
+            </div>
+        </div>
+        <div class="cel">B<br>B</div>
+    </div>
+    -->
+   
+    
+    <br><br>
+    
+    <button id="add" type="button">add</button>
+    <button id="remove" type="button">remove</button>
+    
+    <script src="../../release/0.2.0/cel_0.1.0.js"></script>
+    <script>
+    
+        var test = document.getElementById('test');
+        
+        document.querySelector('#add').onclick = function () {
+            
+            var div = document.createElement('div');
+            div.className = 'cel';
+            div.appendChild(document.createTextNode('new'));
+            test.appendChild(div);
+            
+            
+            
+            //add_class(test.firstChild, 'test');
+        };
+        
+        document.querySelector('#remove').onclick = function () {
+            //remove_class(test.firstChild, 'test');
+        };
+        
+        
+        
+        /*
+        var trim = function (str) {
+            return str.replace(/^\s+|\s+$/g, '');
+        };
+
+
+        var has_class = function (ele, klass) {
+            var a, i;
+            
+            a = trim(ele.className);
+            a = a.length ? a.split(/\s+/) : [];
+            i = a.length;
+    
+            while (i--) {
+                if (a[i] === klass) {
+                    return true;
+                }
+            }
+            
+            return false;
+        };
+
+
+        var add_class = function (ele, klass) {
+            console.log('add class');
+        
+            var a;
+            
+            if (has_class(ele, klass)) {
+                return;
+            }
+            
+            a = trim(ele.className);
+            a = a.length ? a.split(/\s+/) : [];
+            a.push(klass);
+            ele.className = a.join(' ');
+            console.log(ele.className);
+        };
+        
+        
+        var remove_class = function (ele, klass) {
+            console.log('remove class');
+        
+            var a = trim(ele.className).split(/\s+/),
+                i = a.length;
+        
+            while (i--) {
+                if (klass === a[i]) {
+                    a.splice(i, 1);
+                } 
+            }
+            
+            ele.className = a.join(' ');
+            console.log(ele.className);
+        };
+        
+        
+        var clean = function (ele) {
+            var n = ele.firstChild;
+    
+            do {
+                if (n.nodeType !== 1) {
+                    ele.removeChild(n);
+                } 
+            } while (n = n.nextSibling);
+        };
+        
+        
+        var a = document.querySelectorAll('.split'),
+            l = a.length,
+            i = 0,
+            split;
+    
+        for (; i < l; i++) {
+            split = a[i];
+            clean(split);
+            //split.firstChild.className += ' test';
+            
+        }
+        */
+        
+        
+    
+    </script>
+    
+    
+    
+    
+</body>
+</html>
