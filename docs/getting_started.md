@@ -2,14 +2,14 @@
 
 The current version is 0.2.0 released on 9/30/2013.
 
-[Download the latest release](https://github.com/markwise/cel/raw/master/release/0.2.0/cel-0.2.0.zip)
+[Download the latest release](https://github.com/markwise/cel/raw/master/release/cel-0.2.0.zip)
 
 Once downloaded, unzip the resource and there should be a folder containing four files that include the uncompressed and min versions of the latest release. The min versions should be used for production. The uncompressed versions can be discarded, used for reference or for development.
 
-- [cel-0.2.0.css](release/0.2.0/cel-0.2.0.css)
-- [cel-0.2.0.js](release/0.2.0/cel-0.2.0.js)
-- [cel-0.2.0.min.css](release/0.2.0/cel-0.2.0.min.css)
-- [cel-0.2.0.min.js](release/0.2.0/cel-0.2.0.min.js)
+- [cel-0.2.0.css](https://github.com/markwise/cel/blob/master/release/cel-0.2.0.css)
+- [cel-0.2.0.js](https://github.com/markwise/cel/blob/master/release/cel-0.2.0.js)
+- [cel-0.2.0.min.css](https://github.com/markwise/cel/blob/master/release/cel-0.2.0.min.css)
+- [cel-0.2.0.min.js](https://github.com/markwise/cel/blob/master/release/cel-0.2.0.min.js)
 
 
 ### Usage
