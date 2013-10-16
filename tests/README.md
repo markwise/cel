@@ -1,0 +1,1 @@
+Automated visual tests are run using [Specter](https://github.com/letsgetrandy/specter).
