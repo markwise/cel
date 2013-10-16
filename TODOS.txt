@@ -1,7 +1,6 @@
-TODO's are a running list of ideas that may be part of a future release. This includes potential changes to syntax, improvements to the code base, new feature requests and other completely outlandish ideas to be explored.
+TODOS is a running list of ideas that may make it into a future release.
 
 
-This list is random and not ordered.
 
 --------------------------------------------------------------------------------
 
@@ -9,17 +8,53 @@ Remove list-style, margins and padding from split and cel elements that are list
 
 --------------------------------------------------------------------------------
 
-Make a layout's display block.    
+Make a layout's display block.   
 
 --------------------------------------------------------------------------------
 
 Allow columns to be horizontally aligned with gaps
 
 Need to find a way to remove white space between columns. This might done on
-DOM ready via JavaScript.
+DOM ready via JavaScript or another creative CSS solution
 
-The class with-gap will need to support horizontal alignments using percentages.
+The class with-gap will need to support horizontal alignment using percentages.
 
+--------------------------------------------------------------------------------
+
+Allow any class to be responsive
+
+split~800
+by:3~800
+with-gap:5~800
+flip~800
+hide~800
+show~800
+
+Not sure if this even makes sense, but it's something worth exploring and what 
+effects it would have on a layout.
+
+In this example, flip would reverse the layout back to it's original direction 
+when the screen size is less than or equal to 800.
+
+<div class="split by:3 flip~800">
+    <div class="cel"></div>
+    <div class="cel"></div>
+    <div class="cel"></div>
+</div>
+
+
+Column C would be hidden at 800, but what happens to columns widths? The class
+by:3 makes three equal width columns. Hiding the last cel would not adjust the
+width of columns. May need JavaScript here to make the adjustment.
+
+<div class="split by:3 flip">
+    <div class="cel">A</div>
+    <div class="cel">B</div>
+    <div class="cel hide~800">C</div>
+</div>
+
+If applied to with-gap:5, for instance, is gap spacing removed or does the gap
+spacing become with-gap:4?
 
 --------------------------------------------------------------------------------
 
@@ -27,14 +62,14 @@ Should a layout and/or columns be position relative?
 
 --------------------------------------------------------------------------------
 
-Explore using custom elements for internal applications.
+Explore using custom elements for internal applications. Since SEO has no value
+in internal applications, this could create a consistent set of elements to
+always use for an applications structure.
 
-
-This could be.
+Might be:
 
 <split>
     <cel></cel>
-    <line>
     <cel></cel>
 </split>
 
@@ -42,59 +77,139 @@ or
 
 <layout class="split by:2">
     <cel></cel>
-    <line>
     <cel></cel>
 </layout>
 
-not sure if we even need the class split here since that would be assummed with layout element
+not sure if we even need the class split here since that would be assummed with 
+layout element
     
 --------------------------------------------------------------------------------
     
-Add support for 9 equal width columns.
+Add support for 9 equal width columns
+
+with-gap:6
+with-gap:7
+with-gap:8
+with-gap:9
 
 --------------------------------------------------------------------------------
 
-Add support for more layout variations.
+Add support for more layout variations
+
+Maybe the following:
+
+2 columns
+
+    by:1/4
+    by:4/1
     
+3 columns
+
     by:1/2/1
     by:2/1/1
     by:1/1/2
     
-    etc...
+    by:1/3/1
+    by:3/1/1
+    by:1/1/3
     
+    by:1/2/3
+    by:3/2/1
+    by:1/3/2
+    by:2/3/1
+    
+4 columns
+
+    by:2/2/1/1
+    by:1/1/2/2
+    
+It doesn't seem to make sense to go above 4 columns. Not sure 4 columns even
+makes sense.
     
 --------------------------------------------------------------------------------
 
-cel lines
+Support a single cel pattern to auto align a single column horizontally and
+vertically.
+
+A few experiments yield that this can be done by inserting a before pseudo
+element into a layout and setting it's height to 100%. A single column can then
+be vertically aligned middle to the pseudo-element.
+
+Need to explore this more
+
+--------------------------------------------------------------------------------
+
+There are five scenarios when a cel lines height needs to be calculated
     
-    should support the 5 scenarios of adjusting cel lines height
-        on domready
-        window resize
-        element resize
-        initially hidden (display:none) then shown
-        inserted with innerHTML or appendChild
-            when a node is inserted check cel lines length
+    When the DOM is ready
     
-    ability to style using border properties and background
-        custom dotted cel lines
-	    gradient cel lines
-	    background images with cel lines
-	
-	explore using custom element for cel lines instead of applying the class
-	cel-line to an empty <div> element
-	    <divider>
-	    <line>
-	    <cel-line>
+    When the window is resized
+    
+    When a layout is resized from expand and contracting content, or adding
+    and removing elements from the DOM
+        
+    When a layout is initially hidden with display:none, then displayed
+    
+    When a layout is inserted into the DOM via innerHTML or appendChild
+    
+
+Currently a cel lines height is only calculated when the DOM is ready and the
+window is resized.
+    
+--------------------------------------------------------------------------------
+
+Be able to use cel lines with grid layouts
+
+--------------------------------------------------------------------------------
+
+Be able to customize cel lines using background properties. This would allow cel
+lines to be styled using background images and gradients.
+    
+--------------------------------------------------------------------------------
+    
+Explore using a custom element for cel lines. Since cel lines are really an
+embelishment and offer no structural integrity for a layout and would not be
+useful for SEO purposes, it would be cleaner and more semantic to create a 
+custom element for vertical line rules.
+    
+Might be:   
+    
+    <divider>
+    <line>
+    <cel-line>
+    <vrule>
+    <spacer>
 	    
-    Be able to use cel lines with grid layouts
-	
-	
 --------------------------------------------------------------------------------	
 	
-When using the responsive classes hide or show with a layout that has cel lines
+Change show~ and hide~ class names to show and hide. This is a cleaner and more
+concise syntax. Personally, I don't like the way the tilde reads without
+specifying a screen size as in split~800.
+
+If support for showing and hiding columns at different screen sizes is added,
+the tilde would still be used.
+
+<div class="cel hide~800"></div>
+
+--------------------------------------------------------------------------------
+
+Implement flexbox for supporting browsers. There are several variations of 
+flexbox implemented by browsers and only a few support flexwrap. Flexwrap is 
+required for creating grid layouts. We can use @supports to test for flexwrap.
+
+A flexbox implementation will allow equal heights for supporting browsers. A 
+JavaScript solution will be needed for a fallback.
+
+Flexbox also removes whitespace between columns, so a JavaScript solution will 
+be needed for a fallback.
+
+Once implemented, the default vertical alignment of columns will be equal 
+heights or stretch in flexbox terminology. This is a change from the current 
+implementation where the default vertical alignment is top.
+
+--------------------------------------------------------------------------------
 	
-	
-	
+
 	
 	
 	
