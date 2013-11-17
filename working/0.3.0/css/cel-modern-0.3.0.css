@@ -21,10 +21,11 @@
     /*
      * Setting a low negative letter-spacing value removes the white space 
      * between inline-block elements (cels) and may cause adjacent cels to 
-     * overlap. 
+     * overlap.
      *
-     * Text-align:justify distributes cels evenly across their parent preventing
-     * cel overlap that may have been caused by negative letter spacing.
+     * Using text-align:justify distributes cels evenly across their parent 
+     * preventing cel overlap that may have been caused by negative letter 
+     * spacing.
      *
      * This allows two cels that have a width of 50%, for instance, to be flush 
      * with one another without wrapping.
@@ -231,7 +232,7 @@
 [class~='by:3/2'][class~='with-gap:5']>.cel~.cel{width:38%}
 
 
-/* Vertical line rule - requires cel.0.2.0.js */
+/* Vertical line rule - requires cel js */
 
 .cel-line{
     display:inline-block;
@@ -1889,7 +1890,7 @@
 
 @media screen and (max-width:480px) {
     [class~='split:480']>.cel-line,
-    [class~='split:480']>[class~='hide']{
+    [class~='split:480']>.hide{
         display:none;
     }
     [class~='split:480']>.cel{
@@ -1899,7 +1900,7 @@
 
 @media screen and (max-width:500px) {
     [class~='split:500']>.cel-line,
-    [class~='split:500']>[class~='hide']{
+    [class~='split:500']>.hide{
         display:none;
     }
     [class~='split:500']>.cel{
@@ -1909,7 +1910,7 @@
 
 @media screen and (max-width:520px) {
     [class~='split:520']>.cel-line,
-    [class~='split:520']>[class~='hide']{
+    [class~='split:520']>.hide{
         display:none;
     }
     [class~='split:520']>.cel{
@@ -1919,7 +1920,7 @@
 
 @media screen and (max-width:540px) {
     [class~='split:540']>.cel-line,
-    [class~='split:540']>[class~='hide']{
+    [class~='split:540']>.hide{
         display:none;
     }
     [class~='split:540']>.cel{
@@ -1929,7 +1930,7 @@
 
 @media screen and (max-width:560px) {
     [class~='split:560']>.cel-line,
-    [class~='split:560']>[class~='hide']{
+    [class~='split:560']>.hide{
         display:none;
     }
     [class~='split:560']>.cel{
@@ -1939,7 +1940,7 @@
 
 @media screen and (max-width:580px) {
     [class~='split:580']>.cel-line,
-    [class~='split:580']>[class~='hide']{
+    [class~='split:580']>.hide{
         display:none;
     }
     [class~='split:580']>.cel{
@@ -1949,7 +1950,7 @@
 
 @media screen and (max-width:600px) {
     [class~='split:600']>.cel-line,
-    [class~='split:600']>[class~='hide']{
+    [class~='split:600']>.hide{
         display:none;
     }
     [class~='split:600']>.cel{
@@ -1959,7 +1960,7 @@
 
 @media screen and (max-width:620px) {
     [class~='split:620']>.cel-line,
-    [class~='split:620']>[class~='hide']{
+    [class~='split:620']>.hide{
         display:none;
     }
     [class~='split:620']>.cel{
@@ -1969,7 +1970,7 @@
 
 @media screen and (max-width:640px) {
     [class~='split:640']>.cel-line,
-    [class~='split:640']>[class~='hide']{
+    [class~='split:640']>.hide{
         display:none;
     }
     [class~='split:640']>.cel{
@@ -1979,7 +1980,7 @@
 
 @media screen and (max-width:660px) {
     [class~='split:660']>.cel-line,
-    [class~='split:660']>[class~='hide']{
+    [class~='split:660']>.hide{
         display:none;
     }
     [class~='split:660']>.cel{
@@ -1989,7 +1990,7 @@
 
 @media screen and (max-width:680px) {
     [class~='split:680']>.cel-line,
-    [class~='split:680']>[class~='hide']{
+    [class~='split:680']>.hide{
         display:none;
     }
     [class~='split:680']>.cel{
@@ -1999,7 +2000,7 @@
 
 @media screen and (max-width:700px) {
     [class~='split:700']>.cel-line,
-    [class~='split:700']>[class~='hide']{
+    [class~='split:700']>.hide{
         display:none;
     }
     [class~='split:700']>.cel{
@@ -2009,7 +2010,7 @@
 
 @media screen and (max-width:720px) {
     [class~='split:720']>.cel-line,
-    [class~='split:720']>[class~='hide']{
+    [class~='split:720']>.hide{
         display:none;
     }
     [class~='split:720']>.cel{
@@ -2019,7 +2020,7 @@
 
 @media screen and (max-width:740px) {
     [class~='split:740']>.cel-line,
-    [class~='split:740']>[class~='hide']{
+    [class~='split:740']>.hide{
         display:none;
     }
     [class~='split:740']>.cel{
@@ -2029,7 +2030,7 @@
 
 @media screen and (max-width:760px) {
     [class~='split:760']>.cel-line,
-    [class~='split:760']>[class~='hide']{
+    [class~='split:760']>.hide{
         display:none;
     }
     [class~='split:760']>.cel{
@@ -2039,7 +2040,7 @@
 
 @media screen and (max-width:780px) {
     [class~='split:780']>.cel-line,
-    [class~='split:780']>[class~='hide']{
+    [class~='split:780']>.hide{
         display:none;
     }
     [class~='split:780']>.cel{
@@ -2049,7 +2050,7 @@
 
 @media screen and (max-width:800px) {
     [class~='split:800']>.cel-line,
-    [class~='split:800']>[class~='hide']{
+    [class~='split:800']>.hide{
         display:none;
     }
     [class~='split:800']>.cel{
@@ -2059,7 +2060,7 @@
 
 @media screen and (max-width:820px) {
     [class~='split:820']>.cel-line,
-    [class~='split:820']>[class~='hide']{
+    [class~='split:820']>.hide{
         display:none;
     }
     [class~='split:820']>.cel{
@@ -2069,7 +2070,7 @@
 
 @media screen and (max-width:840px) {
     [class~='split:840']>.cel-line,
-    [class~='split:840']>[class~='hide']{
+    [class~='split:840']>.hide{
         display:none;
     }
     [class~='split:840']>.cel{
@@ -2079,7 +2080,7 @@
 
 @media screen and (max-width:860px) {
     [class~='split:860']>.cel-line,
-    [class~='split:860']>[class~='hide']{
+    [class~='split:860']>.hide{
         display:none;
     }
     [class~='split:860']>.cel{
@@ -2089,7 +2090,7 @@
 
 @media screen and (max-width:880px) {
     [class~='split:880']>.cel-line,
-    [class~='split:880']>[class~='hide']{
+    [class~='split:880']>.hide{
         display:none;
     }
     [class~='split:880']>.cel{
@@ -2099,7 +2100,7 @@
 
 @media screen and (max-width:900px) {
     [class~='split:900']>.cel-line,
-    [class~='split:900']>[class~='hide']{
+    [class~='split:900']>.hide{
         display:none;
     }
     [class~='split:900']>.cel{
@@ -2109,7 +2110,7 @@
 
 @media screen and (max-width:920px) {
     [class~='split:920']>.cel-line,
-    [class~='split:920']>[class~='hide']{
+    [class~='split:920']>.hide{
         display:none;
     }
     [class~='split:920']>.cel{
@@ -2119,7 +2120,7 @@
 
 @media screen and (max-width:940px) {
     [class~='split:940']>.cel-line,
-    [class~='split:940']>[class~='hide']{
+    [class~='split:940']>.hide{
         display:none;
     }
     [class~='split:940']>.cel{
@@ -2129,7 +2130,7 @@
 
 @media screen and (max-width:960px) {
     [class~='split:960']>.cel-line,
-    [class~='split:960']>[class~='hide']{
+    [class~='split:960']>.hide{
         display:none;
     }
     [class~='split:960']>.cel{
