@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+	<style>
+	
+	    body {
+	        /* font-size:14px; */
+	    }
+	   
+	    
+        
+        [class*='split']:not(.respond) {
+            line-height:0;
+            text-align:justify;
+            letter-spacing:-.874em;
+        }
+    
+        [class*='split']:not(.respond)::after {
+            content:'';
+            display:inline-block;
+            width:100%;
+            vertical-align:top;
+        }
+        
+        [class*='split']:not(.respond) .cel {
+            display:inline-block;
+            line-height:1.5;
+            text-align:left;
+            letter-spacing:normal;
+        }
+        
+        [class~='by:2']:not(.respond) .cel{width:50%}
+        [class~='by:2'][class~='with-gap:1']:not(.respond) .cel{width:50%}
+        [class~='by:2'][class~='with-gap:2']:not(.respond) .cel{width:50%}
+        [class~='by:2'][class~='with-gap:3']:not(.respond) .cel{width:50%}
+        
+        
+	
+	    /**/
+	
+	    [class*='split'] {
+	        background:#ccc;
+	    }
+	    
+	    .a {
+	        background:orange;
+	        /* width:50%; */
+	    }
+	    .b {
+	        background:green;
+	        /* width:50%; */
+	    }
+	    .c {
+	        background:yellow;
+	        /* width:50%; */
+	    }
+	
+	
+	
+	
+	</style>
+	<script>
+	
+	    (function () {
+	        'use strict';
+	
+            var w = window;
+            var d = document;
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            /*
+            
+            var media_query = (function () {
+                //::    
+            
+                var queries = {};
+                
+                var width_change = function (mql) {
+                    var elements = queries[mql.media.replace(/\s+/g, '')];
+                    
+                    if (mql.matches) {
+                        add_class('respond', elements);
+                    } else {
+                        remove_class('respond', elements);
+                    }
+                };
+                
+                return function (match) {
+                    var query = 'screen and (max-width:' + match + 'px)',
+                        elements = d.getElementsByClassName('split~' + match),
+                        mql = match_media(query);
+                    
+                    mql.addListener(width_change);
+                    queries[query.replace(/\s+/g, '')] = elements;
+                
+                    return {
+                        listener : (function (mql) {
+                            return function () {
+                                width_change(mql);
+                            }
+                        }(mql))
+                    };
+                };
+            }());
+        
+            
+            media_query(800).listener();
+            
+            */
+           
+            
+            /*
+            var MediaQuery = function (match) {
+                this.__init__(match);
+            };
+            MediaQuery.prototype = {
+                __init__ : function (match) {
+                    var query = 'screen and (max-width:' + match + 'px)',
+                        elements = d.getElementsByClassName('split~' + match);
+                
+                    console.log(elements);
+                
+                
+                    this._mq = matchMedia(query);
+                    this._mq.elements = elements;
+                    this._mq.addListener(this._width_change);
+                },
+            
+                _width_change : function (mq) {
+                    console.log(mq);
+                    if (mq.matches) {
+                        add_class('respond', mq.elements);
+                    } else {
+                        remove_class('respond', mq.elements);
+                    }
+                },
+            
+                width_change : function () {
+                    this._width_change(this._mq);
+                }
+            };
+            */
+        
+        
+        
+        
+            /*
+            var mq = [];
+        
+            (function () {
+                var i = 480;
+                var l = 960;
+            
+                for (; i <= 960; i += 20) {
+                    //console.log(i);
+                    mq.push(new MediaQuery(i));
+                };
+                
+                do {
+                    mq.push(new MediaQuery(i));
+                    i += 20
+                } while (i <= 960);
+                
+            }());
+        
+        
+        
+            var timer = setInterval(function () {
+                var i = mq.length - 1;
+            
+                do {
+                    mq[i].width_change();
+                } while(i--);
+            });
+        
+        
+            w.addEventListener('DOMContentLoaded', function () {
+                setTimeout(function () {
+                    clearInterval(timer);
+                });
+            });
+            */
+        
+            //register resize event for browser that don't support matchMedia
+            //IE9, SA5, iOS4.2
+        
+            /*
+            if (!w.matchMedia && w.styleMedia) {
+                console.log('use style media');
+            }
+            */
+        
+        
+            
+	    
+	    
+	    
+	    }());
+	    
+	
+	</script>
+</head>
+<body>
+
+
+    <div class="split~800 by:2">
+        <div class="cel a">A</div>
+        <div class="cel b">B</div>
+        <!-- <div class="cel c">C</div> -->
+    </div>
+    
+    <br>
+    
+    <div class="split~600">
+        <div class="cel a">A</div>
+        <div class="cel b">B</div>
+        <div class="cel c">C</div>
+    </div>
+
+
+</body>
+</html>

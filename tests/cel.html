@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+	<link type="text/css" rel="stylesheet" href="../release/cel-0.2.0.min.css">
+	<style>
+	    [class*='split'] {
+	        background:#eee;
+	    }
+	    [class*='split']>.cel:first-child{background:#009999}
+	    [class*='split']>.cel:first-child~.cel{background:#33adad}
+	    [class*='split']>.cel:first-child~.cel~.cel{background:#66c2c2}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel{background:#99d6d6}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel{background:#ccebeb}
+	
+	
+	</style>
+	<script src="../release/cel-0.2.0.min.js"></script>
+</head>
+<body>
+
+    <div class="split">
+        <div class="cel">aa</div>
+        <div class="cel">bb</div>
+    </div>
+    
+    <div class="split by:2">
+        <div class="cel">aa</div>
+        <div class="cel">bb</div>
+    </div>
+
+
+    
+</body>
+</html>

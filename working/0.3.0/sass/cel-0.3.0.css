@@ -1,0 +1,36 @@
+@charset "utf-8";
+/*! cel v0.3.0 -- (c) 2013 Mark Wise */
+.split {
+  line-height: 0;
+  text-align: justify;
+  -moz-text-align-last: justify;
+  -ms-text-align-last: justify;
+  letter-spacing: -.334em;
+  letter-spacing: -.34em\9;
+}
+
+[class~="split:480"][class~='with-gap:1'],
+[class~="split:480"][class~='with-gap:2'],
+[class~="split:480"][class~='with-gap:3'],
+[class~="split:480"][class~='with-gap:4'],
+[class~="split:480"][class~='with-gap:5'] {
+  letter-spacing: -.25em;
+  letter-spacing: -.34em\9;
+}
+
+/*
+lkjaslkdfjlk
+asdf
+asdf
+af
+*/
+@media screen and (min-width: 960px) {
+  .split[class~='with-gap:1'],
+  .split[class~='with-gap:2'],
+  .split[class~='with-gap:3'],
+  .split[class~='with-gap:4'],
+  .split[class~='with-gap:5'] {
+    letter-spacing: -.25em;
+    letter-spacing: -.34em\9;
+  }
+}

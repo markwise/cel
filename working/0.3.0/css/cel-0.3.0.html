@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Untitled</title>
-	<link type="text/css" rel="stylesheet" href="cel-0.2.0.css">
+	<link type="text/css" rel="stylesheet" href="cel-modern-0.3.0.css">
 	<style>
 	
 	    [class*='split'] {
@@ -53,7 +53,7 @@
 	        /* border-right:1px solid red; */
 	        /* margin-left:1em; */
 	        /* padding-left:5px; */
-	        /* border:1px solid blue; */
+	        border:1px solid blue;
 	        /* width:40%; */
 	    }
 	    
@@ -69,57 +69,46 @@
 	    }
 	    */
 	    
-	    .a {
-	        width:65%;
-	    }
-	    
-	    .b {
-	        width:200px;
-	        height:100px;
+	    .a, .b { 
 	        background:red;
+	        width:2px;
+	        height:25px;    
 	    }
-	    
-	    
 	    
 	</style>
-	<script type="text/javascript" src="cel-0.2.0.js"></script>
+	<script type="text/javascript" src="cel-0.3.0.js"></script>
 </head>
 <body>
     
-    
-    <div class="split align:m">
-        <p class="cel a">
-            Energistically procrastinate holistic web-readiness after functionalized communities. Appropriately leverage existing client-based architectures for one-to-one users. Completely negotiate interdependent results before interoperable infrastructures.
-        </p>
-        <div class="cel b">
-            
-        </div>
+    <!--
+    <div class="split">
+        <div class="cel a"></div>
+        <div class="cel b"></div>
     </div>
-    
+    -->
     
     <!--
-    <div class="split by:5 with-gap:5 flip">
-        <div class="cel">A</div>
+    <div class="split:500 by:4 with-gap:1 align:b">
+        <div class="cel">a</div>
+        <div class="cel-line">abcdefghijklmnopqrstuvwxyz</div>
+        <div class="cel">b<br>b</div>
         <div class="cel-line"></div>
-        <div class="cel">B<br>B</div>
+        <div class="cel">c<br>c<br>c</div>
         <div class="cel-line"></div>
-        <div class="cel">B<br>B</div>
+        <div class="cel show">d<br>d<br>d<br>d</div>
         <div class="cel-line"></div>
-        <div class="cel">B<br>B</div>
-        <div class="cel-line"></div>
-        <div class="cel">B<br>B</div>
+        <div class="cel hide">e<br>e<br>e<br>e<br>e</div>
     </div>
     -->
 
-
-
-    <!--
-    <div class="split by:3/2 with-gap:1">
+    
+    <div class="split:700 by:2 with-gap:1 align:b flip">
         <div class="cel">A</div>
         <div class="cel">B<br>B</div>
-        <div class="cel">C<br>C<br>C</div>
+        <!-- <div class="cel">C<br>C<br>C</div> -->
+        <!-- <div class="cel">C<br>C<br>C</div> -->
     </div>
-    -->
+    
     
     <!--
     <div class="split">

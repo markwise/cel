@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+	<!-- load cel styles -->
+    <script>
+    
+        (function () {
+            'use strict';
+
+            var w = window;
+            var d = document;
+    
+            var cel = {
+                release : '0.3.0'    
+            };
+    
+            var style = d.createElement('style');
+    
+            var create_styles = function () {
+                var a = [];
+                var i = 480;
+                var l = 960;
+        
+                for (; i <= l; i += 20) {
+                    a.push([
+                        '@media screen and (min-width:', i + 1, 'px){',
+                            '[class~="split:', i, '"]{',
+                                'display:-webkit-flex;',
+                                'display:flex;',
+                                '-webkit-justify-content:space-between;',
+                                'justify-content:space-between;',
+                                '-webkit-flex-wrap:wrap;',
+                                'flex-wrap:wrap',
+                            '}',
+                            '[class~="split:', i, '"][class~="align:t"],',
+                            '[class~="split:', i, '"][class~="align:top"]{',
+                                '-webkit-align-items:flex-start;',
+                                'align-items:flex-start',
+                            '}',
+                            '[class~="split:', i, '"][class~="align:m"],',
+                            '[class~="split:', i, '"][class~="align:middle"]{',
+                                '-webkit-align-items:center;',
+                                'align-items:center',
+                            '}',
+                            '[class~="split:', i, '"][class~="align:b"],',
+                            '[class~="split:', i, '"][class~="align:bottom"]{',
+                                '-webkit-align-items:flex-end;',
+                                'align-items:flex-end',
+                            '}',
+                            '[class~="split:', i, '"].flip{',
+                                '-webkit-flex-direction:row-reverse;',
+                                'flex-direction:row-reverse',
+                            '}',
+                            '[class~="split:', i, '"]>.show{',
+                                'display:none',
+                            '}',
+                        '}\n',
+                        '@media screen and (max-width:', i, 'px){',
+                            '[class~="split:', i, '"]>.cel{',
+                                'width:auto !important',
+                            '}',
+                            '[class~="split:', i, '"]>.cel-line,',
+                            '[class~="split:', i, '"]>.hide{',
+                                'display:none',
+                            '}',
+                        '}\n'
+                    ].join(''));
+                }
+      
+      
+                //console.log(a.join(''));
+      
+                return a.join('');
+            };
+    
+            //var release = localStorage.cel_release;
+            //var queries = localStorage.cel_queries;
+    
+    
+            //if (release !== cel.release) {
+                //console.log('new build');
+                //localStorage.cel_build = cel.build;
+                //styles = create_styles();
+        
+                //console.log(styles);
+        
+    
+            //use existing styles
+            //} else {
+                //styles = localStorage.cel_styles;
+            //}
+    
+            //style.innerHTML = styles;
+            //console.log(style.innerHTML);
+            //d.head.appendChild(style);
+            //localStorage.cel_styles = style.innerHTML;
+  
+            
+            //localStorage['cel-0.3.0'] = 'body{background:red}';
+            
+            //console.log('cel-0.3.0' in localStorage);
+            
+            console.log(window.localStorage);
+            
+            
+            
+        }());       
+ 
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    </script>
+</head>
+<body>
+
+
+
+
+
+</body>
+</html>

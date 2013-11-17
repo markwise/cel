@@ -1,0 +1,90 @@
+@charset 'utf-8';
+
+/*! cel v0.3.0 -- (c) 2013 Mark Wise */
+
+@mixin split () {
+    // 
+    // Browsers that don't support text-align-last will have a second line added 
+    // by inserting an :after pseudo-element to force a second line.
+    // 
+    // Since line-height affects multiple lines, setting line-height:0 removes 
+    // the extra space created by the second the line.
+    //
+    line-height:0;
+    text-align:justify;
+    -moz-text-align-last:justify;
+    //
+    // IE requires both text-align:justify and text-align-last:justify in order
+    // to justify the last line, whereas, Firefox does not.
+    //
+    -ms-text-align-last:justify;           
+    //
+    // A low negative letter-spacing value removes the white space between 
+    // inline-block elements (cels) causing adjacent cels to overlap. 
+    //
+    // Using text-align:justify distributes cels evenly across their parent 
+    // preventing cel overlap while retaining the removed white space.
+    //
+    // This allows two cels that have a width of 50%, for instance, to be flush 
+    // with one another.
+    //
+    letter-spacing:-.334em;
+    // IE
+    letter-spacing:-.34em\9;
+}
+
+.split {
+    @include split();
+}
+
+
+
+
+
+
+
+@mixin test ($selector) {
+    #{$selector}[class~='with-gap:1'],
+    #{$selector}[class~='with-gap:2'],
+    #{$selector}[class~='with-gap:3'],
+    #{$selector}[class~='with-gap:4'],
+    #{$selector}[class~='with-gap:5']{
+        //
+        // Firefox doesn't align the last cels right edge in each line with the 
+        // parent containers right edge if cel widths don't add up to 100% and the
+        // letter-spacing value is less than -.25em.
+        // 
+        // This applies to grid layouts and does not affect the last line.
+        // 
+        // The value -.25em also yields more consistent results in webkit browsers
+        // when setting lower percentage widths to yield bigger gap sizes.
+        //
+        letter-spacing:-.25em;
+        // IE can handle a smaller threshold
+        letter-spacing:-.34em\9;   
+    }
+}
+
+@include test('[class~="split:480"]');
+
+/*
+lkjaslkdfjlk
+asdf
+asdf
+af
+*/
+
+@media screen and (min-width:960px) {
+    @include test('.split');
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -23,8 +23,14 @@
             The value -.874 is a Firefox threshold. Values lower than this show
             horizontal scrollbars.
             */
-            letter-spacing:-.874em;
-    
+            
+            /* letter-spacing:-.874em; */
+            
+            /*chrome, safari, firefox*/
+            letter-spacing:-.334em;
+            /*IE*/
+            letter-spacing:-.34em\9;
+            
             
             /*
             Firefox doesn't align the cels right edge flush with the parent
@@ -32,9 +38,9 @@
             letter-spacing is less than -.25em. This applies to grid layouts 
             with gaps and doesn't affect the last row. 
             */
-            letter-spacing:-.25em;
+            /* letter-spacing:-.25em; */
             /*IE can handle a smaller threshold*/
-            letter-spacing:-.874em\9;
+            /* letter-spacing:-.874em\9; */
         }
         
         /*Force a second line to distribute cels*/
@@ -120,9 +126,9 @@
 	        /*4% gap*/
 	        /* width:48%; */
             /*5% gap*/
- 	        width:47.5%;
+ 	        /* width:47.5%; */
 	        
-	        /* width:50%; */
+	        width:50%;
 	        /* width:40%; */
 	        /* width:100px; */
 	    }
@@ -226,22 +232,23 @@
                 a = [];
             
                 for (; j < 26; j++) {
-                
+            
                     a.push(
                         '<div class="split" style="font-size:', j, 'px">',
                             '\r\n\t',
-                            '<div class="cel">AA</div>',
+                            '<div class="cel">a</div>',
                             '\r\n\t',
-                            '<div class="cel last-child">BB</div>',
+                            '<div class="cel last-child">b</div>',
                             '\r\n\t',
                             '\r\n\t',
-                            '<div class="cel">AA</div>',
+                            '<div class="cel">a</div>',
                             '\r\n\t',
-                            '<div class="cel last-child">BB</div>',
+                            '<div class="cel last-child">b</div>',
                             '\r\n\t',
                         '</div>'
                     );
                 
+                    //justify requires whitespace and the following will not work
                     /*
                     a.push(
                         '<div class="split" style="font-size:', j, 'px">',
@@ -252,7 +259,6 @@
                         '</div>'
                     );
                     */
-                    
                 }
                 
                 tests[i].innerHTML = a.join('');

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>matchMedia</title>
+</head>
+<body>
+    
+    <script src="static/scripts/match_media.js"></script>
+    <script>
+    
+        
+        var mql = match_media('screen and (max-width:700px)');
+        /*
+        mql.addListener(function (mql) {
+            console.log(mql.matches);
+        });
+        */
+        
+        
+        
+        
+        
+        //console.log(match_media());
+        console.log(match_media(''));
+        console.log(match_media(' '));
+        console.log(match_media(1));
+        console.log(match_media(0));
+        console.log(match_media(true));
+        console.log(match_media(false));
+        console.log(match_media([]));
+        console.log(match_media({}));
+        console.log(match_media(/a/));
+        console.log(match_media(new Error()));
+        console.log(match_media(new Date()));
+        console.log(match_media(null));
+        console.log(match_media(undefined));
+        
+        
+    
+    </script>
+</body>
+</html>

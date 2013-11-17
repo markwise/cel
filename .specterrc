@@ -1,0 +1,4 @@
+[paths]
+testroot = tests
+baseline = tests/screenshots
+diffdir =  tests/diff

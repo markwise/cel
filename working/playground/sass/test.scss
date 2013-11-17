@@ -1,0 +1,83 @@
+@charset 'utf-8';
+
+/*! cel v0.3.0 -- (c) 2013 Mark Wise */
+
+
+@import 'foo.scss';
+
+
+@mixin split_styles () {
+    @if null {
+    /*
+     * mixin comments
+     *
+     */
+    }
+    line-height:0;
+    text-align:justify;
+    -moz-text-align-last:justify;
+    -ms-text-align-last:justify;           
+    letter-spacing:-.874em;   
+}
+
+
+
+
+.split {
+    @include split_styles();
+    font-color:#{$test};
+}
+.split > .cel {
+
+} 
+
+
+
+@media screen and (max-width:960px) {
+    [class~='split:960']{
+        @include split_styles();         
+    }
+}
+
+
+
+//@include split_styles();
+
+//@include split_styles();
+
+
+$gap_size:1;
+
+.c {
+    width:#{$gap_size};
+}
+$gap_size:5;
+.b {
+    width:#{$gap_size};
+}
+
+
+
+// Responsive
+//
+// Set the cels display to inline-block if the screen size is greater than or 
+// equal to the min-width value. This will preserve the cels UA display type 
+// when the screen size falls below the min-width value.
+// 
+// Hide cels with the class 'show~'. They will be visible when the screen size 
+// falls below the min-width value.
+//
+$i:480;
+@while $i <= 960 {
+    @media screen and (min-width:#{$i + 1}px){
+        [class~='split~#{$i}'] > .cel {
+            display:inline-block;
+        }
+        [class~='split~#{$i}'] > [class~='show~'] {
+            display:none;
+        }
+    }
+    $i:$i + 20;
+}
+
+
