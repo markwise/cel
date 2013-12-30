@@ -1,0 +1,75 @@
+DOMContentLoaded
+    add respond class to split layouts if required
+    set equal heights if respond class is absent
+    add ready class to cel lines
+    add nowhitespace class to split elements
+
+    
+DOMNodeInserted
+    add respond class to split layouts if required
+        handle this through matchMedia
+    set equal heights if respond class is absent
+    add ready class to cel lines
+    add nowhitespace class to split elements
+    
+resize
+    add/remove respond class
+    adjust equal heights if respond class is absent
+    set cel lines height
+    
+
+versions
+    IE8/polyfill
+    inline-block/polyfill
+    flexbox
+    
+    
+Eliminate grids to get more browsers using flexbox versions
+    IE10
+    FF22
+    CH
+    SA
+    
+    IE8,9 inline-block
+    
+
+--------------------------------------------------------------------------------
+0.3.0
+--------------------------------------------------------------------------------
+
+improve core code structure
+    wrap all styles in media queries
+    use js/localstorage to generate media queries
+        yields a smaller file size
+        less prone to error in duplicating styles
+write specter tests
+fix ie8 bug that should hide an element if it has the class show
+change responsive syntax from split~640 to split:640
+change show~ and hide~ to show and hide
+
+
+
+3 files
+
+//flexbox
+if (window.CSS.suppports) {
+    href = cel-edge.css
+
+//non flexbox
+} else
+if (document.addEventListener) {
+    href = cel-modern.css
+
+//ie8
+} else {
+    href = cel-legacy.css
+}
+
+
+
+
+
+
+
+
+    

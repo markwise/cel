@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+	<link type="text/css" rel="stylesheet" href="cel-fallback-0.4.0.css">
+
+	<style>
+	
+	    [class*='split'] {
+	        /* border:1px solid #ccc; */
+	        /* padding:13px; */
+	        /* width:500px; */
+	        /* max-width:960px; */
+	        background:#eee;
+	        /* background:#ccc; */
+	        /* margin:0 5em; */
+	        /* padding:25px; */
+	        /* max-width:960px; */
+	        /* word-spacing:.25em; */
+	        /* letter-spacing:-.25em; */
+	        /* padding:0 5%; */
+	    }
+	    
+	    /*
+	    .split>:first-child{background:#009966}
+	    .split>:first-child+*{background:#33ad85}
+	    .split>:first-child+*+*{background:#66c2a3}
+	    .split>:first-child+*+*+*{background:#99d6c2}
+	    .split>:first-child+*+*+*+*{background:#ccebe0}
+	    */
+	    
+	    [class*='split']>.cel:first-child{background:orange}
+	    [class*='split']>.cel:first-child~.cel{background:green}
+	    [class*='split']>.cel:first-child~.cel~.cel{background:red}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel{background:yellow}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel{background:purple}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel~.cel{background:#009999}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel~.cel~.cel{background:#33adad}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel~.cel~.cel~.cel{background:#66c2c2}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel~.cel~.cel~.cel~.cel{background:#99d6d6}
+	    [class*='split']>.cel:first-child~.cel~.cel~.cel~.cel~.cel~.cel~.cel~.cel~.cel{background:#ccebeb}
+	
+	    .cel-line {
+	        /* border-width:5px; */
+	        /* border-color:red; */
+	        /* border-style:dotted; */
+	        /* border:2px dashed blue; */
+	        /* border:red; */
+	    }
+	   
+	    .cel{
+	        /* margin-top:1em; */
+	        /* border-right:1px solid red; */
+	        /* margin-left:1em; */
+	        /* padding-left:5px; */
+	        border:1px solid blue;
+	        /* width:40%; */
+	        /* width:20%; */
+	    }
+	    
+	    /*
+	    .layout {
+	        
+	        background:#ccc;
+	        line-height:0;
+	        
+	        display:inline-block;
+	    }
+	    .layout .split {
+	        text-align:center;
+	        letter-spacing:normal;
+	        white-space:nowrap;
+	        -moz-text-align-last:auto;
+	    }
+	    .layout .split::after {
+	        display:none;
+	    }
+	    .layout .split .cel-space {
+	       
+	        
+	    }
+	    
+	    
+	    
+	    .cel-space {
+	        display:inline-block;
+	        background:transparent;
+	        width:5%;
+	        text-align:center;
+	        height:50px;
+	        vertical-align:middle;
+	        -moz-text-align-last:auto;
+	    }
+	    
+	    .cel-space .cel-line {
+	        display:inline-block;
+	        border-left:1px solid #ccc;
+	        height:100%;
+	    }
+	    
+	    .test2 {
+	        text-align:center;
+	        white-space:nowrap;
+	        background:#ccc;
+	        
+	    }
+	    .test2>*{display:inline-block}
+	    .test2 .a {background:red}
+	    .test2 .b {background:green}
+	    */
+	    
+	</style>
+	<!-- <script type="text/javascript" src="cel-0.4.0.js"></script> -->
+</head>
+<body>
+    
+    <div class="layout">
+        <div class="split by:2 with-space:5:5">
+            <div class="cel">
+                <!--
+                Lorem ipsum dolor sit amet, fugit omnesque sententiae usu te, gubergren disputationi duo id. Fugit oportere prodesset an vix, in feugiat recteque reprimique has. Usu ad sale essent, te augue gubergren necessitatibus mel. Perpetua iudicabit hendrerit vel ei, oportere erroribus accommodare sit et. Mei purto adhuc possit ut.
+                -->
+                a
+            </div>
+            <!-- comment -->
+            <div class="cel">b<br>b</div>
+            <!-- comment -->
+        </div>
+    </div>
+    
+    
+    <script>
+    
+        (function () {
+    
+            var w = window;
+            var d = document;
+            var layouts;
+            
+            
+            var get_element_height = function (ele) {
+                var style = w.getComputedStyle,
+                    a;
+        
+                //DOM Level 2 accessor
+                if (style) {
+                    style = style(ele, null);
+                //IE8
+                } else {
+                    style = ele.currentStyle;
+                }
+        
+                a = [
+                    parseInt(style.borderTopWidth) || 0,
+                    parseInt(style.borderBottomWidth) || 0,
+                    parseInt(style.paddingTop) || 0,
+                    parseInt(style.paddingBottom) || 0
+                ];
+        
+                return ele.offsetHeight - (a[0] + a[1] + a[2] + a[3]);
+            };
+            
+            
+            var set_equal_heights = function (layout) {
+                //::
+                
+                var nodes = layout.children,
+                    i = nodes.length - 1,
+                    node,
+                    height;
+                
+                layout.classList.add('layout-reflow');
+                height = get_element_height(layout);
+                
+                do {
+                    node = nodes[i];
+                    if (node.className === 'cel-space') {
+                        node.style.height = height + 'px';
+                    } else {
+                        node.style.minHeight = height + 'px';
+                    }
+                
+                } while(i--);
+                
+                
+                layout.classList.remove('layout-reflow');
+            };
+            
+            
+            
+            var remove_whitespace = function (layout) {
+                //::
+                
+                var node = layout.firstChild,
+                    next;
+            
+                do {
+                    next = node.nextSibling;
+                    if (node.nodeType !== 1) { 
+                        layout.removeChild(node);
+                    }
+                    node = next; 
+                } while(node);
+            };
+            
+            
+            var create_cel_space = function () {
+                //:
+            
+                var space = d.createElement('div');
+                space.className = 'cel-space';
+                space.innerHTML = '<div class="cel-line"></div>';
+                
+                return space;
+            };
+            
+            
+            var inject_cel_space = function (layout) {
+                //::
+                
+                var node = layout.firstChild;
+                
+                do {
+                    node = node.nextSibling;
+                    if (node) {
+                        layout.insertBefore(create_cel_space(), node);
+                    }
+                } while(node);
+            };
+            
+            
+            /*
+            var requires_equal_heights = function (layout) {
+                var a = layout.className.split(/\s+/),
+                    i = a.length - 1;
+                
+                do {
+                    if (/^align:[tmb](?::[lcr])?$/.test(a[i])) {
+                        return false;
+                    }
+                } while(i--);
+            
+                return layout.equal_heights = true;
+            };
+            */
+            
+            
+            var get_layouts = function () {
+                //::
+                
+                var selector = '.split, [class*="split:"]',
+                    layouts = d.querySelectorAll(selector);
+                
+                return layouts;
+            };
+            
+            
+            var initialize = function () {
+                //::
+                
+                var l = layouts.length,
+                    i = 0,
+                    layout;
+        
+                for (; i < l; i++) {
+                    layout = layouts[i];
+                    //remove_whitespace(layout);
+                    //inject_cel_space(layout);
+                    //set_equal_heights(layout);
+                                        
+                    //set layout-ready class to show element
+                    layout.className += ' layout-ready';
+                }
+            };
+            
+            
+            var reset_min_heights = function (layout) {
+                var nodes = layout.children,
+                    i = nodes.length - 1;
+                
+                do {
+                    nodes[i].style.minHeight = 0;
+                } while(i--);
+            };
+            
+            
+            var reset_equal_heights = function () {
+                var i = layouts.length - 1,
+                    layout;
+                
+                do {
+                    layout = layouts[i];
+                    //reset_min_heights(layout);
+                    //layout.classList.add('layout-reflow');
+                    set_equal_heights(layout);
+                    //layout.classList.remove('layout-reflow');  
+                } while(i--);
+            };
+            
+            
+            var init_resize_event = function () {
+                if (layouts.length) {
+                    if (w.addEventListener) {
+                        w.addEventListener('resize', function () {
+                            reset_equal_heights();
+                        });
+                    } else {
+                        w.attachEvent('onresize', function () {
+                            //set_all_cel_line_heights();
+                        });
+                    }
+                }
+            };
+            
+            
+            
+            //domready
+            layouts = get_layouts();
+            initialize();
+            
+            //init_resize_event();
+            
+            
+            
+            
+            
+        }());
+        
+        
+    
+    </script>
+   
+    
+
+</body>
+</html>

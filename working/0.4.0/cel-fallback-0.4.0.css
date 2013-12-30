@@ -1,8 +1,10 @@
 @charset 'utf-8';
 
-/*! cel v0.3.0 -- (c) 2013 Mark Wise */
+/*! cel v0.4.0 -- (c) 2013 Mark Wise */
 
 .split{
+    position:relative;
+    visibility:hidden;
     /*
      * Browsers that don't support text-align-last will have a second line added 
      * by inserting an ::after pseudo-element to force a second line.
@@ -35,13 +37,16 @@
     letter-spacing:-.334em;
     /* IE */
     letter-spacing:-.34em\9;
+    
+    /* white-space:nowrap; */
 }
-
+/*
 .split[class~='with-gap:1'],
 .split[class~='with-gap:2'],
 .split[class~='with-gap:3'],
 .split[class~='with-gap:4'],
 .split[class~='with-gap:5']{
+*/
     /*
      * Firefox doesn't align the last cels right edge in each line with the 
      * parent containers right edge if cel widths don't add up to 100% and the
@@ -52,10 +57,10 @@
      * The value -.25em also yields more consistent results in webkit browsers
      * when setting smaller percentage widths to yield bigger gap sizes.
      */
-    letter-spacing:-.25em;
+    /* letter-spacing:-.25em; */
     /* IE */
-    letter-spacing:-.34em\9;
-}
+    /* letter-spacing:-.34em\9; */
+/* } */
 
 /*
  * Browsers that don't support text-align-last will have a second line added by 
@@ -103,17 +108,37 @@
 /* Alignment */
 
 .split[class~='align:t']>.cel{
-/* .split[class~='align:top']>.cel{ */
+/* .split[class~='align:t']>.cel-space{ */
     vertical-align:top;
 }
 .split[class~='align:m']>.cel{
-/* .split[class~='align:middle']>.cel{ */
+/* .split[class~='align:m']>.cel-space{ */
     vertical-align:middle;
 }
 .split[class~='align:b']>.cel{
-/* .split[class~='align:bottom']>.cel{ */
+/* .split[class~='align:b']>.cel-space{ */
     vertical-align:bottom;
 }
+
+.split[class~='align:t']>.cel,
+.split[class~='align:m']>.cel,
+.split[class~='align:b']>.cel{
+    min-height:0 !important;
+}
+
+
+.layout-reflow>.cel{
+/* .layout-reflow>.cel-space{ */
+    min-height:0 !important;
+}
+.layout-reflow>.cel-space{
+    height:0 !important;
+}
+
+
+
+
+
 
 
 /* Direction */
@@ -128,7 +153,254 @@
 
 /* Layouts */
 
+/*
+[class~='with-space:1:1'],
+[class~='with-space:1:2'],
+[class~='with-space:1:3'],
+[class~='with-space:1:4'],
+[class~='with-space:1:5'],
+[class~='with-space:2:1'],
+[class~='with-space:2:2'],
+[class~='with-space:2:3'],
+[class~='with-space:2:4'],
+[class~='with-space:2:5'],
+[class~='with-space:3:1'],
+[class~='with-space:3:2'],
+[class~='with-space:3:3'],
+[class~='with-space:3:4'],
+[class~='with-space:3:5'],
+[class~='with-space:4:1'],
+[class~='with-space:4:2'],
+[class~='with-space:4:3'],
+[class~='with-space:4:4'],
+[class~='with-space:4:5'],
+[class~='with-space:5:1'],
+[class~='with-space:5:2'],
+[class~='with-space:5:3'],
+[class~='with-space:5:4'],
+[class~='with-space:5:5'],
+[class~='with-space::1'],
+[class~='with-space::2'],
+[class~='with-space::3'],
+[class~='with-space::4'],
+[class~='with-space::5']{
+    text-align:center;
+    -moz-text-align-last:auto;
+    -ms-text-align-last:auto;
+}
+*/
+
+/* by:2 */
+/*
+[class~='by:2']>.cel{width:50%}
+[class~='by:2'][class~='with-space:1']>.cel{width:49.5%}
+[class~='by:2'][class~='with-space:1:1']>.cel{width:48.5%}
+[class~='by:2'][class~='with-space:1:2']>.cel{width:47.5%}
+[class~='by:2'][class~='with-space:1:3']>.cel{width:46.5%}
+[class~='by:2'][class~='with-space:1:4']>.cel{width:45.5%}
+[class~='by:2'][class~='with-space:1:5']>.cel{width:44.5%}
+[class~='by:2'][class~='with-space:2']>.cel{width:49%}
+[class~='by:2'][class~='with-space:2:1']>.cel{width:48%}
+[class~='by:2'][class~='with-space:2:2']>.cel{width:47%}
+[class~='by:2'][class~='with-space:2:3']>.cel{width:46%}
+[class~='by:2'][class~='with-space:2:4']>.cel{width:45%}
+[class~='by:2'][class~='with-space:2:5']>.cel{width:44%}
+[class~='by:2'][class~='with-space:3']>.cel{width:48.5%}
+[class~='by:2'][class~='with-space:3:1']>.cel{width:47.5%}
+[class~='by:2'][class~='with-space:3:2']>.cel{width:46.5%}
+[class~='by:2'][class~='with-space:3:3']>.cel{width:45.5%}
+[class~='by:2'][class~='with-space:3:4']>.cel{width:44.5%}
+[class~='by:2'][class~='with-space:3:5']>.cel{width:43.5%}
+[class~='by:2'][class~='with-space:4']>.cel{width:48%}
+[class~='by:2'][class~='with-space:4:1']>.cel{width:47%}
+[class~='by:2'][class~='with-space:4:2']>.cel{width:46%}
+[class~='by:2'][class~='with-space:4:3']>.cel{width:45%}
+[class~='by:2'][class~='with-space:4:4']>.cel{width:44%}
+[class~='by:2'][class~='with-space:4:5']>.cel{width:43%}
+[class~='by:2'][class~='with-space:5']>.cel{width:47.5%}
+[class~='by:2'][class~='with-space:5:1']>.cel{width:46.5%}
+[class~='by:2'][class~='with-space:5:2']>.cel{width:45.5%}
+[class~='by:2'][class~='with-space:5:3']>.cel{width:44.5%}
+[class~='by:2'][class~='with-space:5:4']>.cel{width:43.5%}
+[class~='by:2'][class~='with-space:5:5']>.cel{width:42.5%}
+[class~='by:2'][class~='with-space::1']>.cel{width:49%}
+[class~='by:2'][class~='with-space::2']>.cel{width:48%}
+[class~='by:2'][class~='with-space::3']>.cel{width:47%}
+[class~='by:2'][class~='with-space::4']>.cel{width:46%}
+[class~='by:2'][class~='with-space::5']>.cel{width:45%}
+*/
+
+[class~='by:2']>.cel{width:50%}
+[class~='by:2'][class~='with-space:1']>.cel,
+[class~='by:2'][class~='with-space:1:1']>.cel,
+[class~='by:2'][class~='with-space:1:2']>.cel,
+[class~='by:2'][class~='with-space:1:3']>.cel,
+[class~='by:2'][class~='with-space:1:4']>.cel,
+[class~='by:2'][class~='with-space:1:5']>.cel{
+    width:49.5%
+}
+[class~='by:2'][class~='with-space:2']>.cel,
+[class~='by:2'][class~='with-space:2:1']>.cel,
+[class~='by:2'][class~='with-space:2:2']>.cel,
+[class~='by:2'][class~='with-space:2:3']>.cel,
+[class~='by:2'][class~='with-space:2:4']>.cel,
+[class~='by:2'][class~='with-space:2:5']>.cel{
+    width:49%
+}
+[class~='by:2'][class~='with-space:3']>.cel,
+[class~='by:2'][class~='with-space:3:1']>.cel,
+[class~='by:2'][class~='with-space:3:2']>.cel,
+[class~='by:2'][class~='with-space:3:3']>.cel,
+[class~='by:2'][class~='with-space:3:4']>.cel,
+[class~='by:2'][class~='with-space:3:5']>.cel{
+    width:48.5%
+}
+[class~='by:2'][class~='with-space:4']>.cel,
+[class~='by:2'][class~='with-space:4:1']>.cel,
+[class~='by:2'][class~='with-space:4:2']>.cel,
+[class~='by:2'][class~='with-space:4:3']>.cel,
+[class~='by:2'][class~='with-space:4:4']>.cel,
+[class~='by:2'][class~='with-space:4:5']>.cel{
+    width:48%
+}
+[class~='by:2'][class~='with-space:5']>.cel,
+[class~='by:2'][class~='with-space:5:1']>.cel,
+[class~='by:2'][class~='with-space:5:2']>.cel,
+[class~='by:2'][class~='with-space:5:3']>.cel,
+[class~='by:2'][class~='with-space:5:4']>.cel,
+[class~='by:2'][class~='with-space:5:5']>.cel{
+    width:47.5%
+}
+
+
+
+
+
+
+
+/* Cel space */
+
+.cel-space {
+    /* display:none; */
+    display:inline-block;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    overflow:hidden;
+    margin:0;
+    border:0;
+    padding:0;
+    width:0;
+    /* background:transparent !important; */
+    background:red;
+    vertical-align:top;
+    text-align:center;
+    -moz-text-align-last:auto;
+    -ms-text-align-last:auto;
+    letter-spacing:normal;
+}
+
+[class~='with-space:1']>.cel-space,
+[class~='with-space:1:1']>.cel-space,
+[class~='with-space:1:2']>.cel-space,
+[class~='with-space:1:3']>.cel-space,
+[class~='with-space:1:4']>.cel-space,
+[class~='with-space:1:5']>.cel-space{
+    /* display:inline-block; */
+    width:1%;
+}
+[class~='with-space:2']>.cel-space,
+[class~='with-space:2:1']>.cel-space,
+[class~='with-space:2:2']>.cel-space,
+[class~='with-space:2:3']>.cel-space,
+[class~='with-space:2:4']>.cel-space,
+[class~='with-space:2:5']>.cel-space{
+    /* display:inline-block; */
+    width:2%;
+}
+[class~='with-space:3']>.cel-space,
+[class~='with-space:3:1']>.cel-space,
+[class~='with-space:3:2']>.cel-space,
+[class~='with-space:3:3']>.cel-space,
+[class~='with-space:3:4']>.cel-space,
+[class~='with-space:3:5']>.cel-space{
+    /* display:inline-block; */
+    width:3%;
+}
+[class~='with-space:4']>.cel-space,
+[class~='with-space:4:1']>.cel-space,
+[class~='with-space:4:2']>.cel-space,
+[class~='with-space:4:3']>.cel-space,
+[class~='with-space:4:4']>.cel-space,
+[class~='with-space:4:5']>.cel-space{
+    /* display:inline-block; */
+    width:4%;
+}
+[class~='with-space:5']>.cel-space,
+[class~='with-space:5:1']>.cel-space,
+[class~='with-space:5:2']>.cel-space,
+[class~='with-space:5:3']>.cel-space,
+[class~='with-space:5:4']>.cel-space,
+[class~='with-space:5:5']>.cel-space{
+    /* display:inline-block; */
+    width:5%;
+}
+
+
+[class~='with-space::1'],
+[class~='with-space:1:1'],
+[class~='with-space:2:1'],
+[class~='with-space:3:1'],
+[class~='with-space:4:1'],
+[class~='with-space:5:1']{
+    padding-left:1%;
+    padding-right:1%;
+}
+[class~='with-space::2'],
+[class~='with-space:1:2'],
+[class~='with-space:2:2'],
+[class~='with-space:3:2'],
+[class~='with-space:4:2'],
+[class~='with-space:5:2']{
+    padding-left:2%;
+    padding-right:2%;
+}
+[class~='with-space::3'],
+[class~='with-space:1:3'],
+[class~='with-space:2:3'],
+[class~='with-space:3:3'],
+[class~='with-space:4:3'],
+[class~='with-space:5:3']{
+    padding-left:3%;
+    padding-right:3%;
+}
+[class~='with-space::4'],
+[class~='with-space:1:4'],
+[class~='with-space:2:4'],
+[class~='with-space:3:4'],
+[class~='with-space:4:4'],
+[class~='with-space:5:4']{
+    padding-left:4%;
+    padding-right:4%;
+}
+[class~='with-space::5'],
+[class~='with-space:1:5'],
+[class~='with-space:2:5'],
+[class~='with-space:3:5'],
+[class~='with-space:4:5'],
+[class~='with-space:5:5']{
+    padding-left:5%;
+    padding-right:5%;
+}
+
+
+
+
+
+
+
 /* no gap (default) */
+/*
 [class~='by:2']>.cel{width:50%}
 [class~='by:3']>.cel{width:33.333%}
 [class~='by:4']>.cel{width:25%}
@@ -145,8 +417,10 @@
 [class~='by:2/3']>.cel~.cel{width:60%}
 [class~='by:3/2']>.cel{width:60%}
 [class~='by:3/2']>.cel~.cel{width:40%}
+*/
 
 /* 1% gap */
+/*
 [class~='by:2'][class~='with-gap:1']>.cel{width:49.5%}
 [class~='by:3'][class~='with-gap:1']>.cel{width:32.665%}
 [class~='by:4'][class~='with-gap:1']>.cel{width:24.25%}
@@ -163,8 +437,10 @@
 [class~='by:2/3'][class~='with-gap:1']>.cel~.cel{width:59.4%}
 [class~='by:3/2'][class~='with-gap:1']>.cel{width:59.4%}
 [class~='by:3/2'][class~='with-gap:1']>.cel~.cel{width:39.6%}
+*/
 
 /* 2% gap */
+/*
 [class~='by:2'][class~='with-gap:2']>.cel{width:49%}
 [class~='by:3'][class~='with-gap:2']>.cel{width:32%}
 [class~='by:4'][class~='with-gap:2']>.cel{width:23.5%}
@@ -181,8 +457,10 @@
 [class~='by:2/3'][class~='with-gap:2']>.cel~.cel{width:58.8%}
 [class~='by:3/2'][class~='with-gap:2']>.cel{width:58.8%}
 [class~='by:3/2'][class~='with-gap:2']>.cel~.cel{width:39.2%}
+*/
 
 /* 3% gap */
+/*
 [class~='by:2'][class~='with-gap:3']>.cel{width:48.5%}
 [class~='by:3'][class~='with-gap:3']>.cel{width:31.33%}
 [class~='by:4'][class~='with-gap:3']>.cel{width:22.75%}
@@ -199,8 +477,10 @@
 [class~='by:2/3'][class~='with-gap:3']>.cel~.cel{width:58.2%}
 [class~='by:3/2'][class~='with-gap:3']>.cel{width:58.2%}
 [class~='by:3/2'][class~='with-gap:3']>.cel~.cel{width:38.8%}
+*/
 
 /* 4% gap */
+/*
 [class~='by:2'][class~='with-gap:4']>.cel{width:48%}
 [class~='by:3'][class~='with-gap:4']>.cel{width:30.665%}
 [class~='by:4'][class~='with-gap:4']>.cel{width:22%}
@@ -217,8 +497,10 @@
 [class~='by:2/3'][class~='with-gap:4']>.cel~.cel{width:57.6%}
 [class~='by:3/2'][class~='with-gap:4']>.cel{width:57.6%}
 [class~='by:3/2'][class~='with-gap:4']>.cel~.cel{width:38.4%}
+*/
 
 /* 5% gap */
+/*
 [class~='by:2'][class~='with-gap:5']>.cel{width:47.5%}
 [class~='by:3'][class~='with-gap:5']>.cel{width:30%}
 [class~='by:4'][class~='with-gap:5']>.cel{width:21.25%}
@@ -235,10 +517,12 @@
 [class~='by:2/3'][class~='with-gap:5']>.cel~.cel{width:57%}
 [class~='by:3/2'][class~='with-gap:5']>.cel{width:57%}
 [class~='by:3/2'][class~='with-gap:5']>.cel~.cel{width:38%}
+*/
 
 
 /* Vertical line rule - requires cel js */
 
+/*
 .cel-line{
     display:inline-block;
     overflow:hidden;
@@ -255,11 +539,17 @@
     -ms-transition:opacity .5s;
     transition:opacity .5s;
 }
+*/
 
 /* This class is added via JavaScript once the height of the line has been set */
 .cel-line.ready{
     visibility:visible;
     opacity:1;
+}
+
+
+.layout-ready {
+    visibility:visible;
 }
 
 

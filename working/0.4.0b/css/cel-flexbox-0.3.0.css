@@ -3,126 +3,59 @@
 /*! cel v0.3.0 -- (c) 2013 Mark Wise */
 
 .split{
-    /*
-     * Browsers that don't support text-align-last will have a second line added 
-     * by inserting an ::after pseudo-element to force a second line.
-     * 
-     * Since line-height affects multiple lines, setting line-height:0 removes 
-     * the extra space created by the second the line.
-     */
-    line-height:0;
-    /* Reset for IE */
-    line-height:normal\9;
-    text-align:justify;
-    -moz-text-align-last:justify;
-    /*
-     * IE requires both text-align:justify and text-align-last:justify in order
-     * to justify the last line, whereas, Firefox does not.
-     */
-    -ms-text-align-last:justify;           
-    /*
-     * Setting a low negative letter-spacing value removes the white space 
-     * between inline-block elements (cels) and may cause adjacent cels to 
-     * overlap.
-     *
-     * Using text-align:justify distributes cels evenly across their parent 
-     * preventing cel overlap that may have been caused by negative letter 
-     * spacing.
-     *
-     * This allows two cels that have a width of 50%, for instance, to be flush 
-     * with one another without wrapping.
-     */
-    letter-spacing:-.334em;
-    /* IE */
-    letter-spacing:-.34em\9;
-}
-
-.split[class~='with-gap:1'],
-.split[class~='with-gap:2'],
-.split[class~='with-gap:3'],
-.split[class~='with-gap:4'],
-.split[class~='with-gap:5']{
-    /*
-     * Firefox doesn't align the last cels right edge in each line with the 
-     * parent containers right edge if cel widths don't add up to 100% and the
-     * letter-spacing value is less than -.25em.
-     * 
-     * This applies to grid layouts and does not affect the last line.
-     * 
-     * The value -.25em also yields more consistent results in webkit browsers
-     * when setting smaller percentage widths to yield bigger gap sizes.
-     */
-    letter-spacing:-.25em;
-    /* IE */
-    letter-spacing:-.34em\9;
-}
-
-/*
- * Browsers that don't support text-align-last will have a second line added by 
- * inserting an ::after pseudo-element to force a second line.
- */
-.split::after{
-    content:'';
-    display:inline-block;
-    /* IE supports text-align-last:justify */
-    display:none\9;
-    /* Force a second line */
-    width:100%;
-    /* Remove extra space in webkit browsers */
-    vertical-align:top;
-}
-
-@-moz-document url-prefix(){
-    .split{
-        line-height:normal;
-    }
-    .split::after{
-        /* Firefox supports text-align-last:justify */
-        display:none;
-    }
+    display:-ms-flexbox;
+    display:-webkit-flex;
+    display:flex;
+    -ms-flex-pack:justify;
+    -webkit-justify-content:space-between;
+    justify-content:space-between;
+    -ms-flex-wrap:wrap;
+    -webkit-flex-wrap:wrap;
+    flex-wrap:wrap;
+    -ms-flex-align:start;
+    -webkit-align-items:flex-start;
+    align-items:flex-start;
+    -ms-flex:none;
+    -webkit-flex:none;
+    flex:none;
 }
 
 .split>.cel{
-    display:inline-block;
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
-    /* IE8,9,10 bug fix to prevent wrapping when resizing */
-    min-height:100%;
-    /* Set default alignment */
-    vertical-align:top;
-    /* Reset the following */
     line-height:1.5;
-    text-align:left;
-    -moz-text-align-last:auto;
-    -ms-text-align-last:auto;
-    letter-spacing:normal;
 }
 
 
 /* Alignment */
 
-.split[class~='align:t']>.cel{
-/* .split[class~='align:top']>.cel{ */
-    vertical-align:top;
+.split[class~='align:t'],
+.split[class~='align:top']{
+    -ms-flex-align:start;
+    -webkit-align-items:flex-start;
+    align-items:flex-start;
 }
-.split[class~='align:m']>.cel{
-/* .split[class~='align:middle']>.cel{ */
-    vertical-align:middle;
+.split[class~='align:m'],
+.split[class~='align:middle']{
+    -ms-flex-align:center;
+    -webkit-align-items:center;
+    align-items:center;
 }
-.split[class~='align:b']>.cel{
-/* .split[class~='align:bottom']>.cel{ */
-    vertical-align:bottom;
+.split[class~='align:b'],
+.split[class~='align:bottom']{
+    -ms-flex-align:end;
+    -webkit-align-items:flex-end;
+    align-items:flex-end;
 }
 
 
 /* Direction */
 
-.split.flip{
-    direction:rtl;
-}
-.split.flip>.cel{
-    direction:ltr;
+.split.flip {
+    -ms-flex-direction:row-reverse;
+    -webkit-flex-direction:row-reverse;
+    flex-direction:row-reverse;
 }
 
 
@@ -237,99 +170,69 @@
 [class~='by:3/2'][class~='with-gap:5']>.cel~.cel{width:38%}
 
 
-/* Vertical line rule - requires cel js */
+/* Vertical line rule */
 
-.cel-line{
-    display:inline-block;
+.cel-line {
+    -ms-flex-item-align:stretch;
+    -webkit-align-self:stretch;
+    align-self:stretch;
     overflow:hidden;
     border-top-width:0 !important;
     border-right-width:0 !important;
     border-bottom-width:0 !important;
     border:1px solid #ccc;
     width:0;
-    vertical-align:top;
-    visibility:hidden;
-    opacity:0;
-    -webkit-transition:opacity .5s;
-    -moz-transition:opacity .5s;
-    -ms-transition:opacity .5s;
-    transition:opacity .5s;
-}
-
-/* This class is added via JavaScript once the height of the line has been set */
-.cel-line.ready{
-    visibility:visible;
-    opacity:1;
 }
 
 
 /* Responsive */
 
-@media screen and (min-width:641px){
+@media screen and (min-width:641px) {
     [class~='split:640']{
-        line-height:0;
-        /*line-height:normal\9;*/
-        text-align:justify;
-        -moz-text-align-last:justify;
-        -ms-text-align-last:justify;           
-        letter-spacing:-.334em;
-        letter-spacing:-.34em\9;
-    }
-    [class~='split:640'][class~='with-gap:1'],
-    [class~='split:640'][class~='with-gap:2'],
-    [class~='split:640'][class~='with-gap:3'],
-    [class~='split:640'][class~='with-gap:4'],
-    [class~='split:640'][class~='with-gap:5']{
-        letter-spacing:-.25em;
-        letter-spacing:-.34em\9;
-    }
-    [class~='split:640']::after{
-        content:'';
-        display:inline-block;
-        display:none\9;
-        width:100%;
-        vertical-align:top;
-    }
-    @-moz-document url-prefix(){
-        /*
-        [class~='split:640']{
-            line-height:normal;
-        }
-        */
-        [class~='split:640']::after{
-            display:none;
-        }
+        display:-ms-flexbox;
+        display:-webkit-flex;
+        display:flex;
+        -ms-flex-pack:justify;
+        -webkit-justify-content:space-between;
+        justify-content:space-between;
+        -ms-flex-wrap:wrap;
+        -webkit-flex-wrap:wrap;
+        flex-wrap:wrap;
+        -ms-flex-align:start;
+        -webkit-align-items:flex-start;
+        align-items:flex-start;
+        -ms-flex:none;
+        -webkit-flex:none;
+        flex:none;
     }
     [class~='split:640']>.cel{
-        display:inline-block;
         -webkit-box-sizing:border-box;
         -moz-box-sizing:border-box;
         box-sizing:border-box;
-        min-height:100%;
-        vertical-align:top;
         line-height:1.5;
-        text-align:left;
-        -moz-text-align-last:auto;
-        -ms-text-align-last:auto;
-        letter-spacing:normal;
     }
-    [class~='split:640'][class~='align:t']>.cel,
-    /* [class~='split:640'][class~='align:top']>.cel{ */
-        vertical-align:top;
+    [class~='split:640'][class~='align:t'],
+    [class~='split:640'][class~='align:top']{
+        -ms-flex-align:start;
+        -webkit-align-items:flex-start;
+        align-items:flex-start;
     }
-    [class~='split:640'][class~='align:m']>.cel,
-    /* [class~='split:640'][class~='align:middle']>.cel{ */
-        vertical-align:middle;
+    [class~='split:640'][class~='align:m'],
+    [class~='split:640'][class~='align:middle']{
+        -ms-flex-align:center;
+        -webkit-align-items:center;
+        align-items:center;
     }
-    [class~='split:640'][class~='align:b']>.cel,
-    /* [class~='split:640'][class~='align:bottom']>.cel{ */
-        vertical-align:bottom;
+    [class~='split:640'][class~='align:b'],
+    [class~='split:640'][class~='align:bottom']{
+        -ms-flex-align:end;
+        -webkit-align-items:flex-end;
+        align-items:flex-end;
     }
-    [class~='split:640'].flip{
-        direction:rtl;
-    }
-    [class~='split:640'].flip>.cel{
-        direction:ltr;
+    [class~='split:640'].flip {
+        -ms-flex-direction:row-reverse;
+        -webkit-flex-direction:row-reverse;
+        flex-direction:row-reverse;
     }
     [class~='split:640']>.show{
         display:none;
@@ -345,3 +248,5 @@
         width:auto !important;
     }
 }
+
+

@@ -69,6 +69,7 @@
 	    }
 	    */
 	    
+	    /*
 	    .a {
 	        width:65%;
 	    }
@@ -78,7 +79,20 @@
 	        height:100px;
 	        background:red;
 	    }
+	    */
 	    
+	    .layout {
+	        text-align:center;
+	        background:#ccc;
+	        line-height:0;
+	    }
+	    .layout .split {
+	        display:inline-block;
+	        /* width:100px; */
+	        /* min-width:3em; */
+	        /* width:2em; */
+	        /* letter-spacing:-.25em; */
+	    }
 	    
 	    
 	</style>
@@ -86,13 +100,11 @@
 </head>
 <body>
     
-    
-    <div class="split align:m">
-        <p class="cel a">
-            Energistically procrastinate holistic web-readiness after functionalized communities. Appropriately leverage existing client-based architectures for one-to-one users. Completely negotiate interdependent results before interoperable infrastructures.
-        </p>
-        <div class="cel b">
-            
+    <div class="layout">
+        <div class="split by:2 align:m">
+            <div class="cel a">aa</div>
+            <!-- <div class="cel-line"></div> -->
+            <div class="cel b">b<br>b<br>b</div>
         </div>
     </div>
     

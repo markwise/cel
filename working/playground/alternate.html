@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+	<style>
+	    
+	    .split {
+	        text-align:justify;
+	        font-size:0 !important;
+	    }
+	
+	    .split::after {
+	        content:'';
+	        display:inline-block;
+	        width:100%;
+	        vertical-align:top;
+	    }
+	    
+	    .cel {
+	        display:inline-block;
+	        font-size:16px;
+	        font-size:1rem;
+	        vertical-align:top;
+	        text-align:left;
+	    }
+	
+	    [class~='align:t']>.cel,
+	    [class~='align:t:l']>.cel,
+	    [class~='align:t:c']>.cel,
+	    [class~='align:t:r']>.cel{
+	        vertical-align:top;
+	    }
+	    [class~='align:m']>.cel,
+	    [class~='align:m:l']>.cel,
+	    [class~='align:m:c']>.cel,
+	    [class~='align:m:r']>.cel{
+	        vertical-align:middle;
+	    }
+	    [class~='align:b']>.cel,
+	    [class~='align:b:l']>.cel,
+	    [class~='align:b:c']>.cel,
+	    [class~='align:b:r']>.cel{
+	        vertical-align:bottom;
+	    }
+	
+	    [class~='align::l'],
+	    [class~='align:t:l'],
+	    [class~='align:m:l'],
+	    [class~='align:b:l']{
+	        text-align:left;
+	    }
+	    [class~='align::c'],
+	    [class~='align:t:c'],
+	    [class~='align:m:c'],
+	    [class~='align:b:c']{
+	        text-align:center;
+	    }
+	    [class~='align::r'],
+	    [class~='align:t:r'],
+	    [class~='align:m:r'],
+	    [class~='align:b:r']{
+	        text-align:right;
+	    }
+	
+	
+	
+	
+	
+	    /*::*/
+	
+	    body, .cel{
+            font:15px/1.5 Arial;
+        }
+        
+        /*::*/
+        
+        .split {
+            background:#ccc;
+            /* word-spacing:25px */
+        }
+        
+        .a {background:red}
+	    .b {background:orange}
+	    .c {background:green}
+	    .d {background:yellow}
+	    
+	    .cel {
+	        width:100px;
+	        /* margin-right:5%; */
+	        
+	    }
+	    .cel:first-child{
+	        margin-left:0;
+	    }
+	
+	</style>
+	
+</head>
+<body>
+
+    <div class="split align::r">
+        <div class="cel a">a</div>
+        <div class="cel b">b<br>b</div>
+        <div class="cel c">c<br>c<br>c</div>
+        <div class="cel d">d<br>d<br>d<br>d</div>
+    </div>
+
+    
+
+
+</body>
+</html>

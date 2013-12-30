@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+</head>
+<body>
+
+    <div class="split"></div>
+    
+    <div class="split:641"></div>
+
+    <div>
+        <button id="add">add</button>
+    </div>
+
+    
+    <script>
+        var d = document;
+        
+        var get_layouts_selector = function () {
+            var a = ['.split'],
+                i = 481,
+                l = 961;
+            
+            for (; i <= l; i += 20) {
+                a.push('[class~="split:' + i + '"]');
+            }
+            
+            return a.join(',');
+        };
+        
+        var get_layouts = function () {
+            return d.querySelectorAll(layouts_selector);
+        };
+        
+        var layouts_selector = get_layouts_selector();
+        var layouts = get_layouts();
+        var layouts_count = layouts.length;
+        
+        //console.log(layouts_count);
+        
+        
+        /*
+        var timer = setInterval(function () {
+            var a = get_layouts();
+            var l = a.length;
+            if (l > layouts_count) {
+                layouts = a;
+                layouts_count = l;
+                console.log(layouts_count);
+            }
+        }, 500);
+        */
+            
+         
+        
+        d.querySelector('#add').addEventListener('click', function () {
+            var e = d.createElement('div');
+            e.className = 'split:961';
+            //console.log(e);
+            
+            d.body.appendChild(e)
+        
+        });
+        
+        
+    
+    </script>
+
+
+
+</body>
+</html>

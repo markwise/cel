@@ -263,6 +263,13 @@
 }
 
 
+.layout-reflow>.cel{
+    min-height:0 !important;
+}
+
+
+
+
 /* Responsive */
 
 @media screen and (min-width:641px){

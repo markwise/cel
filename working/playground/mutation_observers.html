@@ -16,10 +16,24 @@
 	    .b {
 	        background:green;
 	    }
-	        
-	
 	    
-	
+	    /*
+	    .space:5 > .cel {
+	        margin-left:5%;
+	    }
+	    .space:5 > :first-child {
+	        margin-left:0;
+	    }   
+	    .layout-ready > .cel {
+	        margin-left:0;
+	    }
+	    .layout-ready.space:5 > .cel-space {
+	        width:5%;
+	    }
+	    
+	    
+	    
+	    */
 	</style>
 	
 	
@@ -27,6 +41,9 @@
 <body>
 
     <div id="test"></div>
+    <div id="test2"></div>
+    
+    <button type="button" id="add_many">Add Many</button>
     
     <button type="button" id="add">Add</button>
 
@@ -40,69 +57,310 @@
         FF14
         CH18
         */
-    
-    
         var test = document.getElementById('test');
-        //console.log(test);
-    
-        // select the target node
-        var target = document.body;
-        //console.log(target);
- 
-        var remove_whitespace = function (node) {
-            var a = node.childNodes;
-            var i = a.length;
-            var item;
+        
+        
+        (function () {
+            'use strict';
+        
+            var W = window;
+            var D = document;
+            var B = D.body;
             
-            while (i--) {
-                item = a[i];
+            
+            var getLayoutSelector = function (flag) {
+                //::
                 
-                if (item.nodeType === 3) {
-                    node.removeChild(item);
-                }
-            }
-        };
- 
- 
-        // create an observer instance
-        var observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                var a = mutation.addedNodes
-                var i = a.length;
-                var node;
+                var selector = '',
+                    a = [],
+                    i = 481;
                 
-                while (i--) {
-                    node = a[i];
-                    console.log(node);
-                    
-                    if (node.nodeType === 1) {
-                        remove_whitespace(node);
-                    
-                    
-                        if (node.classList.contains('split')) {
-                            //console.log(node);
-                            //remove whitespace
-                            //init cel lines
-                            //init responds to elements
-                            //equal heights
-                        } 
-                    } 
+                if (flag === true) {
+                    selector = '.layout-ready';
+                } else
+                if (flag === false) {
+                    selector = ':not(.layout-ready)';
                 }
+                
+                a.push('.split' + selector);
+            
+                for (; i <= 961; i += 20) {
+                    a.push('[class~="split:' + i + '"]' + selector);
+                }
+            
+                return a.join(',');
+            };
+            
+            
+            //Cache generated selectors
+            
+            var layoutSelector = getLayoutSelector();
+            var initializedLayoutSelector = getLayoutSelector(true);
+            var uninitializedLayoutSelector = getLayoutSelector(false);
+            
+            
+            //::
+            
+            var getLayouts = function () {
+                return D.querySelectorAll(layoutSelector);
+            };
+            
+            var getInitializedLayouts = function () {
+                return D.querySelectorAll(initializedLayoutSelector);
+            };
+            
+            var getUninitializedLayouts = function () {
+                return D.querySelectorAll(uninitializedLayoutSelector);
+            };
+             
+            
+            
+           
+            
+            
+            
+            
+            
+            
         
             
-            });    
+            
+            var is_number = function (value) {
+                return typeof(value) === 'number';
+            };
+            
+        
+            var Timer = (function () {
+                var
+                
+                defaults = {
+                    duration : 1000,
+                    delay : 1000
+                },
+                              
+                start = function (delay) {
+                    delay = is_number(delay) ? delay * 1000 : defaults.delay;
+                    this.interval = setInterval(this.fn, delay);
+                },
+                    
+                stop = function () {
+                    clearInterval(this.interval);
+                    clearTimeout(this.timeout);
+                },
+                    
+                burst = function (duration, delay) {
+                    var self = this;
+                    
+                    duration = is_number(duration) ? duration * 1000 : defaults.duration;
+                    delay = is_number(delay) ? delay : defaults.delay / 1000;
+                    
+                    this.stop();
+                    this.start(.01);
+                    
+                    this.timeout = setTimeout(function () {
+                        self.stop();
+                        self.start(delay);
+                    }, duration);
+                },
+                
+                create = function (fn) {
+                    return {
+                        fn : fn,
+                        start : start,
+                        stop : stop,
+                        burst : burst
+                    }
+                };
+                
+                return {
+                    create : create
+                }
+            }());
+            
+            
+            var layout = (function () {
+                //handles individual layout tasks
+                
+                //layout.add_cel_space(layout);
+                //layout.add_cel_lines(layout);
+                //layout.set_equal_heights(layout);
+                //layout.ready(layout);
+                
+                var removeWhitespace = function (layout) {
+                    var node = layout.firstChild,
+                        next;
+                
+                    while (node) {
+                        next = node.nextSibling;
+                    
+                        if (node.nodeType !== 1) {
+                            layout.removeChild(node);
+                        }
+                     
+                        node = next;
+                    };
+                };
+                
+                
+                var initialize = function (ele) {
+                    //::
+                
+                    //console.log(ele);
+                    
+                    removeWhitespace(ele);  
+                    
+                };
+                
+                return {
+                    initialize : initialize,
+                    removeWhitespace : removeWhitespace
+                };
+            }());
+            
+            
+            var layoutObserver = (function () {
+            
+                var observeAddedLayouts = function () {
+                    //::
+                
+                    var eles = getUninitializedLayouts(),
+                        i = eles.length,
+                        ele;
+                    
+                    while (i--) {
+                        ele = eles[i]; 
+                        if (ele.layoutReady === void 0) {
+                            ele.layoutReady = false;
+                            layout.initialize(ele);
+                        }
+                    }
+                };
+                                   
+                
+                //CH18, FF14, IE11, SA6
+                if (W.MutationObserver) {
+                    new MutationObserver(observeAddedLayouts)
+                    .observe(B, {
+                        childList : true,
+                        subtree : true
+                    });
+                    
+                //Fallback observer
+                } else {
+                    var t = Timer.create(observeAddedLayouts);
+                    t.start();
+                    
+                    D.addEventListener('click', function () {
+                        t.burst();
+                    });
+                }
+            }());
+           
+            
+            
+            
+            
+            
+            
+            //domready
+                //cel.initialize
+                //cel.build
+                //cel.release
+                //cel.version
+            
+            
+            
+           
+            
+            
+            
+            
+                        
+            /*
+            //CH18, FF14, IE11, SA6
+            if (W.MutationObserver) {
+                mutation_observer = new MutationObserver(mutation_event);
+                mutation_observer.observe(D.body, {
+                    childList : true,
+                    subtree : true
+                });
+            
+            //IE8, IE9, IE10, SA5
+            } else {
+                 (function (fn) {
+                
+                    var interval;
+                    var timeout;
+                
+                    var start = function (delay) {
+                        var n = 0;
+                    
+                        if (typeof(delay) === 'number') {
+                            n = delay * 1000;
+                        }
+                
+                        interval = setInterval(function () {
+                            fn();
+                        }, n);
+                    };
+                
+                    var stop = function () {
+                        clearInterval(interval);
+                        clearTimeout(timeout);
+                    };
+                
+                    var burst = function () {
+                        stop();
+                        start();
+                    
+                        timeout = setTimeout(function () {
+                            stop();
+                            start(1);
+                        }, 1000);
+                    };
+                
+                
+                    D.addEventListener('click', function () {
+                        burst();
+                    });
+                
+                    start(1);
+               
+                }(checkForLayouts));
+               
+            }
+            */
+            
+            
+           
+            
+            
+            
+            
+        
+        }());
+       
+         
+       
+        
+        
+        var test2 = document.querySelector('#test2');
+        document.querySelector('#add_many').addEventListener('click', function () {
+            var i = 481;
+            
+            for (; i <= 961; i += 20) {
+                var ele = document.createElement('div');
+                ele.className = 'split:' + i;
+                ele.innerHTML = '<div class="a">a</div><div class="b">b</div>'
+                test2.appendChild(ele);
+            }
+            
+        
+        
         });
- 
-        // configuration of the observer:
-        //var config = { attributes: true, childList: true, characterData: true };
-        //var config = {childList : true, attributes : true, subtree : true}
-        var config = {childList : true, subtree : true};
- 
-        // pass in the target node, as well as the observer options
-        observer.observe(target, config);
- 
-        // later, you can stop observing
-        //observer.disconnect();
+        
+    
+    
     
         test.innerHTML = '<span>mark</span><div id="test2" class="split">some div</div>'
         //test.appendChild(document.createTextNode('lkjasdf'));
@@ -122,10 +380,10 @@
             //test2.appendChild(ele);
             
             test2.innerHTML = [
-                '<div> \n\r\t',
+                '<div class="split:501"> \n\r\t',
                     '<div class="a"> \n\r\t',
                         'a \n\r\t',
-                        '<div> \n\r\t',
+                        '<div class="split:641"> \n\r\t',
                             '<div class="a">a</div> \n\r\t',
                             '<div class="b">b</div> \n\r\t',
                         '</div>',
@@ -144,7 +402,99 @@
         });
         
         
+        /*
+            var is_layout = function (ele) {
+                //::
         
+                var a = ele.className.split(/\s+/),
+                    i = a.length - 1;
+            
+                do {
+                    if (/^split(?::[456789][02468]1)?$/.test(a[i])) {
+                        return true;
+                    }
+                } while (i--);
+            };
+        
+        
+            var get_split_selector = function () {
+                //::
+        
+                var a = ['.split'],
+                    i = 481;
+            
+                for (; i <= 961; i += 20) {
+                    a.push('[class~="split:' + i + '"]');
+                }
+            
+                return a.join(',');
+            };
+        
+        
+            var add_layouts = function (arr, ele) {
+                //::
+                     
+                var layouts = ele.querySelectorAll(get_split_selector()),
+                    i = layouts.length;
+            
+                if (is_layout(ele)) {
+                    arr.push(ele);
+                }
+            
+                while (i--) {
+                    arr.push(layouts[i]);
+                }
+            };
+
+        
+            var get_mutation_elements = function (mutation) {
+                //::
+                
+                var nodes = mutation.addedNodes,
+                    node,
+                    i = nodes.length,
+                    a = [];
+            
+                while (i--) {
+                    node = nodes[i];
+                    if (node.nodeType === 1) {
+                        a.push(node);                
+                    }
+                }
+            
+                return a;
+            };
+        
+        
+            var get_mutation_layouts = function (mutation) {
+                //::
+        
+                var elements = get_mutation_elements(mutation),
+                    i = elements.length,
+                    a = [];
+            
+                while (i--) {
+                    add_layouts(a, elements[i]);  
+                }
+                
+                return a;
+            };
+        
+            
+            var mutation_event = function (mutations) {
+                //::
+            
+                var i = mutations.length - 1,
+                    layouts;
+            
+                do {
+                    layouts = get_mutation_layouts(mutations[i]);
+                    if (layouts.length) {
+                        initialize(layouts);
+                    }
+                } while (i--);
+            };
+            */
     
     </script>
 
