@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"> -->
+	<title>Untitled</title>
+	 <script>
+        var win  = window;
+        var doc  = document;
+        var html = doc.documentElement;
+        var body = doc.body;
+    </script>
+    <script src="scripts/supports_media_queries.js"></script>
+    <script src="scripts/media_match.js"></script>
+</head>
+<body>
+    <script>
+    
+        try {
+            var media = 'screen and (max-width:800px)';
+            var mediaQueryList = mediaMatch(media);
+        
+            mediaQueryList.addListener(function (mql) {
+                if (mql.matches) {
+                    console.log('match');
+                } else {
+                    console.log('no match');
+                }
+            });
+        } catch (e) {
+        
+        }
+        
+    </script>
+</body>
+</html>

@@ -35,32 +35,8 @@
 	    
 	    */
 	</style>
-	
-	
-</head>
-<body>
-
-    <div id="test"></div>
-    <div id="test2"></div>
-    
-    <button type="button" id="add_many">Add Many</button>
-    
-    <button type="button" id="add">Add</button>
-
-    <script>
-        /*
-        MutationObserver
-        
-        SA5
-        iOS4.2
-        IE8+
-        FF14
-        CH18
-        */
-        var test = document.getElementById('test');
-        
-        
-        (function () {
+	<script>
+	    (function () {
             'use strict';
         
             var W = window;
@@ -235,9 +211,25 @@
                         }
                     }
                 };
+                
+                
+                
+                //var observeAddedLayouts
+                //var observeEqualHeights
+                
                                    
                 
-                //CH18, FF14, IE11, SA6
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                /*
                 if (W.MutationObserver) {
                     new MutationObserver(observeAddedLayouts)
                     .observe(B, {
@@ -245,15 +237,19 @@
                         subtree : true
                     });
                     
-                //Fallback observer
+                
                 } else {
+                */
                     var t = Timer.create(observeAddedLayouts);
-                    t.start();
+                    t.start(.01);
                     
                     D.addEventListener('click', function () {
                         t.burst();
                     });
-                }
+                    
+                    
+                    
+                //}
             }());
            
             
@@ -276,61 +272,7 @@
             
             
                         
-            /*
-            //CH18, FF14, IE11, SA6
-            if (W.MutationObserver) {
-                mutation_observer = new MutationObserver(mutation_event);
-                mutation_observer.observe(D.body, {
-                    childList : true,
-                    subtree : true
-                });
-            
-            //IE8, IE9, IE10, SA5
-            } else {
-                 (function (fn) {
-                
-                    var interval;
-                    var timeout;
-                
-                    var start = function (delay) {
-                        var n = 0;
-                    
-                        if (typeof(delay) === 'number') {
-                            n = delay * 1000;
-                        }
-                
-                        interval = setInterval(function () {
-                            fn();
-                        }, n);
-                    };
-                
-                    var stop = function () {
-                        clearInterval(interval);
-                        clearTimeout(timeout);
-                    };
-                
-                    var burst = function () {
-                        stop();
-                        start();
-                    
-                        timeout = setTimeout(function () {
-                            stop();
-                            start(1);
-                        }, 1000);
-                    };
-                
-                
-                    D.addEventListener('click', function () {
-                        burst();
-                    });
-                
-                    start(1);
-               
-                }(checkForLayouts));
-               
-            }
-            */
-            
+           
             
            
             
@@ -339,6 +281,42 @@
             
         
         }());
+        
+        
+        
+	
+	</script>
+	
+</head>
+<body>
+
+    <div id="test1" class="split">
+        <div class="a">a</div>
+        <div class="b">b</div>
+    </div>
+
+
+    <div id="test"></div>
+    <div id="test2"></div>
+    
+    <button type="button" id="add_many">Add Many</button>
+    
+    <button type="button" id="add">Add</button>
+
+    <script>
+        /*
+        MutationObserver
+        
+        SA5
+        iOS4.2
+        IE8+
+        FF14
+        CH18
+        */
+        var test = document.getElementById('test');
+        
+        
+       
        
          
        

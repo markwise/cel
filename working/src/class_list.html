@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+</head>
+<body>
+
+    <div id="test" class="red blue green split:641 by:1/2"></div>
+    
+
+    <script>
+        var win  = window;
+        var doc  = document;
+        var html = doc.documentElement;
+        var body = doc.body;
+    </script>
+    <script src="scripts/class_list.js"></script>
+    <script>
+    
+        var ele = doc.querySelector('#test');
+        //console.log(ele);
+        
+       
+        //console.log(classList.contains('red', ele));
+        //console.log(classList.contains('blue', ele));
+        //console.log(classList.contains('green', ele));
+        //console.log(classList.contains('split:641', ele));
+        //console.log(classList.contains('by:1/2', ele));
+        //console.log(classList.contains('hello', ele));
+        //console.log(classList.contains('world', ele));
+        
+        classList.add('hello', ele);
+        console.log(classList.contains('hello', ele));
+        classList.add('world', ele);
+        console.log(classList.contains('world', ele));
+      
+        classList.remove('hello', ele);
+        console.log(classList.contains('hello', ele));
+        classList.remove('world', ele);
+        console.log(classList.contains('world', ele));
+        
+        
+    </script>
+</body>
+</html>

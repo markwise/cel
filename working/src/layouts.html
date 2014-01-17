@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"> -->
+	<title>Untitled</title>
+	 <script>
+        var win  = window;
+        var doc  = document;
+        var html = doc.documentElement;
+        var body = doc.body;
+    </script>
+    <script src="scripts/class_list.js"></script>
+    <script src="scripts/layout.js"></script>
+    <script src="scripts/layouts.js"></script>
+</head>
+<body>
+   
+    <div class="split:1/2 space:2 align:t flip"></div>
+    <div class="split:5 space:5 align:b"></div>
+    <div class="split space:1 align:m"></div>
+   
+    <script>
+        var eles = doc.querySelectorAll('div');
+        
+        layouts.removeSignature(eles);
+        
+        for (var i=0, l=eles.length; i<l; i++) {
+            console.log(eles[i].cel.signatureList);
+        }
+        
+        layouts.applySignature(eles);
+        
+        
+        
+        
+    </script>
+</body>
+</html>

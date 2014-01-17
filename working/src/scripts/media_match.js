@@ -1,14 +1,8 @@
-var match_media = window.matchMedia || (function () {
-    'use strict';
-
+var mediaMatch = win.matchMedia || (function () {
     //matchMedia polyfill for IE9, SA5, iOS4.2
     
-    var w = window;
-    
-    if (!w.styleMedia) {
-        return function () {
-            return;
-        }
+    if (!supports_media_queries) {
+        return;
     }
     
     var timer,
@@ -19,7 +13,6 @@ var match_media = window.matchMedia || (function () {
         listeners.push(this);
     };
     
-    //Need remove listener
     
     var resize = function () {
         var i = listeners.length,
@@ -28,7 +21,7 @@ var match_media = window.matchMedia || (function () {
     
         while (i--) {
             item = listeners[i];
-            matches = w.styleMedia.matchMedium(item.media);
+            matches = win.styleMedia.matchMedium(item.media);
             
             if (item.matches !== matches) {
                 item.matches = matches;
@@ -43,24 +36,21 @@ var match_media = window.matchMedia || (function () {
         timer = null;
     };
     
-    w.addEventListener('resize', function () {
+    
+    win.addEventListener('resize', function () {
         //Throttle resize event
     
-        if(!timer) {
+        if (!timer) {
             timer = setTimeout(resize);
         }
     });
 
+
     return function (media) {
-        
-        if (typeof(media) !== 'string') {
-            
-        } 
-    
         return {
-            matches : w.styleMedia.matchMedium(media),
-            media : media,
-            addListener : addListener
+            matches: win.styleMedia.matchMedium(media),
+            media: media,
+            addListener: addListener
         };
     };
 }());

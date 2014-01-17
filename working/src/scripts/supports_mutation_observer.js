@@ -1,0 +1,1 @@
+var supports_mutation_observer = !!win.MutationObserver;

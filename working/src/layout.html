@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"> -->
+	<title>Untitled</title>
+	 <script>
+        var win  = window;
+        var doc  = document;
+        var html = doc.documentElement;
+        var body = doc.body;
+    </script>
+    <script src="scripts/class_list.js"></script>
+    <script src="scripts/layout.js"></script>
+</head>
+<body>
+   
+    <div id="test" class="split:1/2 space:2 align:t flip"></div>
+   
+    <script>
+        
+        var ele = doc.querySelector('#test');
+        console.log(ele.cel);
+        
+        layout.removeSignature(ele);
+        console.log(ele.cel);
+        console.log(ele.cel.signatureList);
+        
+        layout.applySignature(ele);
+        
+        
+        
+        
+    </script>
+</body>
+</html>

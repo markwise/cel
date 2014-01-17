@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"> -->
+	<title>Untitled</title>
+	<style>
+        
+        [class*='split']{
+            line-height:0;
+            text-align:justify;
+            letter-spacing:-.874em;
+        }
+    
+        [class*='split']::after {
+            content:'';
+            display:inline-block;
+            width:100%;
+            vertical-align:top;
+        }
+        
+        [class*='split']>.cel {
+            display:inline-block;
+            line-height:1.5;
+            text-align:left;
+            letter-spacing:normal;
+        }
+        
+        [class~='split:2']>.cel{width:50%}
+        [class~='split:2'][class~='with-gap:1']>.cel{width:50%}
+        [class~='split:2'][class~='with-gap:2']>.cel{width:50%}
+        [class~='split:2'][class~='with-gap:3']>.cel{width:50%}
+        
+        
+	
+	    /**/
+	
+	    [class*='split'] {
+	        background:#ccc;
+	    }
+	    
+	    .a {
+	        background:orange;
+	        /* width:50%; */
+	    }
+	    .b {
+	        background:green;
+	        /* width:50%; */
+	    }
+	    .c {
+	        background:yellow;
+	        /* width:50%; */
+	    }
+	
+	
+	</style>
+	
+	<script>
+        var win  = window;
+        var doc  = document;
+        var html = doc.documentElement;
+        var body = doc.body;
+    </script>
+    <script src="scripts/class_list.js"></script>
+    <script src="scripts/layout.js"></script>
+    <script src="scripts/layouts.js"></script>
+    <script src="scripts/media_match.js"></script>
+    <script src="scripts/media_query.js"></script>
+</head>
+<body>
+    
+    <div class="split:2 space:5 flip align:m respond:800">
+        <div class="cel a">A</div>
+        <div class="cel b">B</div>
+        <!-- <div class="cel c">C</div> -->
+    </div>
+    
+    <br>
+    
+    <div class="split respond:640">
+        <div class="cel a">A</div>
+        <div class="cel b">B</div>
+        <div class="cel c">C</div>
+    </div>
+    
+    
+    <script>
+    
+        mediaQuery.maxWidth(800);
+        mediaQuery.maxWidth(640);
+      
+        
+        
+    </script>
+</body>
+</html>
